@@ -2,6 +2,7 @@ import Constants from "expo-constants";
 import { StyleSheet, View, Text } from "react-native";
 import Avatar from "./components/Avatar";
 import Mark from "./components/Mark";
+import SearchBox from "./components/SearchBar";
 
 function ShowComponent({ name, children }) {
   return (
@@ -27,6 +28,11 @@ export default function App() {
         <Mark unread={true} size={32} />
         <Mark unread={false} size={32} />
         <Mark double={true} size={32} />
+      </ShowComponent>
+      <ShowComponent name="Search">
+        <SearchBox>
+
+        </SearchBox>
       </ShowComponent>
     </View>
   );
