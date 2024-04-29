@@ -5,7 +5,7 @@ import Mark from "./components/Mark";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
-import CustomButton from "./components/CustomButton"; 
+import CustomButton from "./components/CustomButton";
 
 function ShowComponent({ name, children }) {
   return (
@@ -19,15 +19,18 @@ function ShowComponent({ name, children }) {
 export default function App() {
   return (
     <View style={styles.allComponents}>
-      <Text style={styles.componentsTitle}><h2>Aqui estan tots els components:</h2></Text>
+      <Text style={styles.componentsTitle}>
+        <h2>Aqui estan tots els components:</h2>
+      </Text>
       <View style={styles.container}>
-      <ShowComponent>
-        <CustomButton
-          text="Apply filter"
-          width={200}
-          height={50}
-          color="#E92348"
-        />
+        <ShowComponent>
+          <CustomButton
+            text="Apply filter"
+            width={200}
+            height={50}
+            defaultColor={"#E92348"}
+            pressedColor={"#373246"}
+          />
         </ShowComponent>
         <ShowComponent name="Avatar">
           <Avatar name="Paula Rodriguez" />
@@ -46,9 +49,12 @@ export default function App() {
           <SearchBox />
         </ShowComponent>
         <ShowComponent>
-          <CarouselComponent image={require("./assets/dune_poster.jpg")} description={"mmemmemmemememeemmeemememmmeememmemeemeememememeemememmeemmeemme"}>
-
-          </CarouselComponent>
+          <CarouselComponent
+            image={require("./assets/dune_poster.jpg")}
+            description={
+              "mmemmemmemememeemmeemememmmeememmemeemeememememeemememmeemmeemme"
+            }
+          ></CarouselComponent>
         </ShowComponent>
       </View>
     </View>
@@ -56,9 +62,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  allComponents:{
-    maxWidth: '3500px',
-    border: '2px solid black',
+  allComponents: {
+    maxWidth: "3500px",
+    border: "2px solid black",
     alignContent: "center",
   },
   container: {
@@ -71,7 +77,7 @@ const styles = StyleSheet.create({
 
   showContainer: {},
 
-  componentsTitle:{
+  componentsTitle: {
     textAlign: "center",
   },
 

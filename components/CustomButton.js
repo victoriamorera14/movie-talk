@@ -1,18 +1,24 @@
-import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { TouchableHighlight, Text, StyleSheet, View } from "react-native";
 
-export default function CustomButton({ onPress, text, width, height, color }) {
-  const handlePress = () => {
-    onPress();
-  };
+export default function CustomButton({ onPress, text, width, height, defaultColor, pressedColor }) {
+  const [pressed, setPressed] = useState(false);
 
   return (
-    <TouchableOpacity
-      onPress={handlePress}
-      style={[styles.button, { width, height, backgroundColor: color }]}
+    <TouchableHighlight
+      onPress={onPress}
+      underlayColor={pressedColor} 
+      style={[
+        styles.button,
+        { width, height, backgroundColor: pressed ? pressedColor : defaultColor }, 
+      ]}
+      onPressIn={() => setPressed(true)} 
+      onPressOut={() => setPressed(false)} 
     >
-      <Text style={styles.buttonText}>{text}</Text>
-    </TouchableOpacity>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>{text}</Text>
+      </View>
+    </TouchableHighlight>
   );
 }
 
