@@ -5,7 +5,7 @@ import Mark from "./components/Mark";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
-
+import CustomButton from "./components/CustomButton"; // Importa el componente CustomButton
 
 function ShowComponent({ name, children }) {
   return (
@@ -16,12 +16,19 @@ function ShowComponent({ name, children }) {
   );
 }
 
-
 export default function App() {
   return (
     <View style={styles.allComponents}>
       <Text style={styles.componentsTitle}><h2>Aqui estan tots els components:</h2></Text>
       <View style={styles.container}>
+      <ShowComponent>
+        <CustomButton
+          text="Apply filter"
+          width={200}
+          height={50}
+          color="#E92348"
+        />
+        </ShowComponent>
         <ShowComponent name="Avatar">
           <Avatar name="Paula Rodriguez" />
           <Avatar name="Joan Roca" color="#B255DE" />
@@ -36,9 +43,7 @@ export default function App() {
           <Mark double={true} size={32} />
         </ShowComponent>
         <ShowComponent name="Search">
-          <SearchBox>
-
-          </SearchBox>
+          <SearchBox />
         </ShowComponent>
         <ShowComponent>
           <CarouselComponent image={require("./assets/dune_poster.jpg")} description={"mmemmemmemememeemmeemememmmeememmemeemeememememeemememmeemmeemme"}>

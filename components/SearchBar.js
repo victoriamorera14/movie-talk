@@ -18,7 +18,7 @@ export default function SearchBox({ searchMovies }) {
     <View style={styles.searchWrapper}>
       <TextInput
         style={styles.searchInput}
-        placeholder="Escriu qualsevol cosa..."
+        placeholder="Search"
         onChangeText={(text) => setSearchString(text)}
       />
       <Button title="Buscar" onPress={handleSearch} />
