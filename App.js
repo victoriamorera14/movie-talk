@@ -5,7 +5,7 @@ import Mark from "./components/Mark";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
-import CustomButton from "./components/CustomButton"; // Importa el componente CustomButton
+import CustomButton from "./components/CustomButton"; 
 
 function ShowComponent({ name, children }) {
   return (
