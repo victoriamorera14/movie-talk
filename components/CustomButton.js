@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { TouchableHighlight, Text, StyleSheet, View } from "react-native";
+import { TouchableHighlight, Text, StyleSheet, View, Image } from "react-native";
 
-export default function CustomButton({ onPress, text, width, height, defaultColor, pressedColor, borderRadius }) {
+export default function CustomButton({ onPress, text, imageSource, width, height, defaultColor, pressedColor, borderRadius }) {
   const [pressed, setPressed] = useState(false);
 
   return (
@@ -10,13 +10,14 @@ export default function CustomButton({ onPress, text, width, height, defaultColo
       underlayColor={pressedColor} 
       style={[
         styles.button,
-        { width, height, backgroundColor: pressed ? pressedColor : defaultColor, borderRadius }, // Establece el radio del borde
+        { width, height, backgroundColor: pressed ? pressedColor : defaultColor, borderRadius }, 
       ]}
       onPressIn={() => setPressed(true)} 
       onPressOut={() => setPressed(false)} 
     >
-      <View style={styles.button}>
-        <Text style={styles.buttonText}>{text}</Text>
+      <View style={styles.content}>
+        {text && <Text style={styles.buttonText}>{text}</Text>}
+        {imageSource && <Image source={imageSource} style={styles.buttonImage} />}
       </View>
     </TouchableHighlight>
   );
@@ -27,6 +28,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
+  },
+  content: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonText: {
     color: "white",

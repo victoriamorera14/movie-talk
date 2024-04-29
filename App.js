@@ -24,11 +24,30 @@ export default function App() {
       </Text>
       <View style={styles.container}>
         <ShowComponent>
+        <CustomButton
+            imageSource={require("./assets/chatIcon.png")}
+            width={50}
+            height={50}
+            defaultColor={"#777189"}
+            pressedColor={"#373246"}
+            borderRadius={50}
+          />
+          <CustomButton
+            imageSource={require("./assets/filter.png")}
+            width={50}
+            height={50}
+            defaultColor={"#E92348"}
+            pressedColor={"#373246"}
+            borderRadius={50}
+          />
+        </ShowComponent>
+        <ShowComponent>
+          
           <CustomButton
             text="Open chat"
             width={300}
             height={50}
-            borderRadius={45} 
+            borderRadius={45}
             defaultColor={"#84C38D"}
             pressedColor={"#373246"}
           />
@@ -36,7 +55,7 @@ export default function App() {
             text="Apply filter"
             width={200}
             height={50}
-            borderRadius={15} 
+            borderRadius={15}
             defaultColor={"#E92348"}
             pressedColor={"#373246"}
           />
