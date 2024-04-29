@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
+import { colors } from "./utils/colors";
+
 export default function SearchBox({ searchMovies }) {
 
   const [searchString, setSearchString] = useState("");
@@ -21,6 +23,7 @@ export default function SearchBox({ searchMovies }) {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   searchWrapper: {
