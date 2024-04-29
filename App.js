@@ -3,6 +3,8 @@ import { StyleSheet, View, Text } from "react-native";
 import Avatar from "./components/Avatar";
 import Mark from "./components/Mark";
 import SearchBox from "./components/SearchBar";
+import { colors } from "./utils/colors";
+
 
 function ShowComponent({ name, children }) {
   return (

@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
-import { colors } from "./utils/colors";
+//import useThemeColors from "../hooks/useThemeColors";
 
 export default function SearchBox({ searchMovies }) {
 
   const [searchString, setSearchString] = useState("");
-
+  //const themeColors = useThemeColors();
+  //const styles = getThemedStylesheet(themeColors);
+  
   const handleSearch = () => {
-    console.log('searchstring:', searchString)
+    console.log(colors);
     searchMovies(searchString);
     Keyboard.dismiss();
   }
@@ -24,7 +26,6 @@ export default function SearchBox({ searchMovies }) {
   );
 }
 
-
 const styles = StyleSheet.create({
   searchWrapper: {
     flexDirection: "row",
@@ -36,6 +37,13 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     padding: 5,
     flex: 1,
-    
   },
 });
+/*
+function getThemedStylesheet(colors) {
+  return StyleSheet.create({
+    tabBar: {
+      backgroundColor: colors.surface
+    }
+  });
+}*/
