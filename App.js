@@ -4,6 +4,7 @@ import Avatar from "./components/Avatar";
 import Mark from "./components/Mark";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
+import CarouselComponent from "./components/CarouselComponent";
 
 
 function ShowComponent({ name, children }) {
@@ -14,6 +15,7 @@ function ShowComponent({ name, children }) {
     </View>
   );
 }
+
 
 export default function App() {
   return (
@@ -37,6 +39,11 @@ export default function App() {
           <SearchBox>
 
           </SearchBox>
+        </ShowComponent>
+        <ShowComponent>
+          <CarouselComponent image={require("./assets/dune_poster.jpg")} description={"mmemmemmemememeemmeemememmmeememmemeemeememememeemememmeemmeemme"}>
+
+          </CarouselComponent>
         </ShowComponent>
       </View>
     </View>
