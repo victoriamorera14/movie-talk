@@ -25,9 +25,18 @@ export default function App() {
       <View style={styles.container}>
         <ShowComponent>
           <CustomButton
+            text="Open chat"
+            width={300}
+            height={50}
+            borderRadius={45} 
+            defaultColor={"#84C38D"}
+            pressedColor={"#373246"}
+          />
+          <CustomButton
             text="Apply filter"
             width={200}
             height={50}
+            borderRadius={15} 
             defaultColor={"#E92348"}
             pressedColor={"#373246"}
           />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TouchableHighlight, Text, StyleSheet, View } from "react-native";
 
-export default function CustomButton({ onPress, text, width, height, defaultColor, pressedColor }) {
+export default function CustomButton({ onPress, text, width, height, defaultColor, pressedColor, borderRadius }) {
   const [pressed, setPressed] = useState(false);
 
   return (
@@ -10,7 +10,7 @@ export default function CustomButton({ onPress, text, width, height, defaultColo
       underlayColor={pressedColor} 
       style={[
         styles.button,
-        { width, height, backgroundColor: pressed ? pressedColor : defaultColor }, 
+        { width, height, backgroundColor: pressed ? pressedColor : defaultColor, borderRadius }, // Establece el radio del borde
       ]}
       onPressIn={() => setPressed(true)} 
       onPressOut={() => setPressed(false)} 
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 15,
     padding: 10,
   },
   buttonText: {
