@@ -11,6 +11,7 @@ import FavoriteMark from "./components/FavoriteMark";
 import { ScrollView } from "react-native-web";
 import MovieCard from "./components/MovieCard";
 import AccesoChat from "./components/AccesoChat";
+import SeccionUser from "./components/SeccionUser";
 
 function ShowComponent({ name, children }) {
   return (
@@ -30,16 +31,28 @@ export default function App() {
         </Text>
 
         <View style={styles.container}>
+        <ShowComponent>
+          <SeccionUser
+            imageLeft={require("./assets/chatIcon.png")} 
+            texto="Nombre sección" 
+            containerColor="#373246" 
+          />
+          <SeccionUser
+            imageLeft={require("./assets/userIcon.png")} 
+            texto="Nombre sección" 
+            containerColor="#373246" 
+          />
+        </ShowComponent>
           <ShowComponent>
             <AccesoChat
-               firstLineText="Título del chat"
-               secondLineText="Último mensaje enviado"
-               containerBackgroundColor="#A09BB0"
+              firstLineText="Título del chat"
+              secondLineText="Último mensaje enviado"
+              containerBackgroundColor="#A09BB0"
             />
             <AccesoChat
-               firstLineText="Título del chat"
-               secondLineText="Último mensaje enviado"
-               containerBackgroundColor="#777189"
+              firstLineText="Título del chat"
+              secondLineText="Último mensaje enviado"
+              containerBackgroundColor="#777189"
             />
           </ShowComponent>
           <ShowComponent>
