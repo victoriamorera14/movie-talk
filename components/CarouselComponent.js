@@ -26,6 +26,8 @@ const styles = StyleSheet.create({
   image: {
     width: 375,
     height: 540,
+    borderTopLeftRadius: '20px',
+    borderTopRightRadius: '20px',
   },
   descriptionContainer: {
     width: 375,
@@ -36,7 +38,9 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "normal",
     textAlign: "center",
-    overflow: "hidden"
+    overflow: "hidden",
+    paddingTop: '5px',
+    paddingHorizontal: '8px',
     //fontFamily: fontLoaded,
   },
 });

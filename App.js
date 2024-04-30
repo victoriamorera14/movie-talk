@@ -9,6 +9,7 @@ import CustomButton from "./components/CustomButton";
 import Titulo from "./components/Titulo";
 import FavoriteMark from "./components/FavoriteMark";
 import { ScrollView } from "react-native-web";
+import MovieCard from "./components/MovieCard";
 
 function ShowComponent({ name, children }) {
   return (
@@ -93,6 +94,9 @@ export default function App() {
           </ShowComponent>
           <ShowComponent>
             <FavoriteMark />
+          </ShowComponent>
+          <ShowComponent>
+            <MovieCard isBigCard={true} image={require("./assets/dune_poster.jpg")} title={"Dune 2"} />
           </ShowComponent>
         </View>
       </View>
