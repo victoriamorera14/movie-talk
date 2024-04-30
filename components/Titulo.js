@@ -22,22 +22,25 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flex: 1,
-    alignContent: "center" //No consigo que el texto se centre con la linea
+    alignContent: "left",
+    justifyContent: "center" //No consigo que el texto se centre con la linea
   },
   titleText: {
     color: "#E92348",
     fontSize: 20,
     fontWeight: "bold",
-    paddingBottom:10,
   },
 
   line: {
+    position: "absolute",
+    top: "30px",
     width:280,
-    borderBottomWidth: 3,
+    borderBottomWidth: 2,
     borderBottomColor: "white",
     borderRadius: 5, 
   },
   icon: {
+    height: "20px",
     padding: 10,
     width: "5%",
   },
