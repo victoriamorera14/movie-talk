@@ -6,6 +6,7 @@ import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
 import CustomButton from "./components/CustomButton";
+import Titulo from "./components/Titulo";
 
 function ShowComponent({ name, children }) {
   return (
@@ -22,9 +23,13 @@ export default function App() {
       <Text style={styles.componentsTitle}>
         <h2>Aqui estan tots els components:</h2>
       </Text>
+
       <View style={styles.container}>
         <ShowComponent>
-        <CustomButton
+          <Titulo text="Título de la página" showIcon={true} />
+        </ShowComponent>
+        <ShowComponent>
+          <CustomButton
             imageSource={require("./assets/chatIcon.png")}
             width={50}
             height={50}
@@ -42,7 +47,6 @@ export default function App() {
           />
         </ShowComponent>
         <ShowComponent>
-          
           <CustomButton
             text="Open chat"
             width={300}
