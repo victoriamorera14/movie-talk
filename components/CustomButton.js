@@ -39,4 +39,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
   },
+  buttonImage:{
+    width: 20,
+    height:20,
+  },
 });
