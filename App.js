@@ -10,6 +10,7 @@ import Titulo from "./components/Titulo";
 import FavoriteMark from "./components/FavoriteMark";
 import { ScrollView } from "react-native-web";
 import MovieCard from "./components/MovieCard";
+import AccesoChat from "./components/AccesoChat";
 
 function ShowComponent({ name, children }) {
   return (
@@ -30,7 +31,20 @@ export default function App() {
 
         <View style={styles.container}>
           <ShowComponent>
+            <AccesoChat
+               firstLineText="Título del chat"
+               secondLineText="Último mensaje enviado"
+               containerBackgroundColor="#A09BB0"
+            />
+            <AccesoChat
+               firstLineText="Título del chat"
+               secondLineText="Último mensaje enviado"
+               containerBackgroundColor="#777189"
+            />
+          </ShowComponent>
+          <ShowComponent>
             <Titulo text="Título de la página" showIcon={true} />
+            <Titulo text="Título de la página" showIcon={false} />
           </ShowComponent>
           <ShowComponent>
             <CustomButton
@@ -96,7 +110,11 @@ export default function App() {
             <FavoriteMark />
           </ShowComponent>
           <ShowComponent>
-            <MovieCard isBigCard={true} image={require("./assets/dune_poster.jpg")} title={"Dune 2"} />
+            <MovieCard
+              isBigCard={true}
+              image={require("./assets/dune_poster.jpg")}
+              title={"Dune 2"}
+            />
           </ShowComponent>
         </View>
       </View>
