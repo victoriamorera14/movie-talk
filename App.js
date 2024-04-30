@@ -7,6 +7,8 @@ import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
 import CustomButton from "./components/CustomButton";
 import Titulo from "./components/Titulo";
+import FavoriteMark from "./components/FavoriteMark";
+import { ScrollView } from "react-native-web";
 
 function ShowComponent({ name, children }) {
   return (
@@ -19,77 +21,82 @@ function ShowComponent({ name, children }) {
 
 export default function App() {
   return (
-    <View style={styles.allComponents}>
-      <Text style={styles.componentsTitle}>
-        <h2>Aqui estan tots els components:</h2>
-      </Text>
+    <ScrollView>
+      <View style={styles.allComponents}>
+        <Text style={styles.componentsTitle}>
+          <h2>Aqui estan tots els components:</h2>
+        </Text>
 
-      <View style={styles.container}>
-        <ShowComponent>
-          <Titulo text="Título de la página" showIcon={true} />
-        </ShowComponent>
-        <ShowComponent>
-          <CustomButton
-            imageSource={require("./assets/chatIcon.png")}
-            width={50}
-            height={50}
-            defaultColor={"#777189"}
-            pressedColor={"#373246"}
-            borderRadius={50}
-          />
-          <CustomButton
-            imageSource={require("./assets/filter.png")}
-            width={50}
-            height={50}
-            defaultColor={"#E92348"}
-            pressedColor={"#373246"}
-            borderRadius={50}
-          />
-        </ShowComponent>
-        <ShowComponent>
-          <CustomButton
-            text="Open chat"
-            width={300}
-            height={50}
-            borderRadius={45}
-            defaultColor={"#84C38D"}
-            pressedColor={"#373246"}
-          />
-          <CustomButton
-            text="Apply filter"
-            width={200}
-            height={50}
-            borderRadius={15}
-            defaultColor={"#E92348"}
-            pressedColor={"#373246"}
-          />
-        </ShowComponent>
-        <ShowComponent name="Avatar">
-          <Avatar name="Paula Rodriguez" />
-          <Avatar name="Joan Roca" color="#B255DE" />
-          <Avatar image={require("./assets/user.jpg")} />
-        </ShowComponent>
-        <ShowComponent name="Mark">
-          <Mark unread={true} />
-          <Mark unread={false} />
-          <Mark double={true} />
-          <Mark unread={true} size={32} />
-          <Mark unread={false} size={32} />
-          <Mark double={true} size={32} />
-        </ShowComponent>
-        <ShowComponent name="Search">
-          <SearchBox />
-        </ShowComponent>
-        <ShowComponent>
-          <CarouselComponent
-            image={require("./assets/dune_poster.jpg")}
-            description={
-              "mmemmemmemememeemmeemememmmeememmemeemeememememeemememmeemmeemme"
-            }
-          ></CarouselComponent>
-        </ShowComponent>
+        <View style={styles.container}>
+          <ShowComponent>
+            <Titulo text="Título de la página" showIcon={true} />
+          </ShowComponent>
+          <ShowComponent>
+            <CustomButton
+              imageSource={require("./assets/chatIcon.png")}
+              width={50}
+              height={50}
+              defaultColor={"#777189"}
+              pressedColor={"#373246"}
+              borderRadius={50}
+            />
+            <CustomButton
+              imageSource={require("./assets/filter.png")}
+              width={50}
+              height={50}
+              defaultColor={"#E92348"}
+              pressedColor={"#373246"}
+              borderRadius={50}
+            />
+          </ShowComponent>
+          <ShowComponent>
+            <CustomButton
+              text="Open chat"
+              width={300}
+              height={50}
+              borderRadius={45}
+              defaultColor={"#84C38D"}
+              pressedColor={"#373246"}
+            />
+            <CustomButton
+              text="Apply filter"
+              width={200}
+              height={50}
+              borderRadius={15}
+              defaultColor={"#E92348"}
+              pressedColor={"#373246"}
+            />
+          </ShowComponent>
+          <ShowComponent name="Avatar">
+            <Avatar name="Paula Rodriguez" />
+            <Avatar name="Joan Roca" color="#B255DE" />
+            <Avatar image={require("./assets/user.jpg")} />
+          </ShowComponent>
+          <ShowComponent name="Mark">
+            <Mark unread={true} />
+            <Mark unread={false} />
+            <Mark double={true} />
+            <Mark unread={true} size={32} />
+            <Mark unread={false} size={32} />
+            <Mark double={true} size={32} />
+          </ShowComponent>
+          <ShowComponent name="Search">
+            <SearchBox />
+          </ShowComponent>
+          <ShowComponent>
+            <CarouselComponent
+              image={require("./assets/dune_poster.jpg")}
+              description={
+                "Duis in tempor fugiat minim non. Et ex minim laborum eu reprehenderit amet exercitation Lorem minim esse eiusmod duis. Velit id irure pariatur dolore Lorem minim reprehenderit laborum non pariatur. Elit excepteur tempor in nulla est. Deserunt Lorem et aliqua magna qui."
+              }
+            />
+          </ShowComponent>
+          <ShowComponent>
+            <FavoriteMark />
+          </ShowComponent>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

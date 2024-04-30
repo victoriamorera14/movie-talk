@@ -30,10 +30,13 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     width: 375,
     height: 85,
+    justifyContent: "center",
   },
   description: {
     fontSize: 15,
     fontWeight: "normal",
+    textAlign: "center",
+    overflow: "hidden"
     //fontFamily: fontLoaded,
   },
 });
