@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { TouchableHighlight, Text, StyleSheet, View, Image } from "react-native";
+import {  Text, StyleSheet, View, Image, Pressable } from "react-native";
 
 export default function CustomButton({ onPress, text, imageSource, width, height, defaultColor, pressedColor, borderRadius }) {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <TouchableHighlight
+    <Pressable
       onPress={onPress}
       underlayColor={pressedColor} 
       style={[
@@ -19,7 +19,7 @@ export default function CustomButton({ onPress, text, imageSource, width, height
         {text && <Text style={styles.buttonText}>{text}</Text>}
         {imageSource && <Image source={imageSource} style={styles.buttonImage} />}
       </View>
-    </TouchableHighlight>
+    </Pressable>
   );
 }
 

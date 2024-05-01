@@ -1,6 +1,6 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React, { useState } from "react";
-import { StyleSheet, TouchableHighlight, TouchableWithoutFeedback, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 export default function FavoriteMark() {
   const [favorite, setFavorite] = useState(false);
@@ -9,7 +9,7 @@ export default function FavoriteMark() {
     <View style={styles.mainContainer}>
       <Ionicons name="bookmark" size={35} style={styles.markIcon}></Ionicons>
       <View style={styles.innerContainer}>
-        <TouchableWithoutFeedback onPress={() => setFavorite(!favorite)}>
+        <Pressable onPress={() => setFavorite(!favorite)}>
           <Ionicons
             name="heart"
             size={15}
@@ -17,7 +17,7 @@ export default function FavoriteMark() {
               favorite ? styles.activeHeartIcon : styles.notActiveHeartIcon
             }
           />
-        </TouchableWithoutFeedback>
+        </Pressable>
       </View>
     </View>
   );
