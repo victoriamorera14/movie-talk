@@ -1,7 +1,7 @@
 import Constants from "expo-constants";
 import { StyleSheet, View, Text } from "react-native";
-import Avatar from "./components/Avatar";
-import Mark from "./components/Mark";
+import Avatar from "./components/AvatarPROFE";
+import Mark from "./components/MarkPROFE";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";
@@ -94,20 +94,7 @@ export default function App() {
               defaultColor={"#E92348"}
               pressedColor={"#373246"}
             />
-          </ShowComponent>
-          <ShowComponent name="Avatar">
-            <Avatar name="Paula Rodriguez" />
-            <Avatar name="Joan Roca" color="#B255DE" />
-            <Avatar image={require("./assets/user.jpg")} />
-          </ShowComponent>
-          <ShowComponent name="Mark">
-            <Mark unread={true} />
-            <Mark unread={false} />
-            <Mark double={true} />
-            <Mark unread={true} size={32} />
-            <Mark unread={false} size={32} />
-            <Mark double={true} size={32} />
-          </ShowComponent>
+          </ShowComponent>          
           <ShowComponent name="Search">
             <SearchBox />
           </ShowComponent>
