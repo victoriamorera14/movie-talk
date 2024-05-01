@@ -8,7 +8,6 @@ export default function MovieCard({ isBigCard, title, image }) {
     <ImageBackground
       source={image}
       style={isBigCard ? styles.bigImage : styles.smallImage}
-      
     >
       <View
         style={
@@ -35,7 +34,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 15,
-    overflow: "hidden"
+    overflow: "hidden",
+    margin: 10
   },
   smallTitleContainer: {
     backgroundColor: "black",
@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 20,
-    overflow: "hidden"
+    overflow: "hidden",
+    margin: 10
   },
   bigTitleContainer: {
     backgroundColor: "black",
