@@ -1,7 +1,5 @@
 import Constants from "expo-constants";
 import { StyleSheet, View, Text } from "react-native";
-import Avatar from "./components/AvatarPROFE";
-import Mark from "./components/MarkPROFE";
 import SearchBox from "./components/SearchBar";
 import { colors } from "./utils/colors";
 import CarouselComponent from "./components/CarouselComponent";

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
+import CustomButton from "./CustomButton";
 //import useThemeColors from "../hooks/useThemeColors";
 
 export default function SearchBox({ searchMovies }) {
@@ -22,7 +23,15 @@ export default function SearchBox({ searchMovies }) {
         placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setSearchString(text)}
       />
-      <Button title="Buscar" onPress={handleSearch} />
+      <CustomButton
+              onPress={handleSearch}
+              imageSource={require("../assets/chatIcon.png")}
+              width={35}
+              height={35}
+              defaultColor={"#777189"}
+              pressedColor={"#373246"}
+              borderRadius={50}
+            />
     </View>
   );
 }
