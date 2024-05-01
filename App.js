@@ -12,6 +12,7 @@ import { ScrollView } from "react-native-web";
 import MovieCard from "./components/MovieCard";
 import AccesoChat from "./components/AccesoChat";
 import SeccionUser from "./components/SeccionUser";
+import MovieHorizontalList from "./components/MovieHorizontalList";
 
 function ShowComponent({ name, children }) {
   return (
@@ -120,6 +121,9 @@ export default function App() {
               image={require("./assets/dune_poster.jpg")}
               title={"Dune 2"}
             />
+          </ShowComponent>
+          <ShowComponent>
+            <MovieHorizontalList isBigCard={true} lenght={5} title={"Acción"} image={require("./assets/dune_poster.jpg")}/>
           </ShowComponent>
         </View>
       </View>
