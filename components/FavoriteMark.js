@@ -1,13 +1,23 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, TouchableHighlight, TouchableWithoutFeedback, View } from "react-native";
 
 export default function FavoriteMark() {
+  const [favorite, setFavorite] = useState(false);
+
   return (
     <View style={styles.mainContainer}>
       <Ionicons name="bookmark" size={35} style={styles.markIcon}></Ionicons>
       <View style={styles.innerContainer}>
-        <Ionicons name="heart" size={15} style={styles.heartIcon}/>
+        <TouchableWithoutFeedback onPress={() => setFavorite(!favorite)}>
+          <Ionicons
+            name="heart"
+            size={15}
+            style={
+              favorite ? styles.activeHeartIcon : styles.notActiveHeartIcon
+            }
+          />
+        </TouchableWithoutFeedback>
       </View>
     </View>
   );
@@ -18,17 +28,21 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
   },
-  innerContainer:{
+  innerContainer: {
     position: "absolute",
     left: 10,
     top: 6.5,
   },
-  heartIcon: {
+  activeHeartIcon: {
     zIndex: 99,
     color: "#E92348",
   },
+  notActiveHeartIcon: {
+    zIndex: 99,
+    color: "#CBCACA",
+  },
   markIcon: {
     color: "black",
-    opacity: .8,
+    opacity: 0.8,
   },
 });
