@@ -19,6 +19,7 @@ export default function SearchBox({ searchMovies }) {
       <TextInput
         style={styles.searchInput}
         placeholder="Search"
+        placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setSearchString(text)}
       />
       <Button title="Buscar" onPress={handleSearch} />
@@ -30,11 +31,14 @@ const styles = StyleSheet.create({
   searchWrapper: {
     flexDirection: "row",
     width: "100%",
+
   },
   searchInput: {
-    backgroundColor: 'white',
+    backgroundColor: '#777189',
+    height: 40,
     borderWidth: 1,
     borderColor: "grey",
+    borderRadius: "15px",
     padding: 5,
     flex: 1,
   },
