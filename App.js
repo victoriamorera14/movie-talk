@@ -128,6 +128,11 @@ export default function App() {
               image={require("./assets/dune_poster.jpg")}
               title={"Dune 2"}
             />
+            <MovieCard
+              isBigCard={false}
+              image={require("./assets/dune_poster.jpg")}
+              title={"Dune 2"}
+            />
           </ShowComponent>
         </View>
       </View>
