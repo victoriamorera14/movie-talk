@@ -30,18 +30,18 @@ export default function App() {
         </Text>
 
         <View style={styles.container}>
-        <ShowComponent>
-          <SeccionUser
-            imageLeft={require("./assets/chatIcon.png")} 
-            texto="Nombre sección" 
-            containerColor="#373246" 
-          />
-          <SeccionUser
-            imageLeft={require("./assets/userIcon.png")} 
-            texto="Nombre sección" 
-            containerColor="#373246" 
-          />
-        </ShowComponent>
+          <ShowComponent>
+            <SeccionUser
+              imageLeft={require("./assets/chatIcon.png")}
+              texto="Nombre sección"
+              containerColor="#373246"
+            />
+            <SeccionUser
+              imageLeft={require("./assets/userIcon.png")}
+              texto="Nombre sección"
+              containerColor="#373246"
+            />
+          </ShowComponent>
           <ShowComponent>
             <AccesoChat
               firstLineText="Título del chat"
@@ -93,7 +93,7 @@ export default function App() {
               defaultColor={"#E92348"}
               pressedColor={"#373246"}
             />
-          </ShowComponent>          
+          </ShowComponent>
           <ShowComponent name="Search">
             <SearchBox />
           </ShowComponent>
@@ -121,7 +121,15 @@ export default function App() {
             />
           </ShowComponent>
           <ShowComponent>
-            <MovieHorizontalList isBigCard={true} lenght={5} title={"Acción"} image={require("./assets/dune_poster.jpg")}/>
+            <MovieHorizontalList
+              isBigCard={true}
+              lenght={5}
+              title={"Acción"}
+              image={require("./assets/dune_poster.jpg")}
+            />
+          </ShowComponent>
+          <ShowComponent>
+            <MovieHorizontalList isBigCard={false} lenght={7} title={"Terror"} image={require("./assets/dune_poster.jpg")}/>
           </ShowComponent>
         </View>
       </View>
