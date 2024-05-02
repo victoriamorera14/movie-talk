@@ -97,9 +97,12 @@ export default function App() {
               pressedColor={"#373246"}
             />
           </ShowComponent>
+
           <ShowComponent name="Search">
             <SearchBox />
           </ShowComponent>
+
+          
           <ShowComponent>
             <CarouselComponent
               image={require("./assets/dune_poster.jpg")}
