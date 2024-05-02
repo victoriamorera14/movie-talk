@@ -15,6 +15,7 @@ import UserCard from "./components/UserCard";
 import Mensaje from "./components/Mensaje";
 import MenuFooter from "./components/MenuFooter";
 import SearchFilter from "./components/SearchFilter";
+import {NavigationContainer} from '@react-navigation/native';
 
 function ShowComponent({ name, children }) {
   return (
@@ -27,6 +28,21 @@ function ShowComponent({ name, children }) {
 
 export default function App() {
   return (
+    <NavigationContainer>
+    {/*<Tab.Navigator>*/}
+    {/*
+    <Tab.Screen
+      name="HomeTab"
+      component ={SearchBox}
+      options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <TabIcon name="home" focused={focused} />
+        ),
+        title: 'Home'
+      }}
+    ></Tab.Screen>
+    */}
     <ScrollView>
       <View style={styles.allComponents}>
         <Text style={styles.componentsTitle}>
@@ -171,6 +187,8 @@ export default function App() {
         </View>
       </View>
     </ScrollView>
+    {/*</Tab.Navigator>*/}
+    </NavigationContainer>
   );
 }
 
