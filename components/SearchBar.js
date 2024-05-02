@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
+import { Keyboard, StyleSheet, TextInput, View } from "react-native";
 import CustomButton from "./CustomButton";
 //import useThemeColors from "../hooks/useThemeColors";
 
-export default function SearchBox({ searchMovies, showIconLeft, showIconRight, onSubmit }) {
+export default function SearchBox({ searchMovies }) {
   const [searchString, setSearchString] = useState("");
   //const themeColors = useThemeColors();
   //const styles = getThemedStylesheet(themeColors);
