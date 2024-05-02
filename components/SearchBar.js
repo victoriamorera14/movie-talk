@@ -19,13 +19,13 @@ export default function SearchBox({ sendText }) {
     <View style={styles.searchWrapper}>
       <TextInput
         style={styles.searchInput}
-        placeholder="Search"
+        placeholder="Write your text here..."
         placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setSearchString(text)}
       />
       <CustomButton
         onPress={handleSearch}
-        imageSource={require("../assets/chatIcon.png")}
+        iconSource="chatbox-ellipses-outline"
         width={35}
         height={35}
         defaultColor={"#777189"}
@@ -41,10 +41,13 @@ const styles = StyleSheet.create({
   searchWrapper: {
     flexDirection: "row",
     width: "100%",
+    height: 40,
+    alignItems: "center",
   },
   searchInput: {
+    color:"white",
     backgroundColor: "#777189",
-    height: 40,
+    //height: 40,
     borderWidth: 1,
     borderColor: "grey",
     borderRadius: "15px",
