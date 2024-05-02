@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Button, Keyboard, StyleSheet, TextInput, View } from "react-native";
-import CustomButton from "./CustomButton";
+import { Keyboard, StyleSheet, TextInput, View } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 //import useThemeColors from "../hooks/useThemeColors";
 
-export default function SearchBox({ searchMovies, showIconLeft, showIconRight, onSubmit }) {
+export default function SearchFilter({ searchMovies, showIconLeft, showIconRight}) {
   const [searchString, setSearchString] = useState("");
   //const themeColors = useThemeColors();
   //const styles = getThemedStylesheet(themeColors);
@@ -17,21 +17,15 @@ export default function SearchBox({ searchMovies, showIconLeft, showIconRight, o
 
   return (
     <View style={styles.searchWrapper}>
-      <TextInput
+        {showIconLeft && <Ionicons name="search" size={25}></Ionicons>}
+        <TextInput
         style={styles.searchInput}
         placeholder="Search"
         placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setSearchString(text)}
       />
-      <CustomButton
-        onPress={handleSearch}
-        imageSource={require("../assets/chatIcon.png")}
-        width={35}
-        height={35}
-        defaultColor={"#777189"}
-        pressedColor={"#373246"}
-        borderRadius={50}
-      />
+       {showIconRight && <Ionicons name="eye" size={25}></Ionicons>}
+      
     </View>
     
   );

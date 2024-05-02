@@ -3,14 +3,14 @@ import { Keyboard, StyleSheet, TextInput, View } from "react-native";
 import CustomButton from "./CustomButton";
 //import useThemeColors from "../hooks/useThemeColors";
 
-export default function SearchBox({ searchMovies }) {
+export default function SearchBox({ sendText }) {
   const [searchString, setSearchString] = useState("");
   //const themeColors = useThemeColors();
   //const styles = getThemedStylesheet(themeColors);
   
   const handleSearch = () => {
     console.log(colors);
-    searchMovies(searchString);
+    sendText(searchString);
     Keyboard.dismiss();
   };
 

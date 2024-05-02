@@ -14,6 +14,7 @@ import MovieHorizontalList from "./components/MovieHorizontalList";
 import UserCard from "./components/UserCard";
 import Mensaje from "./components/Mensaje";
 import MenuFooter from "./components/MenuFooter";
+import SearchFilter from "./components/SearchFilter";
 
 function ShowComponent({ name, children }) {
   return (
@@ -102,7 +103,14 @@ export default function App() {
             <SearchBox />
           </ShowComponent>
 
-          
+          <ShowComponent name="Search Filter">
+            <SearchFilter 
+              showIconLeft={true}
+              showIconRight={true}
+            />
+          </ShowComponent>
+
+
           <ShowComponent>
             <CarouselComponent
               image={require("./assets/dune_poster.jpg")}
@@ -166,9 +174,6 @@ export default function App() {
   );
 }
 
-const onSubmit = () => {
-  console.log("me cago en la puta");
-};
 
 const styles = StyleSheet.create({
   allComponents: {
