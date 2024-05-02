@@ -1,20 +1,22 @@
 import React from "react";
-import { View, Image, StyleSheet, Pressable } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { View, StyleSheet, Pressable } from "react-native";
+import { TouchableWithoutFeedback } from "react-native-web";
 
 export default function MenuFooter() {
   return (
     <View style={styles.container}>
       <Pressable style={styles.button}>
-        <Image source={require("../assets/homeIcon.png")} style={styles.content} />
+        <Ionicons name="home" size={25} color={'white'} />
       </Pressable>
       <Pressable style={styles.button}>
-        <Image source={require("../assets/chatIcon.png")} style={styles.content} />
+        <Ionicons name="chatbox-ellipses-outline" size={25} color={'white'} />
       </Pressable>
       <Pressable style={styles.button}>
-        <Image source={require("../assets/searcherIcon.png")} style={styles.content} />
+        <Ionicons name="search" size={25} color={'white'} />
       </Pressable>
       <Pressable style={styles.button}>
-        <Image source={require("../assets/userIcon.png")} style={styles.content} />
+        <Ionicons name="person" size={25} color={'white'} />
       </Pressable>
     </View>
   );

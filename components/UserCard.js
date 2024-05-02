@@ -1,6 +1,5 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
-import { ImageBackground } from "react-native-web";
 
 export default function UserCard({title, image }) {
   return (

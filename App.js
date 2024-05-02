@@ -147,7 +147,7 @@ export default function App() {
           </ShowComponent>
           <ShowComponent>
             <UserCard
-            image={require("./assets/user.jpg")}
+            image={require("./assets/user_image.jpg")}
             title={"Nombre Usuario"}
             />
           </ShowComponent>

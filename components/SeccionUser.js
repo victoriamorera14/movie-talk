@@ -3,7 +3,6 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function SeccionUser({ iconLeft, texto, containerColor }) {
-  const imageRight = require("../assets/arrow.png"); 
 
   return (
     <View style={[styles.container, { backgroundColor: containerColor }]}>
