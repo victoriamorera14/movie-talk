@@ -11,6 +11,8 @@ import MovieCard from "./components/MovieCard";
 import AccesoChat from "./components/AccesoChat";
 import SeccionUser from "./components/SeccionUser";
 import MovieHorizontalList from "./components/MovieHorizontalList";
+import UserCard from "./components/UserCard";
+import Mensaje from "./components/Mensaje";
 
 function ShowComponent({ name, children }) {
   return (
@@ -130,6 +132,24 @@ export default function App() {
           </ShowComponent>
           <ShowComponent>
             <MovieHorizontalList isBigCard={false} lenght={7} title={"Terror"} image={require("./assets/dune_poster.jpg")}/>
+          </ShowComponent>
+          <ShowComponent>
+            <UserCard
+            image={require("./assets/user.jpg")}
+            title={"Nombre Usuario"}
+            />
+          </ShowComponent>
+          <ShowComponent>
+            <Mensaje
+            isSender={true}
+            UserName={"User x"}
+            TextoMensaje={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum magna augue, gravida sit"}
+            />
+            <Mensaje
+            isSender={false}
+            UserName={"User x"}
+            TextoMensaje={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum magna augue, gravida sit"}
+            />
           </ShowComponent>
         </View>
       </View>
