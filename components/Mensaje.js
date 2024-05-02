@@ -17,7 +17,7 @@ export default function Mensaje({isSender, UserName, TextoMensaje}) {
 const styles = StyleSheet.create({
   containerS: {
     height: "auto",
-    width: 414,
+    width: 375,
     padding: 10,
     borderRadius: 10,
     margin:10,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   containerR: {
     height: "auto",
-    width: 414,
+    width: 375,
     padding: 10,
     borderRadius: 10,
     margin:10,

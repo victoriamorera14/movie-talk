@@ -13,6 +13,7 @@ import SeccionUser from "./components/SeccionUser";
 import MovieHorizontalList from "./components/MovieHorizontalList";
 import UserCard from "./components/UserCard";
 import Mensaje from "./components/Mensaje";
+import MenuFooter from "./components/MenuFooter";
 
 function ShowComponent({ name, children }) {
   return (
@@ -150,6 +151,11 @@ export default function App() {
             UserName={"User x"}
             TextoMensaje={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum magna augue, gravida sit"}
             />
+          </ShowComponent>
+          <ShowComponent>
+            <MenuFooter>
+
+            </MenuFooter>
           </ShowComponent>
         </View>
       </View>
