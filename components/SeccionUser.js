@@ -1,32 +1,27 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { View, Text, StyleSheet } from "react-native";
 
-export default function SeccionUser({ imageLeft, texto, containerColor }) {
+export default function SeccionUser({ iconLeft, texto, containerColor }) {
   const imageRight = require("../assets/arrow.png"); 
 
   return (
     <View style={[styles.container, { backgroundColor: containerColor }]}>
-      <Image source={imageLeft} style={styles.imageLeft} />
+      <Ionicons name={iconLeft} size={28} color={'white'} style={styles.icons} />
       <Text style={styles.text}>{texto}</Text>
-      <Image source={imageRight} style={styles.imageRight} />
+      <Ionicons name="chevron-forward-outline" size={28} color={'white'} style={styles.icons} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    width:250,
+    width:260,
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
     borderRadius: 10,
     margin: 10,
-  },
-  imageLeft: {
-    width: 20,
-    height: 20,
-    marginRight: 10,
-    marginLeft:10,
   },
   text: {
     flex: 1,
@@ -37,9 +32,7 @@ const styles = StyleSheet.create({
     paddingLeft:20,
     paddingRight:20,
   },
-  imageRight: {
-    width: 25,
-    height: 25,
-  },
-  
+  icons: {
+    paddingLeft: 10
+  }
 });

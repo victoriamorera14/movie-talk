@@ -35,12 +35,12 @@ export default function App() {
         <View style={styles.container}>
           <ShowComponent>
             <SeccionUser
-              imageLeft={require("./assets/chatIcon.png")}
+              iconLeft="person"
               texto="Nombre sección"
               containerColor="#373246"
             />
             <SeccionUser
-              imageLeft={require("./assets/userIcon.png")}
+              iconLeft="chatbox-ellipses-outline"
               texto="Nombre sección"
               containerColor="#373246"
             />

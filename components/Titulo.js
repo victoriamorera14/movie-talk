@@ -1,13 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function Titulo({ text, showIcon }) {
   return (
     <View style={[styles.container, { backgroundColor: "#373246" }]}>
-      {showIcon && <Image source={require("../assets/backIcon.png")} style={styles.icon} />}
+      {showIcon && <Ionicons name="chevron-back-outline" size={28} color={'white'} />}
       <View style={[styles.textContainer, showIcon && { marginLeft: 10 }]}>
         <Text style={styles.titleText}>{text}</Text>
-        {/*<View style={styles.line}></View>*/}
       </View>
     </View>
   );
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     width: "auto",
-    
   },
   textContainer: {
     flex: 1,
@@ -33,22 +32,6 @@ const styles = StyleSheet.create({
     color: "#E92348",
     fontSize: 20,
     fontWeight: "bold",
-  },
-/*
-  line: {
-    position: "absolute",
-    top: "30px",
-    paddingLeft:5,
-    paddingRight:5,
-    width:"auto",
-    borderBottomWidth: 2,
-    borderBottomColor: "white",
-    borderRadius: 5, 
-  },
-  */
-  icon: {
-    height: "20px",
-    padding: 10,
-    width: "5%",
+    paddingBottom: 8,
   },
 });
