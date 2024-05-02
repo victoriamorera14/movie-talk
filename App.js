@@ -165,7 +165,6 @@ export default function App() {
           </ShowComponent>
           <ShowComponent>
             <MenuFooter>
-
             </MenuFooter>
           </ShowComponent>
         </View>

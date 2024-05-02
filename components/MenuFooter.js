@@ -2,20 +2,23 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, StyleSheet, Pressable } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-web";
+import { useNavigation } from "@react-navigation/native";
 
 export default function MenuFooter() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Pressable style={styles.button}>
+      <Pressable onPress={navigation.navigate("Home")} style={styles.button}>
         <Ionicons name="home" size={25} color={'white'} />
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable onPress={navigation.navigate("Chat")} style={styles.button}>
         <Ionicons name="chatbox-ellipses-outline" size={25} color={'white'} />
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable onPress={navigation.navigate("Search")} style={styles.button}>
         <Ionicons name="search" size={25} color={'white'} />
       </Pressable>
-      <Pressable style={styles.button}>
+      <Pressable onPress={navigation.navigate("User")} style={styles.button}>
         <Ionicons name="person" size={25} color={'white'} />
       </Pressable>
     </View>
