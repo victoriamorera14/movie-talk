@@ -64,7 +64,7 @@ export default function App() {
           </ShowComponent>
           <ShowComponent>
             <CustomButton
-              imageSource={require("./assets/chatIcon.png")}
+              iconSource="chatbox-ellipses-outline"
               width={50}
               height={50}
               defaultColor={"#777189"}
@@ -72,7 +72,7 @@ export default function App() {
               borderRadius={50}
             />
             <CustomButton
-              imageSource={require("./assets/filter.png")}
+              iconSource="funnel-outline"
               width={50}
               height={50}
               defaultColor={"#E92348"}

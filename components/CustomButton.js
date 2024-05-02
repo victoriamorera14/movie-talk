@@ -1,23 +1,43 @@
 import React, { useState } from "react";
-import {  Text, StyleSheet, View, Image, Pressable } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { Text, StyleSheet, View, Pressable } from "react-native";
 
-export default function CustomButton({ onPress, text, imageSource, width, height, defaultColor, pressedColor, borderRadius }) {
+export default function CustomButton({
+  onPress,
+  text,
+  iconSource,
+  width,
+  height,
+  defaultColor,
+  pressedColor,
+  borderRadius,
+}) {
   const [pressed, setPressed] = useState(false);
 
   return (
     <Pressable
       onPress={onPress}
-      underlayColor={pressedColor} 
+      underlayColor={pressedColor}
       style={[
         styles.button,
-        { width, height, backgroundColor: pressed ? pressedColor : defaultColor, borderRadius }, 
+        {
+          width,
+          height,
+          backgroundColor: pressed ? pressedColor : defaultColor,
+          borderRadius,
+        },
       ]}
-      onPressIn={() => setPressed(true)} 
-      onPressOut={() => setPressed(false)} 
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => {
+        setPressed(false);
+        console.log("Has pulsado el botón");
+      }}
     >
       <View style={styles.content}>
         {text && <Text style={styles.buttonText}>{text}</Text>}
-        {imageSource && <Image source={imageSource} style={styles.buttonImage} />}
+        {iconSource && (
+          <Ionicons name={iconSource} size={22} color={"white"} />
+        )}
       </View>
     </Pressable>
   );
@@ -28,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 10,
-    margin:10
+    margin: 10,
   },
   content: {
     flexDirection: "row",
@@ -39,9 +59,5 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 25,
     fontWeight: "bold",
-  },
-  buttonImage:{
-    width: 20,
-    height:20,
   },
 });
