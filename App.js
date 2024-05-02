@@ -163,6 +163,10 @@ export default function App() {
   );
 }
 
+const onSubmit = () => {
+  console.log("me cago en la puta");
+};
+
 const styles = StyleSheet.create({
   allComponents: {
     maxWidth: "3500px",
