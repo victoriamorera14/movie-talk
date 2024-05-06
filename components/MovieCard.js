@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
-import { ImageBackground } from "react-native-web";
+import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 
 export default function MovieCard({ isBigCard, title, image }) {
