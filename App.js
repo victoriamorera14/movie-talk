@@ -8,6 +8,7 @@ import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Search from "./screens/Search";
 import { colors } from "./utils/colors";
+import { FlatList } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -40,6 +41,7 @@ export default function App() {
             component={Home}
             options={
               {
+                headerShown: false,
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
@@ -52,6 +54,7 @@ export default function App() {
             component={Chats}
             options={
               {
+                headerShown: false,
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
@@ -64,6 +67,7 @@ export default function App() {
             component={Search}
             options={
               {
+                headerShown: false,
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
@@ -76,6 +80,7 @@ export default function App() {
             component={Profile}
             options={
               {
+                headerShown: false,
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),

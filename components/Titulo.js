@@ -1,11 +1,19 @@
 import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Titulo({ text, showIcon }) {
+  const handlePress = () => {
+    navigation.goBack();
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: "#373246" }]}>
-      {showIcon && <Ionicons name="chevron-back-outline" size={28} color={'white'} />}
+      {showIcon && (
+        <Pressable onPress={handlePress}>
+          <Ionicons name="chevron-back-outline" size={28} color={"white"} />{" "}
+        </Pressable>
+      )}
       <View style={[styles.textContainer, showIcon && { marginLeft: 10 }]}>
         <Text style={styles.titleText}>{text}</Text>
       </View>
@@ -25,7 +33,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignContent: "left",
     justifyContent: "center", //No consigo que el texto se centre con la linea
-    borderBottomColor: 'white',
+    borderBottomColor: "white",
     borderBottomWidth: 2,
   },
   titleText: {

@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import MovieCard from "./MovieCard";
+import { FlatList } from "react-native";
 
 export default function MovieHorizontalList({
   isBigCard,
@@ -19,6 +20,11 @@ export default function MovieHorizontalList({
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
       <View style={styles.listContainer}>{cardList}</View>
+      {/*<FlatList
+        data={cardList}
+        renderItem={({ item }) => <MovieCard key={item} />}
+        keyExtractor={(item) => item}
+  ></FlatList>*/}
     </View>
   );
 }
