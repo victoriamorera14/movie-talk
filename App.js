@@ -9,6 +9,9 @@ import Profile from "./screens/Profile";
 import Search from "./screens/Search";
 import { colors } from "./utils/colors";
 import { FlatList } from "react-native";
+import Fetch from "./components/Fetch.js";
+
+//958f518b7c01a6e5b5898812c7a86c47
 
 const Tab = createBottomTabNavigator();
 
