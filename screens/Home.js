@@ -3,8 +3,12 @@ import React from "react";
 import Titulo from "../components/Titulo";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
+import { Fetch } from "../api/API";
 
 export default function Home() {
+
+  const {movies, isLoading} = Fetch();
+  console.log(movies);
   return (
     <View>
       <Titulo text="Título de la página" showIcon={true} />
