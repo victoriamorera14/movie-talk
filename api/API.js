@@ -4,5 +4,5 @@ export async function Fetch(API_URL) {
     throw new Error(`${res.status} La resposta del servidor no és correcta`);
   }
   const data = await res.json();
-  return data.results;
+  return data;
 }

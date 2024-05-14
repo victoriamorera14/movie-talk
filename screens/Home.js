@@ -10,6 +10,9 @@ import API_KEY from "../api/API_KEY";
 export default function Home() {
   
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+  const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/940721?api_key=${API_KEY}`;
+  const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
+
 
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState();
@@ -20,8 +23,8 @@ export default function Home() {
     setError(null);
 
     try {
-      const data = await Fetch(POPULAR_API_URL);
-      setMovies(data);
+      const data = await Fetch(TRENDING_API_URL);
+      setMovies(data.results);
     } catch (e) {
       setError(e.message);
     } finally {
