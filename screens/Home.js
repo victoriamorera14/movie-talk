@@ -4,25 +4,23 @@ import Titulo from "../components/Titulo";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import { Fetch } from "../api/API";
+import API_KEY from "../api/API_KEY";
 
-const API_KEY = "958f518b7c01a6e5b5898812c7a86c47";
-const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
 export default function Home() {
+  
+  const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState();
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    ApiCall();
-  }, []);
 
   const ApiCall = async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const data = await Fetch(API_URL);
+      const data = await Fetch(POPULAR_API_URL);
       setMovies(data);
     } catch (e) {
       setError(e.message);
@@ -30,6 +28,10 @@ export default function Home() {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    ApiCall();
+  }, []);
 
   return (
     <View>
