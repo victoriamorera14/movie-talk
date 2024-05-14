@@ -1,26 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-const API_KEY = "958f518b7c01a6e5b5898812c7a86c47";
-const API_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`;
-
-export function Fetch() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState([]);
-  console.log("Ddddd");
-
-  useEffect(() => {
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Data:", data);
-        setMovies(data.results);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching movies:", error);
-        setIsLoading(false);
-      });
-  }, []);
-
-  return {movies, isLoading};
+export async function Fetch(API_URL) {
+  const res = await fetch(`${API_URL}`);
+  if (!res.ok) {
+    throw new Error(`${res.status} La resposta del servidor no és correcta`);
+  }
+  const data = await res.json();
+  return data;
 }

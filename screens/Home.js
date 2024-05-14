@@ -1,16 +1,39 @@
-import { View, Text } from "react-native";
-import React from "react";
+import { View, Text, Button } from "react-native";
+import React, { useEffect, useState } from "react";
 import Titulo from "../components/Titulo";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import { Fetch } from "../api/API";
 
-export default function Home() {
+const API_KEY = "958f518b7c01a6e5b5898812c7a86c47";
+const API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 
-  const {movies, isLoading} = Fetch();
-  console.log(movies);
+export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [movies, setMovies] = useState();
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    ApiCall();
+  }, []);
+
+  const ApiCall = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const data = await Fetch(API_URL);
+      setMovies(data);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <View>
+      {movies && console.log(movies)}
       <Titulo text="Título de la página" showIcon={true} />
       <MovieHorizontalList
         isBigCard={true}
