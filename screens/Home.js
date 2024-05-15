@@ -38,7 +38,6 @@ export default function Home() {
 
   return (
     <View>
-      {movies && console.log(movies)}
       <Titulo text="Título de la página" showIcon={true} />
       <MovieHorizontalList
         isBigCard={true}

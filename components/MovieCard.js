@@ -4,9 +4,11 @@ import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 
 export default function MovieCard({ isBigCard, title, image }) {
+  const imageSource= `http://image.tmdb.org/t/p/w500/${image}`
+
   return (
     <ImageBackground
-      source={image}
+      source={imageSource}
       style={isBigCard ? styles.bigImage : styles.smallImage}
     >
       <View

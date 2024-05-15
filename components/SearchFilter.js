@@ -5,23 +5,21 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function SearchFilter({ searchMovies, showIconLeft, showIconRight}) {
   const [searchString, setSearchString] = useState("");
-  const [changeVisibility, setchangeVisibility] = useState(true);
+  const [changeVisibility, setchangeVisibility] = useState(false);
   //const themeColors = useThemeColors();
   //const styles = getThemedStylesheet(themeColors);
   
   const handleSearch = () => {
-    console.log(colors);
     searchMovies(searchString);
-    Keyboard.dismiss();
+    //Keyboard.dismiss();
   };
   const handlePress = () => {
     setchangeVisibility (!changeVisibility);
   };
 
-
   return (
     <View style={styles.searchWrapper}>
-        {showIconLeft && <Ionicons name="search" size={25} style={styles.searchIcon}></Ionicons>}
+        {showIconLeft && <Pressable onPress={handleSearch}><Ionicons name="search" size={25} style={styles.searchIcon}></Ionicons></Pressable>}
         <TextInput
         style={styles.searchInput}
         placeholder="Search"
