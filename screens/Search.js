@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import SearchFilter from "../components/SearchFilter";
@@ -11,30 +11,32 @@ export default function Search() {
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState();
   const [error, setError] = useState(null);
+  const [selectedFilterText, setSelectedFilterText] = useState(0);
   const [searchString, setSearchString] = useState("");
 
   const SEARCH_API_URL = `https://api.themoviedb.org/3/search/movie?query=${searchString}&api_key=${API_KEY}`;
-  const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`
+  const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+  const UPCOMING_API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
+  const TOP_RATED_API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
-  const ApiCall = () => {
+  const ApiCall = (API_URL) => {
     setIsLoading(true);
     setError(null);
-
-    TryCatch(SEARCH_API_URL);
+    TryCatch(API_URL);
   };
 
   const searchMovies = (searchString) => {
     setSearchString(searchString);
-    ApiCall();
+    ApiCall(SEARCH_API_URL);
   };
 
   useEffect(() => {
-    TryCatch(POPULAR_API_URL);
-  });
+    ApiCall(POPULAR_API_URL);
+  }, []);
 
-  async function TryCatch(SEARCH_API_URL) {
+  async function TryCatch(API_URL) {
     try {
-      const data = await Fetch(SEARCH_API_URL);
+      const data = await Fetch(API_URL);
       setMovies(data.results);
     } catch (e) {
       setError(e.message);
@@ -63,6 +65,56 @@ export default function Search() {
           }}
         />
       </View>
+      <View style={styles.filterTextContainer}>
+        <Pressable
+          onPress={() => {
+            setSelectedFilterText(0);
+            ApiCall(POPULAR_API_URL);
+          }}
+        >
+          <Text
+            style={
+              selectedFilterText == 0
+                ? styles.highlightedFilterText
+                : styles.notHighlightedFilterText
+            }
+          >
+            Popular
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            setSelectedFilterText(1);
+            ApiCall(TOP_RATED_API_URL);
+          }}
+        >
+          <Text
+            style={
+              selectedFilterText == 1
+                ? styles.highlightedFilterText
+                : styles.notHighlightedFilterText
+            }
+          >
+            Top Rated
+          </Text>
+        </Pressable>
+        <Pressable
+          onPress={() => {
+            setSelectedFilterText(2);
+            ApiCall(UPCOMING_API_URL);
+          }}
+        >
+          <Text
+            style={
+              selectedFilterText == 2
+                ? styles.highlightedFilterText
+                : styles.notHighlightedFilterText
+            }
+          >
+            Upcoming
+          </Text>
+        </Pressable>
+      </View>
       {movies && (
         <FlatList
           data={movies}
@@ -86,7 +138,24 @@ const styles = StyleSheet.create({
   topContainer: {
     flexDirection: "row",
     paddingHorizontal: 25,
-    paddingVertical: 35,
+    paddingTop: 35,
+  },
+  filterTextContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  highlightedFilterText: {
+    fontSize: 18,
+    fontWeight: "500",
+    color: "black",
+    paddingHorizontal: 30,
+  },
+  notHighlightedFilterText: {
+    fontSize: 18,
+    fontWeight: "500",
+    color: "black",
+    paddingHorizontal: 30,
+    opacity: 0.4,
   },
   movieList: {
     flex: 1,
