@@ -1,31 +1,48 @@
-import { View, Text, Image, StyleSheet } from "react-native";
-import React from "react";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 
 export default function MovieCard({ isBigCard, title, image }) {
-  const imageSource= `http://image.tmdb.org/t/p/w500/${image}`
+  const imageSource = `http://image.tmdb.org/t/p/w500/${image}`;
+  const [pressed, setPressed] = useState(false);
+  const handlePress = () => {
+    console.log("Click!");
+    navigation.navigate("Detail", { movieId: movie.id });
+  };
 
   return (
-    <ImageBackground
-      source={imageSource}
-      style={isBigCard ? styles.bigImage : styles.smallImage}
+    <Pressable
+      onPress={handlePress}
+      onPressIn={() => setPressed(true)}
+      onPressOut={() => setPressed(false)}
     >
-      <View
-        style={
-          isBigCard ? styles.bigFavMarkContainer : styles.smallFavMarkContainer
+      <ImageBackground
+        source={imageSource}
+        style={[isBigCard ? styles.bigImage : styles.smallImage,
+          pressed && styles.pressed,
+        ]
         }
       >
-        <FavoriteMark />
-      </View>
-      <View
-        style={
-          isBigCard ? styles.bigTitleContainer : styles.smallTitleContainer
-        }
-      >
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </ImageBackground>
+        <View
+          style={[
+            isBigCard
+              ? styles.bigFavMarkContainer
+              : styles.smallFavMarkContainer,
+          
+          ]}
+        >
+          <FavoriteMark />
+        </View>
+        <View
+          style={
+            isBigCard ? styles.bigTitleContainer : styles.smallTitleContainer
+          }
+        >
+          <Text style={styles.title}>{title}</Text>
+        </View>
+      </ImageBackground>
+    </Pressable>
   );
 }
 
@@ -37,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderRadius: 15,
     overflow: "hidden",
-    margin: 10
+    margin: 10,
   },
   smallTitleContainer: {
     backgroundColor: "black",
@@ -59,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     borderRadius: 20,
     overflow: "hidden",
-    margin: 10
+    margin: 10,
   },
   bigTitleContainer: {
     backgroundColor: "black",
@@ -81,5 +98,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     overflow: "hidden",
     marginBottom: 2.5,
+  },
+  pressed: {
+    transform: [{ scale: 0.9 }],
   },
 });
