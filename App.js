@@ -4,12 +4,12 @@ import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StyleSheet, Text, View } from "react-native";
 import Chats from "./screens/Chats";
-import Home from "./screens/Home";
 import Profile from "./screens/Profile";
 import Search from "./screens/Search";
 import { colors } from "./utils/colors";
 import { FlatList } from "react-native";
 import Fetch from "./components/Fetch.js";
+import HomeTab from "./tab_screens/HomeTab.js";
 
 //958f518b7c01a6e5b5898812c7a86c47
 
@@ -41,7 +41,7 @@ export default function App() {
         <Tab.Navigator>
           <Tab.Screen
             name="HomeTab"
-            component={Home}
+            component={HomeTab}
             options={
               {
                 headerShown: false,
