@@ -12,7 +12,7 @@ import Fetch from "./components/Fetch.js";
 import HomeTab from "./tab_screens/HomeTab.js";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-//958f518b7c01a6e5b5898812c7a86c47
+{/*958f518b7c01a6e5b5898812c7a86c47*/}
 
 const Tab = createBottomTabNavigator();
 
@@ -95,6 +95,7 @@ export default function App() {
           ></Tab.Screen>
         </Tab.Navigator>
       </NavigationContainer>
+      
       // <NavigationContainer>
 
       //   <ScrollView>
@@ -282,3 +283,4 @@ function functionalStyles(colors) {
   });
   return styles;
 }
+    
