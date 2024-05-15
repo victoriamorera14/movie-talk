@@ -57,8 +57,8 @@ export default function Search() {
           borderRadius={90}
           defaultColor={"#E92348"}
           pressedColor={"#373246"}
-          height={46}
-          width={46}
+          height={41}
+          width={41}
           iconSource={"options-outline"}
           onPress={() => {
             console.log("xd");
@@ -116,19 +116,21 @@ export default function Search() {
         </Pressable>
       </View>
       {movies && (
-        <FlatList
-          data={movies}
-          renderItem={({ item }) => (
-            <MovieCard
-              isBigCard={true}
-              image={item.poster_path}
-              title={item.title}
-              key={item.id}
-            />
-          )}
-          numColumns={2}
-          columnWrapperStyle={styles.movieList}
-        />
+        <View>
+          <FlatList
+            data={movies}
+            renderItem={({ item }) => (
+              <MovieCard
+                isBigCard={true}
+                image={item.poster_path}
+                title={item.title}
+                key={item.id}
+              />
+            )}
+            numColumns={2}
+            columnWrapperStyle={styles.movieList}
+          />
+        </View>
       )}
     </View>
   );

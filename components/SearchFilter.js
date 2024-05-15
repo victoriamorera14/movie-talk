@@ -26,6 +26,7 @@ export default function SearchFilter({ searchMovies, showIconLeft, showIconRight
         placeholderTextColor={"#FFFFFFC2"}
         secureTextEntry={changeVisibility}
         onChangeText={(text) => setSearchString(text)}
+        onSubmitEditing={handleSearch}
       />
       
        {showIconRight && <Pressable onPress={handlePress}><Ionicons name={changeVisibility ? "eye-off": "eye"} size={25} style={styles.hiddenIcon}></Ionicons></Pressable>}
