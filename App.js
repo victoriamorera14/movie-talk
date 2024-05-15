@@ -10,6 +10,7 @@ import { colors } from "./utils/colors";
 import { FlatList } from "react-native";
 import Fetch from "./components/Fetch.js";
 import HomeTab from "./tab_screens/HomeTab.js";
+import CustomButton from "./components/CustomButton.js";
 
 //958f518b7c01a6e5b5898812c7a86c47
 
@@ -45,6 +46,7 @@ export default function App() {
             options={
               {
                 headerShown: false,
+                tabBarIcon: <CustomButton iconSource={"home"} size ={25}/>
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
