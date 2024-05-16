@@ -2,12 +2,11 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 
 export default function CarouselComponent({ image, description }) {
-
-  console.log(image);
+  const imageSource = `http://image.tmdb.org/t/p/w500/${image}`;
 
   return (
     <View style={styles.mainContainer}>
-      <Image source={`http://image.tmdb.org/t/p/w500/${image}`} style={styles.image} />
+      <Image source={imageSource} style={styles.image} />
       <View style={styles.descriptionContainer}>
         <Text style={styles.description}>{description}</Text>
       </View>
