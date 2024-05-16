@@ -6,6 +6,7 @@ import Favourites from "../screens/Favourites";
 const Stack = createNativeStackNavigator();
 
 export default function ProfileTab() {
+
   return (
     <Stack.Navigator>
       <Stack.Screen
