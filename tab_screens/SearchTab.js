@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Search from "../screens/Search";
 import Filters from "../screens/Filters";
 import Detail from "../screens/Detail";
+import BackButton from "../components/BackButton";
 
 const Stack = createNativeStackNavigator();
 
