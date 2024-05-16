@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text } from "react-native";
 import Profile from "../screens/Profile";
 import Favourites from "../screens/Favourites";
+import BackButton from "../components/BackButton";
 
 const Stack = createNativeStackNavigator();
 
