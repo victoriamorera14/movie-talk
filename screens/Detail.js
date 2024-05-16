@@ -14,6 +14,7 @@ export default function Detail(route) {
   const ApiCall = async () => {
     setIsLoading(true);
     setError(null);
+    console.log(movieId);
 
     try {
       const data = await Fetch(DETAILS_API_URL);

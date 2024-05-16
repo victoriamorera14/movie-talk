@@ -8,7 +8,8 @@ export default function MovieCard({ isBigCard, title, image, movie }) {
   const [pressed, setPressed] = useState(false);
   
   const handlePress = () => {
-    navigation.navigate("Detail", { movieId: movie.id });
+    navigation.navigate("Detail", { movieId: movie });
+    console.log(movie);
   };
 
   return (

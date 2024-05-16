@@ -120,7 +120,8 @@ export default function Search() {
           <FlatList
             data={movies}
             renderItem={({ item }) => (
-              <MovieCard
+              <MovieCard 
+              movie={item.id}
                 isBigCard={true}
                 image={item.poster_path}
                 title={item.title}
