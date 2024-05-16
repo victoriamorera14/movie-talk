@@ -3,14 +3,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StyleSheet, Text, View } from "react-native";
-import Chats from "./screens/Chats";
-import Profile from "./screens/Profile";
-import Search from "./screens/Search";
 import { colors } from "./utils/colors";
 import { FlatList } from "react-native";
 import Fetch from "./components/Fetch.js";
 import HomeTab from "./tab_screens/HomeTab.js";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import ChatTab from "./tab_screens/ChatTab.js";
+import SearchTab from "./tab_screens/SearchTab.js";
+import ProfileTab from "./tab_screens/ProfileTab.js";
 
 {/*958f518b7c01a6e5b5898812c7a86c47*/}
 
@@ -48,7 +48,7 @@ export default function App() {
                 headerShown: false,
 
                 tabBarIcon: () => (
-                <Ionicons name="home" size={25} />
+                <Ionicons name="home" size={25}/>
               )
               //title: "Home",
               }
@@ -56,10 +56,13 @@ export default function App() {
           ></Tab.Screen>
           <Tab.Screen
             name="ChatsTab"
-            component={Chats}
+            component={ChatTab}
             options={
               {
                 headerShown: false,
+                tabBarIcon: () => (
+                  <Ionicons name="chatbox-ellipses-outline" size={25}/>
+                )
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
@@ -69,10 +72,13 @@ export default function App() {
           ></Tab.Screen>
           <Tab.Screen
             name="SearchTab"
-            component={Search}
+            component={SearchTab}
             options={
               {
                 headerShown: false,
+                tabBarIcon: () => (
+                  <Ionicons name="search" size={25}/>
+                ),
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
@@ -82,10 +88,13 @@ export default function App() {
           ></Tab.Screen>
           <Tab.Screen
             name="ProfileTab"
-            component={Profile}
+            component={ProfileTab}
             options={
               {
                 headerShown: false,
+                tabBarIcon: () => (
+                  <Ionicons name="person" size={25}/>
+                ),
                 /* tabBarIcon: ({ focused }) => (
                 <TabIcon name="home" focused={focused} />
               ),
