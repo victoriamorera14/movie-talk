@@ -4,13 +4,13 @@ import { useState } from "react";
 import API_KEY from "../api/API_KEY";
 
 
-export default function Detail(route) {
+export default function Detail({route}) {
   const { movieId } = route.params;
 
   console.log(movieId);
 
   const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
-
+  console.log(DETAILS_API_URL);
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState();
   const [error, setError] = useState(null);
