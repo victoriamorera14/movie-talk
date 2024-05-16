@@ -1,20 +1,25 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React, { useEffect } from "react";
 import { useState } from "react";
+import API_KEY from "../api/API_KEY";
+
 
 export default function Detail(route) {
   const { movieId } = route.params;
 
-  const DETAILS_API_URL = "https://api.themoviedb.org/3/movie/" + movieId + "?api_key=${API_KEY}";
+  console.log(movieId);
+
+  const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
 
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState();
   const [error, setError] = useState(null);
 
+
+
   const ApiCall = async () => {
     setIsLoading(true);
     setError(null);
-    console.log(movieId);
 
     try {
       const data = await Fetch(DETAILS_API_URL);
