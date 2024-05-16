@@ -1,7 +1,7 @@
 import Home from "../screens/Home";
 import Detail from "../screens/Detail";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Text } from "react-native";
+import BackButton from "../components/BackButton";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +16,10 @@ export default function HomeTab() {
       <Stack.Screen
         name="Detail"
         component={Detail}
+        options={() => ({
+          title: "Detall de Gif",
+          headerLeft: () => <BackButton />,
+        })}
       />
     </Stack.Navigator>
   );

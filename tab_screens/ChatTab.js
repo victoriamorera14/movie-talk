@@ -16,6 +16,10 @@ export default function ChatTab() {
       <Stack.Screen
         name="Chat"
         component={Chat}
+        options={() => ({
+            title: "Detall de Gif",
+            headerLeft: () => <BackButton />,
+          })}
       />
     </Stack.Navigator>
   );

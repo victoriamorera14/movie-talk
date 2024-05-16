@@ -15,6 +15,10 @@ export default function SearchTab() {
       <Stack.Screen
         name="Filters"
         component={Filters}
+        options={() => ({
+            title: "Detall de Gif",
+            headerLeft: () => <BackButton />,
+          })}
       />
     </Stack.Navigator>
   );

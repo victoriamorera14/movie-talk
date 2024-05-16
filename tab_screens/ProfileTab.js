@@ -16,6 +16,10 @@ export default function ProfileTab() {
       <Stack.Screen
         name="Favourites"
         component={Favourites}
+        options={() => ({
+            title: "Detall de Gif",
+            headerLeft: () => <BackButton />,
+          })}
       />
     </Stack.Navigator>
   );
