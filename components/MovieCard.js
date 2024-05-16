@@ -9,7 +9,6 @@ export default function MovieCard({ isBigCard, title, image, movie }) {
   
   const handlePress = () => {
     navigation.navigate("Detail", { movieId: movie.id });
-    console.log(movieId);
   };
 
   return (

@@ -5,7 +5,7 @@ import SearchFilter from "../components/SearchFilter";
 import CustomButton from "../components/CustomButton";
 import API_KEY from "../api/API_KEY";
 import { Fetch } from "../api/API";
-import { FlatList } from "react-native-web";
+import { FlatList } from "react-native";
 
 export default function Search() {
   const [isLoading, setIsLoading] = useState(true);
