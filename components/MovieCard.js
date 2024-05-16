@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 
-export default function MovieCard({ isBigCard, title, image }) {
+export default function MovieCard({ isBigCard, title, image, movie }) {
   const imageSource = `http://image.tmdb.org/t/p/w500/${image}`;
   const [pressed, setPressed] = useState(false);
+  
   const handlePress = () => {
-    console.log("Click!");
     navigation.navigate("Detail", { movieId: movie.id });
+    console.log(movieId);
   };
 
   return (
