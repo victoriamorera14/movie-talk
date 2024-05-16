@@ -8,12 +8,4 @@ export const colors = {
         gray3: '#777189',
         gray4: '#25222F'
     },
-    light: {
-        surface: "white",
-        text: 'black'
-    },
-    dark: {
-        surface: "black",
-        text: 'white'
-    }
 }
