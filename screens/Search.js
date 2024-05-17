@@ -40,8 +40,8 @@ export default function Search() {
           borderRadius={90}
           defaultColor={"#E92348"}
           pressedColor={"#373246"}
-          height={41}
-          width={41}
+          height={38}
+          width={38}
           iconSource={"options-outline"}
           onPress={() => {
             console.log("xd");
@@ -125,6 +125,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 25,
     paddingTop: 35,
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    marginBottom: 15,
+    gap: 10,
   },
   filterTextContainer: {
     flexDirection: "row",
