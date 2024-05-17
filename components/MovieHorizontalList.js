@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import MovieCard from "./MovieCard";
 import { FlatList } from "react-native";
+import { colors } from "../utils/colors";
 
 export default function MovieHorizontalList({
   isBigCard,
@@ -32,7 +33,7 @@ export default function MovieHorizontalList({
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "column",
-    backgroundColor: "#373246",
+    backgroundColor: colors.mainColors.primary,
   },
   title: {
     marginLeft: 10,

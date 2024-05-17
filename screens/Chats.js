@@ -10,7 +10,6 @@ export default function Chats() {
       <AccesoChat
         firstLineText="Título del chat"
         secondLineText="Último mensaje enviado"
-        containerBackgroundColor="#A09BB0"
       />
     </View>
   );

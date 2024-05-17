@@ -25,7 +25,6 @@ export default function Profile() {
       <SeccionUser
         iconLeft="person"
         texto="Nombre sección"
-        containerColor="#373246"
       />
     </View>
   );

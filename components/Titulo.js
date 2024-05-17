@@ -2,11 +2,12 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import BackButton from "./BackButton";
+import { colors } from "../utils/colors";
 
 export default function Titulo({ text, showIcon }) {
 
   return (
-    <View style={[styles.container, { backgroundColor: "#373246" }]}>
+    <View style={[styles.container]}>
       {showIcon && (<BackButton/>
         // <Pressable onPress={handlePress}>
         //   <Ionicons name="chevron-back-outline" size={28} color={"white"} />{" "}
@@ -26,6 +27,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 10,
     width: "auto",
+    backgroundColor: colors.mainColors.primary,
   },
   textContainer: {
     flex: 1,

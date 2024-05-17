@@ -1,6 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import React, { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
+import { colors } from "../utils/colors";
 
 export default function FavoriteMark() {
   const [favorite, setFavorite] = useState(false);
@@ -35,11 +36,11 @@ const styles = StyleSheet.create({
   },
   activeHeartIcon: {
     zIndex: 99,
-    color: "#E92348",
+    color: colors.mainColors.secondary,
   },
   notActiveHeartIcon: {
     zIndex: 99,
-    color: "#CBCACA",
+    color: colors.mainColors.gray1,
   },
   markIcon: {
     color: "black",

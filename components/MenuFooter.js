@@ -2,6 +2,7 @@ import React from "react";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { View, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../utils/colors";
 
 export default function MenuFooter() {
   const navigation = useNavigation();
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     margin: 10,
-    backgroundColor: "#25222F",
+    backgroundColor: colors.mainColors.gray4,
   },
   button: {
     width: "20%",
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 10,
     margin:10,
-    backgroundColor: "#25222F",
+    backgroundColor: colors.mainColors,gray4,
   },
   content: {
     width: 25,

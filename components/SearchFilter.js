@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Keyboard, Pressable, StyleSheet, TextInput, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { colors } from "../utils/colors";
 //import useThemeColors from "../hooks/useThemeColors";
 
 export default function SearchFilter({ searchMovies, showIconLeft, showIconRight}) {
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   searchWrapper: {
     flexDirection: "row",
     width: "100%",
-    backgroundColor: "#777189",
+    backgroundColor: colors.mainColors.gray3,
     height: 40,
     borderWidth: 1,
     borderColor: "grey",

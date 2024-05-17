@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Keyboard, StyleSheet, TextInput, View } from "react-native";
 import CustomButton from "./CustomButton";
+import { colors } from "../utils/colors";
 //import useThemeColors from "../hooks/useThemeColors";
 
 export default function SearchBox({ sendText }) {
@@ -28,8 +29,8 @@ export default function SearchBox({ sendText }) {
         iconSource="chatbox-ellipses-outline"
         width={35}
         height={35}
-        defaultColor={"#777189"}
-        pressedColor={"#373246"}
+        defaultColor={colors.mainColors.gray3}
+        pressedColor={colors.mainColors.primary}
         borderRadius={50}
       />
     </View>
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     color:"white",
-    backgroundColor: "#777189",
+    backgroundColor: colors.mainColors.gray3,
     //height: 40,
     borderWidth: 1,
     borderColor: "grey",

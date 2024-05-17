@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { colors } from "../utils/colors";
 
 export default function Mensaje({isSender, UserName, TextoMensaje}) {
   return (
@@ -21,7 +22,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     margin:10,
-    backgroundColor: "#E92348",
+    backgroundColor: colors.mainColors.secondary,
   },
   containerR: {
     height: "auto",
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderRadius: 10,
     margin:10,
-    backgroundColor: "#A09BB0",
+    backgroundColor: colors.mainColors.gray2,
   },
   usuarioS: {
     fontSize: 18,
