@@ -3,9 +3,7 @@ import React, { useEffect, useState } from "react";
 import Titulo from "../components/Titulo";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
-import { Fetch } from "../api/API";
 import API_KEY from "../api/API_KEY";
-import MovieCarousel from "../components/MovieCarousel";
 import useFetch from "../hooks/useFetch";
 
 export default function Home() {
@@ -15,20 +13,6 @@ export default function Home() {
 
   const { isLoading, error, movies, ApiCall } = useFetch();
 
-  /*const ApiCall = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const data = await Fetch(TRENDING_API_URL);
-      setMovies(data.results);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setIsLoading(false);
-    }
-  };*/
-
   useEffect(() => {
     ApiCall(TRENDING_API_URL);
   }, []);
@@ -36,7 +20,6 @@ export default function Home() {
   return (
     <View>
       <Titulo text="Home" showIcon={false} />
-      {movies && console.log(movies)}
     </View>
   );
 }

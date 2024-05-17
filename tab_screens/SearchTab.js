@@ -18,17 +18,17 @@ export default function SearchTab() {
         name="Detail"
         component={Detail}
         options={() => ({
-            title: "Detall de Gif",
-            headerLeft: () => <BackButton />,
-          })}
+          title: "Detall de Gif",
+          headerLeft: () => <BackButton />,
+        })}
       />
       <Stack.Screen
         name="Filters"
         component={Filters}
         options={() => ({
-            title: "Detall de Gif",
-            headerLeft: () => <BackButton />,
-          })}
+          title: "Detall de Gif",
+          headerLeft: () => <BackButton />,
+        })}
       />
     </Stack.Navigator>
   );

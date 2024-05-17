@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     fontWeight: "normal",
     textAlign: "center",
     overflow: "hidden",
-    paddingTop: '5px',
-    paddingHorizontal: '8px',
+    paddingTop: "5px",
+    paddingHorizontal: "8px",
   },
 });

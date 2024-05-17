@@ -4,46 +4,29 @@ import MovieCard from "../components/MovieCard";
 import SearchFilter from "../components/SearchFilter";
 import CustomButton from "../components/CustomButton";
 import API_KEY from "../api/API_KEY";
-import { Fetch } from "../api/API";
 import { FlatList } from "react-native";
+import useFetch from "../hooks/useFetch";
 
 export default function Search() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState();
-  const [error, setError] = useState(null);
   const [selectedFilterText, setSelectedFilterText] = useState(0);
   const [searchString, setSearchString] = useState("");
+
+  const { isLoading, error, movies, ApiCall } = useFetch();
 
   const SEARCH_API_URL = `https://api.themoviedb.org/3/search/movie?query=${searchString}&api_key=${API_KEY}`;
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
   const UPCOMING_API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
   const TOP_RATED_API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
-  const ApiCall = (API_URL) => {
-    setIsLoading(true);
-    setError(null);
-    TryCatch(API_URL);
-  };
-
   const searchMovies = (searchString) => {
     setSearchString(searchString);
     ApiCall(SEARCH_API_URL);
+    setSelectedFilterText(-1);
   };
 
   useEffect(() => {
     ApiCall(POPULAR_API_URL);
-  }, []);
-
-  async function TryCatch(API_URL) {
-    try {
-      const data = await Fetch(API_URL);
-      setMovies(data.results);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  }, []);  
 
   return (
     <View>
@@ -118,7 +101,7 @@ export default function Search() {
       {movies && (
         <View>
           <FlatList
-            data={movies}
+            data={movies.results}
             renderItem={({ item }) => (
               <MovieCard 
               movie={item.id}

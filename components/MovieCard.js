@@ -9,7 +9,7 @@ export default function MovieCard({ isBigCard, title, image, movie }) {
   const [pressed, setPressed] = useState(false);
 
   const navigation = useNavigation();
-  
+
   const handlePress = () => {
     navigation.navigate("Detail", { movieId: movie });
   };
@@ -22,17 +22,16 @@ export default function MovieCard({ isBigCard, title, image, movie }) {
     >
       <ImageBackground
         source={imageSource}
-        style={[isBigCard ? styles.bigImage : styles.smallImage,
+        style={[
+          isBigCard ? styles.bigImage : styles.smallImage,
           pressed && styles.pressed,
-        ]
-        }
+        ]}
       >
         <View
           style={[
             isBigCard
               ? styles.bigFavMarkContainer
               : styles.smallFavMarkContainer,
-          
           ]}
         >
           <FavoriteMark />
