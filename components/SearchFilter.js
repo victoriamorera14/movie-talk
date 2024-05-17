@@ -1,27 +1,35 @@
 import { useState } from "react";
-import { Keyboard, Pressable, StyleSheet, TextInput, View } from "react-native";
+import { Pressable, StyleSheet, TextInput, View } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from "../utils/colors";
-//import useThemeColors from "../hooks/useThemeColors";
 
-export default function SearchFilter({ searchMovies, showIconLeft, showIconRight}) {
+export default function SearchFilter({
+  searchMovies,
+  showIconLeft,
+  showIconRight,
+}) {
   const [searchString, setSearchString] = useState("");
   const [changeVisibility, setchangeVisibility] = useState(false);
-  //const themeColors = useThemeColors();
-  //const styles = getThemedStylesheet(themeColors);
-  
+
   const handleSearch = () => {
     searchMovies(searchString);
-    //Keyboard.dismiss();
   };
   const handlePress = () => {
-    setchangeVisibility (!changeVisibility);
+    setchangeVisibility(!changeVisibility);
   };
 
   return (
     <View style={styles.searchWrapper}>
-        {showIconLeft && <Pressable onPress={handleSearch}><Ionicons name="search" size={25} style={styles.searchIcon}></Ionicons></Pressable>}
-        <TextInput
+      {showIconLeft && (
+        <Pressable onPress={handleSearch}>
+          <Ionicons
+            name="search"
+            size={25}
+            style={styles.searchIcon}
+          ></Ionicons>
+        </Pressable>
+      )}
+      <TextInput
         style={styles.searchInput}
         placeholder="Search"
         placeholderTextColor={"#FFFFFFC2"}
@@ -29,11 +37,16 @@ export default function SearchFilter({ searchMovies, showIconLeft, showIconRight
         onChangeText={(text) => setSearchString(text)}
         onSubmitEditing={handleSearch}
       />
-      
-       {showIconRight && <Pressable onPress={handlePress}><Ionicons name={changeVisibility ? "eye-off": "eye"} size={25} style={styles.hiddenIcon}></Ionicons></Pressable>}
-      
+      {showIconRight && (
+        <Pressable onPress={handlePress}>
+          <Ionicons
+            name={changeVisibility ? "eye-off" : "eye"}
+            size={25}
+            style={styles.hiddenIcon}
+          ></Ionicons>
+        </Pressable>
+      )}
     </View>
-    
   );
 }
 
@@ -50,26 +63,18 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchInput: {
-    color:"white",
-    outlineStyle: 'none',
+    color: "white",
+    outlineStyle: "none",
     flex: 1,
     paddingLeft: 5,
     paddingRight: 5,
   },
-  searchIcon:{
+  searchIcon: {
     color: "white",
     marginRight: 10,
   },
-  hiddenIcon:{
+  hiddenIcon: {
     color: "white",
     marginLeft: 10,
-  }
+  },
 });
-/*
-function getThemedStylesheet(colors) {
-  return StyleSheet.create({
-    tabBar: {
-      backgroundColor: colors.surface
-    }
-  });
-}*/

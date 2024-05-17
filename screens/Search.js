@@ -6,10 +6,13 @@ import CustomButton from "../components/CustomButton";
 import API_KEY from "../api/API_KEY";
 import { FlatList } from "react-native";
 import useFetch from "../hooks/useFetch";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Search() {
   const [selectedFilterText, setSelectedFilterText] = useState(0);
   const [searchString, setSearchString] = useState("");
+
+  const navigation = useNavigation();
 
   const { isLoading, error, movies, ApiCall } = useFetch();
 
@@ -44,7 +47,7 @@ export default function Search() {
           width={38}
           iconSource={"options-outline"}
           onPress={() => {
-            console.log("xd");
+            navigation.navigate("Filters");
           }}
         />
       </View>
