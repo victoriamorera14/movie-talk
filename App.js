@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Constants from "expo-constants";
-import { useFonts } from "expo-font";
+import useCustomFonts from "./hooks/useCustomFonts.js";
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "./utils/colors";
 import HomeTab from "./tab_screens/HomeTab.js";
@@ -13,15 +13,9 @@ import TabIcon from "./components/TabIcon.js";
 
 const Tab = createBottomTabNavigator();
 
-const fontLoaded = () =>
-  useFonts({
-    "Ubuntu-Bold": require("./assets/fonts/Ubuntu-Bold.ttf"),
-    "Ubuntu-Regular": require("./assets/fonts/Ubuntu-Regular.ttf"),
-    "Ubuntu-Medium": require("./assets/fonts/Ubuntu-Medium.ttf"),
-  });
-
 export default function App() {
-  if (fontLoaded) {
+  const fontsLoaded = useCustomFonts();
+  if (fontsLoaded) {
     return (
       <NavigationContainer>
         <Tab.Navigator
