@@ -8,7 +8,17 @@ const Stack = createNativeStackNavigator();
 
 export default function SearchTab() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: colors.mainColors.primary,
+      },
+      headerTintColor: colors.mainColors.secondary,
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+    >
       <Stack.Screen
         name="Home"
         component={Search}

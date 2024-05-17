@@ -8,11 +8,25 @@ const Stack = createNativeStackNavigator();
 
 export default function ChatTab() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: colors.mainColors.primary,
+      },
+      headerTintColor: colors.mainColors.secondary,
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}
+    >
       <Stack.Screen
         name="ChatList"
         component={Chats}
-        options={{ title: "Lista de chats" }}
+        options={
+          { 
+            title: "Lista de chats" 
+          }
+        }
       />
       <Stack.Screen
         name="Chat"
