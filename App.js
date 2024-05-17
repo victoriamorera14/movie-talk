@@ -4,15 +4,11 @@ import Constants from "expo-constants";
 import { useFonts } from "expo-font";
 import { StyleSheet, Text, View } from "react-native";
 import { colors } from "./utils/colors";
-import { FlatList } from "react-native";
-import Fetch from "./components/Fetch.js";
 import HomeTab from "./tab_screens/HomeTab.js";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import ChatTab from "./tab_screens/ChatTab.js";
 import SearchTab from "./tab_screens/SearchTab.js";
 import ProfileTab from "./tab_screens/ProfileTab.js";
-
-{/*958f518b7c01a6e5b5898812c7a86c47*/}
 
 const Tab = createBottomTabNavigator();
 
@@ -23,19 +19,8 @@ const fontLoaded = () =>
     "Ubuntu-Medium": require("./assets/fonts/Ubuntu-Medium.ttf"),
   });
 
-function ShowComponent({ name, children }) {
-  const styles = functionalStyles(colors);
-  return (
-    <View style={styles.showContainer}>
-      <Text style={styles.showTitle}>{name}</Text>
-      <View style={styles.showRow}>{children}</View>
-    </View>
-  );
-}
 
 export default function App() {
-  const styles = functionalStyles(colors);
-
   if (fontLoaded) {
     return (
       <NavigationContainer>
@@ -116,7 +101,7 @@ export default function App() {
   }
 }
 
-function functionalStyles(colors) {
+// function functionalStyles(colors) {
   const styles = StyleSheet.create({
     container: {
       paddingTop: Constants.statusBarHeight,
@@ -127,7 +112,7 @@ function functionalStyles(colors) {
     },
 
     tabBar: {
-      backgroundColor: colors.surface,
+      backgroundColor: colors.mainColors.gray1,
     },
 
     componentsTitle: {
@@ -144,6 +129,6 @@ function functionalStyles(colors) {
       padding: 8,
     },
   });
-  return styles;
-}
+//   return styles;
+// }
     
