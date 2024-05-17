@@ -11,7 +11,7 @@ export default function BackButton() {
 
   return (
     <Pressable onPress={handlePress}>
-        <Ionicons name="chevron-back-outline" size={28} color={"white"} />{" "}
+        <Ionicons name="chevron-back-outline" size={28} color={"black"} />
     </Pressable>
   );
 }

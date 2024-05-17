@@ -2,10 +2,12 @@ import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import API_KEY from "../api/API_KEY";
+import { Fetch } from "../api/API";
 
 
-export default function Detail({route}) {
+export default function Detail({ route }) {
   const { movieId } = route.params;
+  
 
   console.log(movieId);
 
@@ -15,16 +17,16 @@ export default function Detail({route}) {
   const [movies, setMovies] = useState();
   const [error, setError] = useState(null);
 
-
-
   const ApiCall = async () => {
     setIsLoading(true);
     setError(null);
-
+    console.log("fetch");
     try {
       const data = await Fetch(DETAILS_API_URL);
-      setMovies(data.results);
+      console.log("data", data);
+      setMovies(data);
     } catch (e) {
+      console.log("error", e);
       setError(e.message);
     } finally {
       setIsLoading(false);
@@ -37,19 +39,16 @@ export default function Detail({route}) {
 
   return (
     <View style={styles.container}>
-      {movie && (
+      <Text>AAAAAAAA</Text>
+
+      {movies && (
         <>
-          <Image
-            source={{
-              uri: movie.poster_path,
-            }}
-          />
+          <Image style={styles.image} source={`http://image.tmdb.org/t/p/w500/${movies.backdrop_path}`} />
         </>
       )}
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -57,6 +56,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
+    aspectRatio: 1
   },
   title: {
     fontSize: 18,
@@ -65,4 +65,3 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
