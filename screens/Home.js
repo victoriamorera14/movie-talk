@@ -20,6 +20,12 @@ export default function Home() {
   return (
     <View>
       <Titulo text="Home" showIcon={false} />
+      {movies && (
+        <MovieHorizontalList
+          isBigCard={true}
+          data={movies.results}
+        />
+      )}
     </View>
   );
 }

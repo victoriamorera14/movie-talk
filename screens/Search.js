@@ -26,7 +26,7 @@ export default function Search() {
 
   useEffect(() => {
     ApiCall(POPULAR_API_URL);
-  }, []);  
+  }, []);
 
   return (
     <View>
@@ -101,18 +101,18 @@ export default function Search() {
       {movies && (
         <View>
           <FlatList
+            numColumns={2}
+            columnWrapperStyle={styles.movieList}
             data={movies.results}
             renderItem={({ item }) => (
-              <MovieCard 
-              movie={item.id}
+              <MovieCard
+                movie={item.id}
                 isBigCard={true}
                 image={item.poster_path}
                 title={item.title}
                 key={item.id}
               />
             )}
-            numColumns={2}
-            columnWrapperStyle={styles.movieList}
           />
         </View>
       )}

@@ -1,8 +1,6 @@
 import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React, { useEffect } from "react";
-import { useState } from "react";
 import API_KEY from "../api/API_KEY";
-import { Fetch } from "../api/API";
 import useFetch from "../hooks/useFetch";
 
 export default function Detail({ route }) {
