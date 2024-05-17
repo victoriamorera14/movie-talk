@@ -15,11 +15,10 @@ export default function SearchTab() {
         backgroundColor: colors.mainColors.primary,
       },
       headerTintColor: colors.mainColors.secondary,
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        fontSize: 20,
-      },
+    
       headerTitleStyle:{
+        fontSize: 25,
+        fontFamily: "Ubuntu-Bold",
         borderBottomColor: "white",
         borderBottomWidth: 3,
       },
