@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
   },
   titleText: {
+    fontFamily: "Ubuntu-Bold",
     color: "#E92348",
     fontSize: 20,
-    fontWeight: "bold",
     paddingBottom: 8,
   },
 });
