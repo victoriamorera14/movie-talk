@@ -30,7 +30,6 @@ export default function CustomButton({
       onPressIn={() => setPressed(true)}
       onPressOut={() => {
         setPressed(false);
-        console.log("Has pulsado el botón");
       }}
     >
       <View style={styles.content}>

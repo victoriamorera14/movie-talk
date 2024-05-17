@@ -8,7 +8,10 @@ import { FlatList } from "react-native";
 import useFetch from "../hooks/useFetch";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Search() {
+export default function Search({ route }) {
+  const { year } = route.params != null && route.params;
+  console.log( year );
+
   const [selectedFilterText, setSelectedFilterText] = useState(0);
   const [searchString, setSearchString] = useState("");
 
@@ -20,16 +23,21 @@ export default function Search() {
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
   const UPCOMING_API_URL = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}`;
   const TOP_RATED_API_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
+  const FILTER_API_URL = `https://api.themoviedb.org/3/search/movie?primary_release_year=${year}&api_key=${API_KEY}`;
 
   const searchMovies = (searchString) => {
     setSearchString(searchString);
     ApiCall(SEARCH_API_URL);
     setSelectedFilterText(-1);
   };
-
+  
   useEffect(() => {
     ApiCall(POPULAR_API_URL);
   }, []);
+
+  /*year != null && useEffect(() => {
+    ApiCall(FILTER_API_URL);
+  }, []);*/
 
   return (
     <View>
@@ -128,8 +136,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingHorizontal: 25,
     paddingTop: 35,
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    alignItems: "center",
+    flexWrap: "wrap",
     marginBottom: 15,
     gap: 10,
   },

@@ -26,7 +26,7 @@ export default function SearchTab() {
     }}
     >
       <Stack.Screen
-        name="Home"
+        name="Search"
         component={Search}
         options={{ title: "Buscador de Pelis" }}
       />

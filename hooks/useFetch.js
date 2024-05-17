@@ -18,6 +18,7 @@ export default function useFetch() {
       setIsLoading(false);
     }
   };
+
   return (
    {isLoading, movies, error, ApiCall}
   );
