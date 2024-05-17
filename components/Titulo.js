@@ -5,7 +5,6 @@ import BackButton from "./BackButton";
 import { colors } from "../utils/colors";
 
 export default function Titulo({ text, showIcon }) {
-
   return (
     <View style={[styles.container]}>
       {showIcon && (<BackButton/>

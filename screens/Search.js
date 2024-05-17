@@ -106,7 +106,7 @@ export default function Search() {
             data={movies.results}
             renderItem={({ item }) => (
               <MovieCard
-                movie={item.id}
+                movieId={item.id}
                 isBigCard={true}
                 image={item.poster_path}
                 title={item.title}

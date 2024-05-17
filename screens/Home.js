@@ -23,6 +23,7 @@ export default function Home() {
       {movies && (
         <MovieHorizontalList
           isBigCard={true}
+          title={"Trending"}
           data={movies.results}
         />
       )}

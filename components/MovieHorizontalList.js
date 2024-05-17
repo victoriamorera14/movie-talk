@@ -5,6 +5,7 @@ import { FlatList } from "react-native";
 import { colors } from "../utils/colors";
 
 export default function MovieHorizontalList({ isBigCard, title, data }) {
+  console.log(title);
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
@@ -17,7 +18,7 @@ export default function MovieHorizontalList({ isBigCard, title, data }) {
             isBigCard={isBigCard}
             title={item.title}
             image={item.poster_path}
-            movie={item.id}
+            movieId={item.id}
           />
         )}
       />
@@ -34,8 +35,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 10,
     fontWeight: "600",
-    fontSize: 125,
-    color: "grey",
+    fontSize: 25,
+    color: "white",
   },
   listContainer: {
     flexDirection: "row",
