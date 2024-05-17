@@ -3,6 +3,7 @@ import Search from "../screens/Search";
 import Filters from "../screens/Filters";
 import Detail from "../screens/Detail";
 import BackButton from "../components/BackButton";
+import { colors } from "../utils/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,13 @@ export default function SearchTab() {
       headerTintColor: colors.mainColors.secondary,
       headerTitleStyle: {
         fontWeight: 'bold',
+        fontSize: 20,
       },
+      headerTitleStyle:{
+        borderBottomColor: "white",
+        borderBottomWidth: 3,
+      },
+      headerTitleAlign: "center",
     }}
     >
       <Stack.Screen

@@ -3,6 +3,7 @@ import { Text } from "react-native";
 import Profile from "../screens/Profile";
 import Favourites from "../screens/Favourites";
 import BackButton from "../components/BackButton";
+import { colors } from "../utils/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +18,13 @@ export default function ProfileTab() {
       headerTintColor: colors.mainColors.secondary,
       headerTitleStyle: {
         fontWeight: 'bold',
+        fontSize: 20,
       },
+      headerTitleStyle:{
+        borderBottomColor: "white",
+        borderBottomWidth: 3,
+      },
+      headerTitleAlign: "center",
     }}
     >
       <Stack.Screen

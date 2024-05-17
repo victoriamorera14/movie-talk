@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Chats from "../screens/Chats";
 import Chat from "../screens/Chat";
 import BackButton from "../components/BackButton";
+import { colors } from "../utils/colors";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +17,13 @@ export default function ChatTab() {
       headerTintColor: colors.mainColors.secondary,
       headerTitleStyle: {
         fontWeight: 'bold',
+        fontSize: 20,
       },
+      headerTitleStyle:{
+        borderBottomColor: "white",
+        borderBottomWidth: 3,
+      },
+      headerTitleAlign: "center",
     }}
     >
       <Stack.Screen

@@ -16,7 +16,13 @@ export default function HomeTab() {
       headerTintColor: colors.mainColors.secondary,
       headerTitleStyle: {
         fontWeight: 'bold',
+        fontSize: 20,
       },
+      headerTitleStyle:{
+        borderBottomColor: "white",
+        borderBottomWidth: 3,
+      },
+      headerTitleAlign: "center",
     }}
     >
       <Stack.Screen
@@ -25,6 +31,7 @@ export default function HomeTab() {
         options={
           { 
             headerTitle: "Home",
+            
           }
         }
       />

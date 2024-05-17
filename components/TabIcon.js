@@ -7,7 +7,7 @@ export default function TabIcon({ name, focused }) {
     <Ionicons
       name={`${name}`}
       size={35}
-      color={focused ? colors.mainColors.gray1 : colors.mainColors.gray3}
+      color={focused ? "white" : colors.mainColors.gray3}
     />
   );
 }
