@@ -8,6 +8,8 @@ export default function Filters() {
 
   const [year, setYear] = useState("");
 
+  const FILTER_API_URL = `https://api.themoviedb.org/3/discover/movie?&primary_release_date.gte=${year}-01-01&primary_release_date.lte=${year}-12-31&api_key=${API_KEY}`;
+
   return (
     <View>
       <CustomButton
@@ -29,7 +31,7 @@ export default function Filters() {
         pressedColor={"green"}
         text={"Submit"}
         onPress={() => {
-          navigation.navigate("Search", { year: year });
+          navigation.navigate("Search", { URL: FILTER_API_URL });
         }}
       />
     </View>

@@ -1,16 +1,24 @@
 import { View, Text, StyleSheet } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import MovieCard from "./MovieCard";
 import { FlatList } from "react-native";
 import { colors } from "../utils/colors";
+import useFetch from "../hooks/useFetch";
 
-export default function MovieHorizontalList({ isBigCard, title, data }) {
+export default function MovieHorizontalList({ URL, isBigCard, title }) {
+
+  const { isLoading, error, movies, ApiCall } = useFetch();
+
+  useEffect(() => {
+    ApiCall(URL);
+  }, []);
+
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
-      <FlatList
+      {movies && <FlatList
         contentContainerStyle={styles.listContainer}
-        data={data}
+        data={movies.results}
         renderItem={({ item }) => (
           <MovieCard
             key={item.id}
@@ -20,7 +28,7 @@ export default function MovieHorizontalList({ isBigCard, title, data }) {
             movieId={item.id}
           />
         )}
-      />
+      />}
     </View>
   );
 }

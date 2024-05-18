@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Text } from "react-native";
 import Profile from "../screens/Profile";
-import Favourites from "../screens/Favourites";
+import Favorites from "../screens/Favorites";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
 
@@ -32,7 +32,7 @@ export default function ProfileTab() {
       />
       <Stack.Screen
         name="Favourites"
-        component={Favourites}
+        component={Favorites}
         options={() => ({
             title: "Lista de favoritos",
             headerLeft: () => <BackButton />,
