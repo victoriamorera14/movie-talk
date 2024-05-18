@@ -3,12 +3,12 @@ import React from "react";
 import UserCard from "../components/UserCard";
 import Titulo from "../components/Titulo";
 import SeccionUser from "../components/SeccionUser";
-import Favourites from "./Favourites";
+import Favorites from "./Favorites";
 import { Pressable } from "react-native";
 
 export default function Profile() {
   const handlePress = () => {
-    navigation.navigate(Favourites);
+    navigation.navigate(Favorites);
   };
 
   return (
