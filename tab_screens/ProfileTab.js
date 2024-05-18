@@ -31,7 +31,7 @@ export default function ProfileTab() {
         options={{ title: "Profile" }}
       />
       <Stack.Screen
-        name="Favourites"
+        name="Favorites"
         component={Favorites}
         options={() => ({
             title: "Lista de favoritos",

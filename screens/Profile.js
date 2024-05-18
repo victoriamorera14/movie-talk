@@ -3,7 +3,7 @@ import React from "react";
 import UserCard from "../components/UserCard";
 import Titulo from "../components/Titulo";
 import SeccionUser from "../components/SeccionUser";
-import Favourites from "./Favourites";
+import Favorites from "./Favorites";
 
 import { useNavigation } from "@react-navigation/native";
 
@@ -12,7 +12,7 @@ export default function Profile() {
   const navigation = useNavigation();
 
   const handlePress = () => {
-    navigation.navigate("Favourites");
+    navigation.navigate("Favorites");
   };
 
 
