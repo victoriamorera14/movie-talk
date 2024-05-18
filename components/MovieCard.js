@@ -34,7 +34,7 @@ export default function MovieCard({ isBigCard, title, image, movieId }) {
               : styles.smallFavMarkContainer,
           ]}
         >
-          <FavoriteMark />
+          <FavoriteMark movieId={movieId} />
         </View>
         <View
           style={

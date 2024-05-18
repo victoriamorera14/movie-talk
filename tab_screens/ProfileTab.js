@@ -34,7 +34,7 @@ export default function ProfileTab() {
         name="Favourites"
         component={Favourites}
         options={() => ({
-            title: "Detall de Gif",
+            title: "Lista de favoritos",
             headerLeft: () => <BackButton />,
           })}
       />

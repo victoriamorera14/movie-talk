@@ -1,10 +1,15 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../utils/colors";
+import { favorites } from "../utils/favorites";
 
-export default function FavoriteMark() {
+export default function FavoriteMark({movieId}) {
   const [favorite, setFavorite] = useState(false);
+
+  useEffect(() => {
+    favorites.toggle(movieId);
+  }, [favorite]);
 
   return (
     <View style={styles.mainContainer}>
