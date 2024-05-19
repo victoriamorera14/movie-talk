@@ -1,38 +1,37 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { colors } from '../utils/colors';
 
 const data = [
-  { label: 'Item 1', value: '1' },
-  { label: 'Item 2', value: '2' },
-  { label: 'Item 3', value: '3' },
-  { label: 'Item 4', value: '4' },
-  { label: 'Item 5', value: '5' },
-  { label: 'Item 6', value: '6' },
-  { label: 'Item 7', value: '7' },
-  { label: 'Item 8', value: '8' },
+  { label: '2000', value: '2000' },
+  { label: '2001', value: '2001' },
+  { label: '2002', value: '2002' },
+  { label: '2020', value: '2020' },
+  { label: '2021', value: '2021' },
+  { label: '2022', value: '2022' },
+  { label: '2023', value: '2023' },
+  { label: '2024', value: '2024' },
 ];
 
-const DropdownComponent = () => {
+const DropdownYearComponent = ({setYear}) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
-  const renderLabel = () => {
-    if (value || isFocus) {
-      return (
-        <Text style={[styles.label, isFocus && { color: colors.mainColors.secondary }]}>
-        </Text>
-      );
-    }
-    return null;
-  };
+  // const renderLabel = () => {
+  //   if (value || isFocus) {
+  //     return (
+  //       <Text style={[styles.label, isFocus && { color: colors.mainColors.secondary }]}>
+  //       </Text>
+  //     );
+  //   }
+  //   return null;
+  // };
 
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.labelText}>Select Item:</Text>
+        <Text style={styles.labelText}>Select release year:</Text>
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: colors.mainColors.gray1, color: 'white'}]}
           placeholderStyle={styles.placeholderStyle}
@@ -47,6 +46,7 @@ const DropdownComponent = () => {
           onBlur={() => setIsFocus(false)}
           onChange={item => {
             setValue(item.value);
+            setYear(item.value);
             setIsFocus(false);
           }}
         />
@@ -55,7 +55,7 @@ const DropdownComponent = () => {
   );
 };
 
-export default DropdownComponent;
+export default DropdownYearComponent;
 
 const styles = StyleSheet.create({
   container: {
