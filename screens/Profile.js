@@ -27,6 +27,12 @@ export default function Profile() {
       <Pressable onPress={handlePress}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
+      <Pressable>
+        <SeccionUser iconLeft="people" texto="Social" />
+      </Pressable>
+      <Pressable >
+        <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
+      </Pressable>
     </View>
   );
 }
