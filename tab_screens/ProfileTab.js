@@ -6,6 +6,7 @@ import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
 import { observer } from "mobx-react-lite";
 import Social from "../screens/Social";
+import ChatTab from "./ChatTab";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,13 +41,21 @@ export default observer(function ProfileTab() {
           headerLeft: () => <BackButton />,
         })}
       />
-
       <Stack.Screen
         name="Social"
         component={Social}
         options={() => ({
           title: "Lista de amigos",
           headerLeft: () => <BackButton />,
+        })}
+      />
+            <Stack.Screen
+        name="ChatTab"
+        component={ChatTab}
+        options={() => ({
+          title: "Lista de amigos",
+          headerLeft: () => <BackButton />,
+          headerShown: false,
         })}
       />
     </Stack.Navigator>
