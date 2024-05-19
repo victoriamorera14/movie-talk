@@ -7,6 +7,7 @@ import API_KEY from "../api/API_KEY";
 import { FlatList } from "react-native";
 import useFetch from "../hooks/useFetch";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../utils/colors";
 
 export default function Search({ route }) {
   const { URL } = route.params != null && route.params;
@@ -37,7 +38,7 @@ export default function Search({ route }) {
   }, []);
 
   return (
-    <View>
+    <View style={styles.backgroundColor}>
       <View style={styles.topContainer}>
         <SearchFilter
           searchMovies={searchMovies}
@@ -129,6 +130,9 @@ export default function Search({ route }) {
 }
 
 const styles = StyleSheet.create({
+  backgroundColor:{
+    backgroundColor:colors.mainColors.primary,
+  },
   topContainer: {
     flexDirection: "row",
     paddingHorizontal: 25,
@@ -145,13 +149,13 @@ const styles = StyleSheet.create({
   highlightedFilterText: {
     fontSize: 18,
     fontWeight: "500",
-    color: "black",
+    color: "white",
     paddingHorizontal: 30,
   },
   notHighlightedFilterText: {
     fontSize: 18,
     fontWeight: "500",
-    color: "black",
+    color: colors.mainColors.gray1,
     paddingHorizontal: 30,
     opacity: 0.4,
   },
