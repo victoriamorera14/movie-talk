@@ -1,9 +1,30 @@
 import { makeAutoObservable } from "mobx";
+import AsyncStorage from "@react-native-async-storage/async-storage"
 
 class Favorites {
     constructor() {
         this._favorites = new Set();
         makeAutoObservable(this)
+    }
+
+    async saveFavoritesToStorage() {
+        console.log('guardant favorits a Storage');
+        try {
+            await AsyncStorage.setItem("favorites", JSON.stringify(this._favorites));
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+
+    async loadFavoritesFromStorage() {
+        console.log('carregant favorits de Storage');
+        const favoritesData = await AsyncStorage.getItem("favorites");
+        if (favoritesData) {
+            const favorites = JSON.parse(favoritesData);
+            favorites.forEach(element => {
+                this._favorites.add(element);
+            });
+        }
     }
 
     toggle(id) {
@@ -15,12 +36,12 @@ class Favorites {
     }
 
     isFavorite(id) {
-        console.log('is favorite: ', this._favorites.has(id))
+        //console.log('is favorite: ', this._favorites.has(id))
         return this._favorites.has(id);
     }
 
     get favoriteList() {
-        console.log('favoriteList: ', [...this._favorites])
+        //console.log('favoriteList: ', [...this._favorites])
         return [...this._favorites];
     }
 }

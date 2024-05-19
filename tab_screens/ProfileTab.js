@@ -4,11 +4,12 @@ import Profile from "../screens/Profile";
 import Favorites from "../screens/Favorites";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
+import { observer } from "mobx-react-lite";
 
 const Stack = createNativeStackNavigator();
 
-export default function ProfileTab() {
-
+//export default function ProfileTab() {
+  export default observer (function ProfileTab() {
   return (
     <Stack.Navigator
     screenOptions={{
@@ -23,6 +24,7 @@ export default function ProfileTab() {
         borderBottomWidth: 3,
       },
       headerTitleAlign: "center",
+      
     }}
     >
       <Stack.Screen
@@ -41,3 +43,4 @@ export default function ProfileTab() {
     </Stack.Navigator>
   );
 }
+  )

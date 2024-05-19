@@ -1,4 +1,4 @@
-import { View, Text, Pressable} from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import UserCard from "../components/UserCard";
 import Titulo from "../components/Titulo";
@@ -8,13 +8,11 @@ import Favorites from "./Favorites";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Profile() {
-
   const navigation = useNavigation();
 
   const handlePress = () => {
     navigation.navigate("Favorites");
   };
-
 
   return (
     <View>
@@ -26,14 +24,8 @@ export default function Profile() {
           title={"Nombre Usuario"}
         />
       </Pressable>
-      <Pressable
-        onPress={handlePress}
-        onPressIn={() => setPressed(true)}
-        onPressOut={() => setPressed(false)}>
-        <SeccionUser
-          iconLeft="heart"
-          texto="Favoritos"
-        />
+      <Pressable onPress={handlePress}>
+        <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
     </View>
   );

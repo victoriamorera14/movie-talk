@@ -3,24 +3,29 @@ import React, { useEffect, useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import { colors } from "../utils/colors";
 import { favorites } from "../utils/favorites";
+import { observer } from "mobx-react-lite";
 
-export default function FavoriteMark({movieId}) {
+export default observer (function FavoriteMark({ movieId }) {
   const [favorite, setFavorite] = useState(false);
 
-  useEffect(() => {
-    favorites.toggle(movieId);
-  }, [favorite]);
+  useEffect(() => {}, [favorite]);
 
   return (
     <View style={styles.mainContainer}>
       <Ionicons name="bookmark" size={35} style={styles.markIcon}></Ionicons>
       <View style={styles.innerContainer}>
-        <Pressable onPress={() => setFavorite(!favorite)}>
+        <Pressable
+          onPress={() => {
+            setFavorite(!favorite);
+            favorites.toggle(movieId);
+          }}
+        >
           <Ionicons
             name="heart"
             size={15}
             style={
-              favorite ? styles.activeHeartIcon : styles.notActiveHeartIcon
+              //favorite ? styles.activeHeartIcon : styles.notActiveHeartIcon
+              (favorites.isFavorite(movieId) ? styles.activeHeartIcon : styles.notActiveHeartIcon)
             }
           />
         </Pressable>
@@ -28,6 +33,7 @@ export default function FavoriteMark({movieId}) {
     </View>
   );
 }
+)
 
 const styles = StyleSheet.create({
   mainContainer: {
