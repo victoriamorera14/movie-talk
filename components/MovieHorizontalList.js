@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     marginLeft: 10,
     marginTop: 10,
-    fontWeight: "600",
+    fontFamily: "Ubuntu-Medium",
     fontSize: 25,
     color: "white",
   },

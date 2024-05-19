@@ -25,13 +25,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.mainColors.gray2
   },
   input: {
+    fontFamily: "Ubuntu-Bold",
     fontSize: 18,
     paddingBottom:10,
-    fontWeight: "bold",
     color: "white", 
   },
   secondLineText: {
     fontSize: 14,
     color: "black", 
+    fontFamily: "Ubuntu-Regular",
   },
 });

@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: "white",
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     textAlign: "center",
     overflow: "hidden",
     marginBottom: 2.5,
