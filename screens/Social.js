@@ -11,42 +11,49 @@ export default function Social() {
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
       <UserCard
         image={require("../assets/user_image.jpg")}
         title={"Nombre Usuario"}
         userHeight={100}
         userWidth={100}
+        style={styles.userCard}
       />
     </View>
   );
@@ -56,6 +63,11 @@ const styles = StyleSheet.create({
   socialContainer: {
     padding: 15,
     backgroundColor: colors.mainColors.primary,
-    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+  },
+  userCard: {
+    margin: 5,
   },
 });
