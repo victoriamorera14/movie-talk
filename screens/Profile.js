@@ -19,7 +19,7 @@ export default function Profile() {
   };
 
   const handleChatPress = () => {
-    navigation.navigate("Chat");
+    navigation.navigate("ChatList");
   };
 
   return (
