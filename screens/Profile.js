@@ -10,13 +10,21 @@ import { colors } from "../utils/colors";
 export default function Profile() {
   const navigation = useNavigation();
 
-  const handlePress = () => {
+  const handleFavoritePress = () => {
+    navigation.navigate("Favorites");
+  };
+
+  const handleSocialPress = () => {
+    navigation.navigate("Favorites");
+  };
+
+  const handleChatPress = () => {
     navigation.navigate("Favorites");
   };
 
   return (
     <View style={styles.profileContainer}>
-      <Pressable onPress={handlePress}>
+      <Pressable onPress={handleFavoritePress}>
         <UserCard
           image={require("../assets/user_image.jpg")}
           title={"Nombre Usuario"}
@@ -24,13 +32,13 @@ export default function Profile() {
           userWidth={180}
         />
       </Pressable>
-      <Pressable onPress={handlePress}>
+      <Pressable onPress={handleFavoritePress}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
-      <Pressable>
+      <Pressable onPress={handleSocialPress}>
         <SeccionUser iconLeft="people" texto="Social" />
       </Pressable>
-      <Pressable >
+      <Pressable onPress={handleChatPress}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
     </View>
