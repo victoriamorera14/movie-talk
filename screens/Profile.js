@@ -2,11 +2,9 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import UserCard from "../components/UserCard";
 import SeccionUser from "../components/SeccionUser";
-import Favorites from "./Favorites";
 
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../utils/colors";
-import DropdownComponent from "../components/Desplegable";
 
 export default function Profile() {
   const navigation = useNavigation();
@@ -25,14 +23,13 @@ export default function Profile() {
 
   return (
     <View style={styles.profileContainer}>
-      <Pressable onPress={handleFavoritePress}>
-        <UserCard
-          image={require("../assets/user_image.jpg")}
-          title={"Nombre Usuario"}
-          userHeight={200}
-          userWidth={180}
-        />
-      </Pressable>
+      <UserCard
+        image={require("../assets/user_image.jpg")}
+        userHeight={230}
+        userWidth={280}
+      />
+      <Text style={styles.usernameStyle}>Nombre Usuario</Text>
+      <View style={styles.usernameLine}></View>
       <Pressable onPress={handleFavoritePress}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
@@ -50,7 +47,19 @@ const styles = StyleSheet.create({
   profileContainer: {
     backgroundColor: colors.mainColors.primary,
     flexDirection: "column",
-    alignItems:"center",
+    alignItems: "center",
+  },
+  usernameStyle: {
+    margin: 25,
+    marginTop: 33,
+    fontFamily: "Ubuntu-Bold",
+    color: "white",
+    fontSize: 20,
+  },
+  usernameLine: {
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
+    width: 400,
+    marginBottom: 8,
   },
 });
-

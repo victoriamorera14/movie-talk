@@ -39,10 +39,10 @@ export default function Search({ route }) {
   }, [searchString]);
 
   useEffect(() => {
-    if (URL == null) {
-      ApiCall(POPULAR_API_URL);
-    } else if (URL != null) {
+    if (URL != null) {
       ApiCall(URL);
+    } else {
+      ApiCall(POPULAR_API_URL);
     }
   }, [URL]);
 
