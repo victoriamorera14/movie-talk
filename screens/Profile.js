@@ -6,6 +6,7 @@ import Favorites from "./Favorites";
 
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../utils/colors";
+import DropdownComponent from "../components/Desplegable";
 
 export default function Profile() {
   const navigation = useNavigation();

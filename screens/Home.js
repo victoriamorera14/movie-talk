@@ -4,6 +4,7 @@ import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import API_KEY from "../api/API_KEY";
 import useFetch from "../hooks/useFetch";
+import DropdownComponent from "../components/Desplegable";
 
 export default function Home() {
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;

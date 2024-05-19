@@ -2,6 +2,7 @@ import { View } from "react-native";
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { useNavigation } from "@react-navigation/native";
+import DropdownComponent from "../components/Desplegable";
 
 export default function Filters() {
   const navigation = useNavigation();
@@ -12,6 +13,7 @@ export default function Filters() {
 
   return (
     <View>
+<DropdownComponent></DropdownComponent>
       <CustomButton
         borderRadius={30}
         defaultColor={"red"}
