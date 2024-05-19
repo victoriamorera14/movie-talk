@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 15,
-    fontWeight: "normal",
     textAlign: "center",
     overflow: "hidden",
     paddingTop: "5px",
     paddingHorizontal: "8px",
+    fontFamily: "Ubuntu-Regular",
   },
 });

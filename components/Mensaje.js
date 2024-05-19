@@ -35,19 +35,20 @@ const styles = StyleSheet.create({
   usuarioS: {
     fontSize: 18,
     paddingBottom:10,
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     color: "white",
     textAlign: "right"
   },
   usuarioR: {
     fontSize: 18,
     paddingBottom:10,
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     color: "white",
     textAlign: "left"
   },
   contenido: {
     fontSize: 14,
-    color: "black", 
+    color: "black",
+    fontFamily: "Ubuntu-Regular",
   },
 });

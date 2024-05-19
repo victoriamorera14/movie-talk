@@ -68,6 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: 5,
     paddingRight: 5,
+    fontFamily: "Ubuntu-Light",
   },
   searchIcon: {
     color: "white",
