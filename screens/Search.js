@@ -27,15 +27,24 @@ export default function Search({ route }) {
 
   const searchMovies = (searchString) => {
     setSearchString(searchString);
-    ApiCall(SEARCH_API_URL);
     setSelectedFilterText(-1);
   };
 
-  URL != null && ApiCall(URL);
+  useEffect(() => {
+    if (searchString != "") {
+      ApiCall(SEARCH_API_URL);
+    } else {
+      ApiCall(POPULAR_API_URL);
+    }
+  }, [searchString]);
 
   useEffect(() => {
-    ApiCall(POPULAR_API_URL);
-  }, []);
+    if (URL == null) {
+      ApiCall(POPULAR_API_URL);
+    } else if (URL != null) {
+      ApiCall(URL);
+    }
+  }, [URL]);
 
   return (
     <View style={styles.backgroundColor}>
@@ -130,8 +139,8 @@ export default function Search({ route }) {
 }
 
 const styles = StyleSheet.create({
-  backgroundColor:{
-    backgroundColor:colors.mainColors.primary,
+  backgroundColor: {
+    backgroundColor: colors.mainColors.primary,
   },
   topContainer: {
     flexDirection: "row",
