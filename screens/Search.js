@@ -148,13 +148,13 @@ const styles = StyleSheet.create({
   },
   highlightedFilterText: {
     fontSize: 18,
-    fontWeight: "500",
+    fontFamily: "Ubuntu-Medium",
     color: "white",
     paddingHorizontal: 30,
   },
   notHighlightedFilterText: {
     fontSize: 18,
-    fontWeight: "500",
+    fontFamily: "Ubuntu-Medium",
     color: colors.mainColors.gray1,
     paddingHorizontal: 30,
     opacity: 0.4,

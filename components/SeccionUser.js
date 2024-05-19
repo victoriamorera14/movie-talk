@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 16,
-    fontWeight:"bold",
+    fontFamily: "Ubuntu-Bold",
     paddingLeft:20,
     paddingRight:20,
   },

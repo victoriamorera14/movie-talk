@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     top: 250,
     left: 30,
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     color: "white",
     maxWidth: 400,
     marginBottom: 10,
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     marginHorizontal: 5,
+    fontFamily: "Ubuntu-Regular",
     marginBottom: 5,
     textAlign: "center",
   },
@@ -115,13 +116,13 @@ const styles = StyleSheet.create({
   voteText: {
     textAlign: "center",
     fontSize: 14,
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     color: colors.mainColors.secondary,
   },
   vote: {
     fontSize: 18,
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     color: "white",
     marginBottom: 10,
   },
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
   },
   descriptionTitle:{
     color:colors.mainColors.secondary,
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     fontSize: 18,
     marginBottom: 5,
   },
@@ -141,6 +142,7 @@ const styles = StyleSheet.create({
   overview: {
     color:"white",
     fontSize: 14,
+    fontFamily: "Ubuntu-Regular",
     textAlign: "justify",
     marginBottom: 8,
   },
@@ -148,18 +150,20 @@ const styles = StyleSheet.create({
   showMore:{
     color:colors.mainColors.secondary,
     fontSize: 14,
+    fontFamily: "Ubuntu-Regular",
     textAlign: "justify",
   },
 
   platforms: {
     fontSize: 18,
     textAlign: "center",
-    fontWeight: "bold",
+    fontFamily: "Ubuntu-Bold",
     marginBottom: 10,
   },
   company: {
     fontSize: 16,
     textAlign: "center",
+    fontFamily: "Ubuntu-Regular",
     marginBottom: 5,
   },
 });
