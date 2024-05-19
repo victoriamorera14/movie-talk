@@ -1,5 +1,5 @@
-import { View, Text, Button } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, Text, Button, ScrollView, StyleSheet } from "react-native";
+import React, { useEffect, useState} from "react";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import API_KEY from "../api/API_KEY";
@@ -10,7 +10,7 @@ import { colors } from "../utils/colors";
 export default function Home() {
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
-  const DEMO_CAROUSEL_API_URL = `https://api.themoviedb.org/3/movie/98?api_key=${API_KEY}`;
+  const DEMO_CAROUSEL_API_URL = `https://api.themoviedb.org/3/movie/102?api_key=${API_KEY}`;
 
   const { isLoading, error, movies, ApiCall } = useFetch();
 
@@ -21,17 +21,12 @@ export default function Home() {
   return (
     <View>
       {movies && (
-        <View>
+        <View style={styles.homeCarousel}>
           <CarouselComponent
             description={movies.overview}
             image={`http://image.tmdb.org/t/p/w500/${movies.poster_path}`}
           />
-          <View
-            style={{
-              flexDirection: "row",
-              backgroundColor: colors.mainColors.primary,
-            }}
-          >
+        <View style={styles.homeCarouselButtons}>
             <Ionicons
               name="ellipse"
               size={15}
@@ -58,3 +53,16 @@ export default function Home() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  homeCarousel: {
+    height: "auto",
+    width: "100%",
+    flexDirection: "column",
+    backgroundColor: colors.mainColors.primary,
+  },
+  homeCarouselButtons:{
+    flexDirection: "row",
+    justifyContent: "center",
+  }
+});

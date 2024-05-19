@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
 import { colors } from "../utils/colors";
 
@@ -7,7 +7,7 @@ export default function CarouselComponent({ image, description }) {
 
   return (
     <View style={styles.mainContainer}>
-      <Image source={imageSource} style={styles.image} />
+      <ImageBackground source={imageSource} style={styles.image} />
       <View style={styles.descriptionContainer}>
         <Text style={styles.description} numberOfLines={3}>
           {description}
@@ -24,20 +24,21 @@ const styles = StyleSheet.create({
     backgroundColor: colors.mainColors.primary,
   },
   image: {
-    width: 375,
-    height: 540,
+    height: "450px",
+    width: "100%",
+    marginBottom: 15,
   },
   descriptionContainer: {
-    width: 375,
-    height: 70,
+    width: '100%',
     justifyContent: "center",
+    marginBottom: 15,
   },
   description: {
     fontSize: 15,
     textAlign: "center",
     overflow: "hidden",
-    paddingTop: "5px",
-    paddingHorizontal: "8px",
+    paddingLeft: 15,
+    paddingRight: 15,
     fontFamily: "Ubuntu-Regular",
     color: "white",
   },
