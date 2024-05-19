@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     padding: 10
   },
   columnWrapper: {
-    gap: 10,
+    gap: 25,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

@@ -5,6 +5,7 @@ import { colors } from "../utils/colors";
 
 export default function Social() {
   return (
+    <View style={styles.container}>
     <View style={styles.socialContainer}>
       <View style={styles.cardWrapper}>
         <UserCard
@@ -79,10 +80,15 @@ export default function Social() {
         />
       </View>
     </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container:{
+    height: "100%",
+    backgroundColor: colors.mainColors.primary,
+  },
   socialContainer: {
     padding: 15,
     backgroundColor: colors.mainColors.primary,

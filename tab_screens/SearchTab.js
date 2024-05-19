@@ -42,7 +42,7 @@ export default function SearchTab() {
         name="Filters"
         component={Filters}
         options={() => ({
-          title: "Detall de Gif",
+          title: "Filter",
           headerLeft: () => <BackButton />,
         })}
       />

@@ -22,6 +22,7 @@ export default function Profile() {
   };
 
   return (
+    <View style={styles.container}>
     <View style={styles.profileContainer}>
       <UserCard
         image={require("../assets/user_image.jpg")}
@@ -40,10 +41,15 @@ export default function Profile() {
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
     </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container:{
+    height: "100%",
+    backgroundColor: colors.mainColors.primary,
+  },
   profileContainer: {
     backgroundColor: colors.mainColors.primary,
     flexDirection: "column",

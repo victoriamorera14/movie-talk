@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import SearchFilter from "../components/SearchFilter";
@@ -47,6 +47,7 @@ export default function Search({ route }) {
   }, [URL]);
 
   return (
+    <ScrollView>
     <View style={styles.backgroundColor}>
       <View style={styles.topContainer}>
         <SearchFilter
@@ -135,6 +136,7 @@ export default function Search({ route }) {
         </View>
       )}
     </View>
+    </ScrollView>
   );
 }
 

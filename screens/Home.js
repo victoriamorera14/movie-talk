@@ -19,7 +19,8 @@ export default function Home() {
   }, []);
 
   return (
-    <View>
+    <ScrollView>
+    <View style={styles.container}>
       {movies && (
         <View style={styles.homeCarousel}>
           <CarouselComponent
@@ -51,10 +52,15 @@ export default function Home() {
         title={"Popular"}
       />
     </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  container:{
+    height: "100%",
+    backgroundColor: colors.mainColors.primary,
+  },
   homeCarousel: {
     height: "auto",
     width: "100%",
