@@ -41,7 +41,7 @@ export default function Search({ route }) {
   useEffect(() => {
     if (URL == null) {
       ApiCall(POPULAR_API_URL);
-    } else if (URL != null) {
+    } else {
       ApiCall(URL);
     }
   }, [URL]);
