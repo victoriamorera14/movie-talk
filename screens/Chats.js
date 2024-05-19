@@ -6,7 +6,6 @@ import AccesoChat from "../components/AccesoChat";
 export default function Chats() {
   return (
     <View>
-      <Titulo text="Título de la página" showIcon={true} />
       <AccesoChat
         firstLineText="Título del chat"
         secondLineText="Último mensaje enviado"

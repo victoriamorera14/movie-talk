@@ -15,11 +15,11 @@ export default function Profile() {
   };
 
   const handleSocialPress = () => {
-    navigation.navigate("Favorites");
+    navigation.navigate("Social");
   };
 
   const handleChatPress = () => {
-    navigation.navigate("Favorites");
+    navigation.navigate("Chat");
   };
 
   return (
