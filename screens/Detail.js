@@ -26,8 +26,6 @@ export default function Detail({ route }) {
     ApiCall(DETAILS_API_URL);
   }, []);
 
-  console.log(DETAILS_API_URL);
-
   return (
     <ScrollView style={styles.container}>
       {movies && (
