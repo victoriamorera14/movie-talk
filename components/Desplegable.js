@@ -3,30 +3,9 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { colors } from '../utils/colors';
 
-// const data = [
-//   { label: '2000', value: '2000' },
-//   { label: '2001', value: '2001' },
-//   { label: '2002', value: '2002' },
-//   { label: '2020', value: '2020' },
-//   { label: '2021', value: '2021' },
-//   { label: '2022', value: '2022' },
-//   { label: '2023', value: '2023' },
-//   { label: '2024', value: '2024' },
-// ];
-
 const DropdownComponent = ({setYear, data}) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
-
-  // const renderLabel = () => {
-  //   if (value || isFocus) {
-  //     return (
-  //       <Text style={[styles.label, isFocus && { color: colors.mainColors.secondary }]}>
-  //       </Text>
-  //     );
-  //   }
-  //   return null;
-  // };
 
   return (
     <View style={styles.container}>
