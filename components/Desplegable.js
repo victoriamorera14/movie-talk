@@ -3,14 +3,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { colors } from '../utils/colors';
 
-const DropdownComponent = ({setYear, data}) => {
+const DropdownComponent = ({setState, data, filterText}) => {
   const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
 
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <Text style={styles.labelText}>Select release year:</Text>
+        <Text style={styles.labelText}>Select {filterText}:</Text>
+        {console.log(setState)}
+        {console.log(data)}
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: colors.mainColors.gray1, color: 'white'}]}
           placeholderStyle={styles.placeholderStyle}
@@ -25,7 +27,7 @@ const DropdownComponent = ({setYear, data}) => {
           onBlur={() => setIsFocus(false)}
           onChange={item => {
             setValue(item.value);
-            setYear(item.value);
+            setState(item.value);
             setIsFocus(false);
           }}
         />

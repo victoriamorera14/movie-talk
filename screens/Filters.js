@@ -54,16 +54,19 @@ export default function Filters() {
     <View style={styles.container}>
       <View>
         <DropdownComponent
-          setYear={(value) => setYear(value)}
+          setState={(value) => setYear(value)}
           data={yearData}
+          filterText={"release year"}
         />
         <DropdownComponent
-          setVote={(value) => setVote(value)}
+          setState={(value) => setVote(value)}
           data={ratingData}
+          filterText={"rating"}
         />
         <DropdownComponent
-          setGenre={(value) => setGenre(value)}
+          setState={(value) => setGenre(value)}
           data={genreData}
+          filterText={"genre"}
         />
         <View style={styles.button}>
           <CustomButton
