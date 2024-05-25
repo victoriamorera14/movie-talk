@@ -11,8 +11,6 @@ const DropdownComponent = ({setState, data, filterText}) => {
     <View style={styles.container}>
       <View style={styles.row}>
         <Text style={styles.labelText}>Select {filterText}:</Text>
-        {console.log(setState)}
-        {console.log(data)}
         <Dropdown
           style={[styles.dropdown, isFocus && { borderColor: colors.mainColors.gray1, color: 'white'}]}
           placeholderStyle={styles.placeholderStyle}

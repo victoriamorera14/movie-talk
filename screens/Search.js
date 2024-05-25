@@ -49,99 +49,97 @@ export default function Search({ route }) {
 
   return (
     <>
-    {isLoading && <Loader />}
-    {movies && (
-    <ScrollView>
-    <View style={styles.backgroundColor}>
-      <View style={styles.topContainer}>
-        <SearchFilter
-          searchMovies={searchMovies}
-          showIconLeft={true}
-          showIconRight={false}
-        />
-        <CustomButton
-          borderRadius={90}
-          defaultColor={"#E92348"}
-          pressedColor={"#373246"}
-          height={38}
-          width={38}
-          iconSource={"options-outline"}
-          onPress={() => {
-            navigation.navigate("Filters");
-          }}
-        />
-      </View>
-      <View style={styles.filterTextContainer}>
-        <Pressable
-          onPress={() => {
-            setSelectedFilterText(0);
-            ApiCall(POPULAR_API_URL);
-          }}
-        >
-          <Text
-            style={
-              selectedFilterText == 0
-                ? styles.highlightedFilterText
-                : styles.notHighlightedFilterText
-            }
-          >
-            Popular
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            setSelectedFilterText(1);
-            ApiCall(TOP_RATED_API_URL);
-          }}
-        >
-          <Text
-            style={
-              selectedFilterText == 1
-                ? styles.highlightedFilterText
-                : styles.notHighlightedFilterText
-            }
-          >
-            Top Rated
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            setSelectedFilterText(2);
-            ApiCall(UPCOMING_API_URL);
-          }}
-        >
-          <Text
-            style={
-              selectedFilterText == 2
-                ? styles.highlightedFilterText
-                : styles.notHighlightedFilterText
-            }
-          >
-            Upcoming
-          </Text>
-        </Pressable>
-      </View>
-      {movies && (
-        <View>
-          <FlatList
-            numColumns={2}
-            columnWrapperStyle={styles.movieList}
-            data={movies.results}
-            renderItem={({ item }) => (
-              <MovieCard
-                movieId={item.id}
-                isBigCard={true}
-                image={item.poster_path}
-                title={item.title}
-                key={item.id}
+      <ScrollView>
+        <View style={styles.backgroundColor}>
+          <View style={styles.topContainer}>
+            <SearchFilter
+              searchMovies={searchMovies}
+              showIconLeft={true}
+              showIconRight={false}
+            />
+            <CustomButton
+              borderRadius={90}
+              defaultColor={"#E92348"}
+              pressedColor={"#373246"}
+              height={38}
+              width={38}
+              iconSource={"options-outline"}
+              onPress={() => {
+                navigation.navigate("Filters");
+              }}
+            />
+          </View>
+          <View style={styles.filterTextContainer}>
+            <Pressable
+              onPress={() => {
+                setSelectedFilterText(0);
+                ApiCall(POPULAR_API_URL);
+              }}
+            >
+              <Text
+                style={
+                  selectedFilterText == 0
+                    ? styles.highlightedFilterText
+                    : styles.notHighlightedFilterText
+                }
+              >
+                Popular
+              </Text>
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                setSelectedFilterText(1);
+                ApiCall(TOP_RATED_API_URL);
+              }}
+            >
+              <Text
+                style={
+                  selectedFilterText == 1
+                    ? styles.highlightedFilterText
+                    : styles.notHighlightedFilterText
+                }
+              >
+                Top Rated
+              </Text>
+            </Pressable>
+            <Pressable
+              onPress={() => {
+                setSelectedFilterText(2);
+                ApiCall(UPCOMING_API_URL);
+              }}
+            >
+              <Text
+                style={
+                  selectedFilterText == 2
+                    ? styles.highlightedFilterText
+                    : styles.notHighlightedFilterText
+                }
+              >
+                Upcoming
+              </Text>
+            </Pressable>
+          </View>
+          {movies && (
+            <View>
+              <FlatList
+                numColumns={2}
+                columnWrapperStyle={styles.movieList}
+                data={movies.results}
+                renderItem={({ item }) => (
+                  <MovieCard
+                    movieId={item.id}
+                    isBigCard={true}
+                    image={item.poster_path}
+                    title={item.title}
+                    key={item.id}
+                  />
+                )}
               />
-            )}
-          />
+            </View>
+          )}
         </View>
-      )}
-    </View>
-    </ScrollView>
-    )}
+      </ScrollView>
+      {isLoading && <Loader />}
     </>
   );
 }
