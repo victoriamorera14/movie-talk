@@ -3,9 +3,10 @@ import React, { useState } from "react";
 import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 import { useNavigation } from "@react-navigation/native";
+import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function MovieCard({ isBigCard, title, image, movieId }) {
-  const imageSource = `http://image.tmdb.org/t/p/w500/${image}`;
+  const imageSource = `${IMAGE_PATH}${image}`;
   const [pressed, setPressed] = useState(false);
 
   const navigation = useNavigation();

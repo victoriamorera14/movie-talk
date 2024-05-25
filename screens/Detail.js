@@ -5,19 +5,18 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
-  Button,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import API_KEY from "../api/API_KEY";
 import useFetch from "../hooks/useFetch";
 import { colors } from "../utils/colors";
+import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function Detail({ route }) {
   const { movieId } = route.params;
 
   const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
 
-  const imagePath = "http://image.tmdb.org/t/p/w500/";
   const { isLoading, error, movies, ApiCall } = useFetch();
 
   const [showMore, setShowMore] = useState(false);
@@ -33,7 +32,7 @@ export default function Detail({ route }) {
           <View style={styles.detailsHeader}>
             <Image
               style={styles.image}
-              source={{ uri: `${imagePath}${movies.backdrop_path}` }}
+              source={{ uri: `${IMAGE_PATH}${movies.backdrop_path}` }}
             />
             <Text style={styles.title}>{movies.title}</Text>
           </View>

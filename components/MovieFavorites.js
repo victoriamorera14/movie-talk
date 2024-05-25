@@ -5,11 +5,11 @@ import FavoriteMark from "./FavoriteMark";
 import { useNavigation } from "@react-navigation/native";
 import useFetch from "../hooks/useFetch";
 import API_KEY from "../api/API_KEY";
+import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function MovieFavorites({ movieId }) {
   const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
 
-  const imagePath = "http://image.tmdb.org/t/p/w500/";
   const { isLoading, error, movies, ApiCall } = useFetch();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function MovieFavorites({ movieId }) {
           onPressOut={() => setPressed(false)}
         >
           <ImageBackground
-            source={{ uri: `${imagePath}${movies.backdrop_path}` }}
+            source={{ uri: `${IMAGE_PATH}${movies.backdrop_path}` }}
             style={[styles.bigImage, pressed && styles.pressed]}
           >
             <View style={styles.bigFavMarkContainer}>

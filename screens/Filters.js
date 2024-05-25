@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { useNavigation } from "@react-navigation/native";
 import DropdownComponent from "../components/Desplegable";
-
 import { colors } from "../utils/colors";
 
 export default function Filters() {

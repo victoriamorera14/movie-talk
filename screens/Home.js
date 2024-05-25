@@ -6,6 +6,7 @@ import API_KEY from "../api/API_KEY";
 import useFetch from "../hooks/useFetch";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from "../utils/colors";
+import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function Home() {
   const POPULAR_API_URL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
@@ -25,7 +26,7 @@ export default function Home() {
         <View style={styles.homeCarousel}>
           <CarouselComponent
             description={movies.overview}
-            image={`http://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+            image={`${IMAGE_PATH}${movies.poster_path}`}
           />
         <View style={styles.homeCarouselButtons}>
             <Ionicons

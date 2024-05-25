@@ -1,9 +1,10 @@
 import { View, Text, Image, StyleSheet, ImageBackground } from "react-native";
 import React from "react";
 import { colors } from "../utils/colors";
+import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function CarouselComponent({ image, description }) {
-  const imageSource = `http://image.tmdb.org/t/p/w500/${image}`;
+  const imageSource = `${IMAGE_PATH}${image}`;
 
   return (
     <View style={styles.mainContainer}>

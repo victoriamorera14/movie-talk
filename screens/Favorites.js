@@ -1,7 +1,6 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { favorites } from "../utils/favorites";
 import { observer } from "mobx-react-lite";
-// import FavoriteMark from "../components/FavoriteMark";
 import MovieFavorites from "../components/MovieFavorites";
 import { colors } from "../utils/colors";
 
