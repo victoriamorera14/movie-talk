@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard";
 import { FlatList } from "react-native";
 import { colors } from "../utils/colors";
 import useFetch from "../hooks/useFetch";
+import Loader from "./Loader";
 
 export default function MovieHorizontalList({ URL, isBigCard, title }) {
 
@@ -16,7 +17,8 @@ export default function MovieHorizontalList({ URL, isBigCard, title }) {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
-      {movies && <FlatList horizontal
+      {isLoading && <Loader />}
+      {movies && (<FlatList horizontal
         contentContainerStyle={styles.listContainer}
         data={movies.results}
         renderItem={({ item }) => (
@@ -28,7 +30,7 @@ export default function MovieHorizontalList({ URL, isBigCard, title }) {
             movieId={item.id}
           />
         )}
-      />}
+      />)}
     </View>
   );
 }
