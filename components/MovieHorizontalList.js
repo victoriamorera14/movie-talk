@@ -16,7 +16,7 @@ export default function MovieHorizontalList({ URL, isBigCard, title }) {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
-      {movies && <FlatList
+      {movies && <FlatList horizontal
         contentContainerStyle={styles.listContainer}
         data={movies.results}
         renderItem={({ item }) => (
