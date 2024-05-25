@@ -8,6 +8,7 @@ import { FlatList } from "react-native";
 import useFetch from "../hooks/useFetch";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../utils/colors";
+import Loader from "../components/Loader";
 
 export default function Search({ route }) {
   const { URL } = route.params != null && route.params;
@@ -47,6 +48,9 @@ export default function Search({ route }) {
   }, [URL]);
 
   return (
+    <>
+    {isLoading && <Loader />}
+    {movies && (
     <ScrollView>
     <View style={styles.backgroundColor}>
       <View style={styles.topContainer}>
@@ -137,6 +141,8 @@ export default function Search({ route }) {
       )}
     </View>
     </ScrollView>
+    )}
+    </>
   );
 }
 
