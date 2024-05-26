@@ -18,14 +18,20 @@ export default function Detail({ route }) {
   const { movieId } = route.params;
 
   const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+  const CREDITS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`;
   const RELATED_API_URL = `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=${API_KEY}`;
 
   const { isLoading, error, movies, ApiCall } = useFetch();
+  const [credits, setCredits] = useState(null);
 
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     ApiCall(DETAILS_API_URL);
+    fetch(CREDITS_API_URL)
+      .then((response) => response.json())
+      .then((data) => setCredits(data))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
@@ -50,7 +56,7 @@ export default function Detail({ route }) {
             <Text style={styles.voteText}>USER RATING</Text>
             <Text style={styles.vote}>{movies.vote_average}</Text>
           </View>
-          <View style={styles.descriptionCobtainer}>
+          <View style={styles.descriptionContainer}>
             <Text style={styles.descriptionTitle}>Description:</Text>
             <Text style={styles.overview} numberOfLines={showMore ? 15 : 2}>
               {movies.overview}
@@ -61,17 +67,44 @@ export default function Detail({ route }) {
               </Text>
             </Pressable>
           </View>
+
+          {movies.belongs_to_collection && (
+            <View style={styles.collectionContainer}>
+              <Text style={styles.collectionTitle}>Collection:</Text>
+              <Text style={styles.collectionName}>{movies.belongs_to_collection.name}</Text>
+            </View>
+          )}
+
+          <View style={styles.additionalInfoContainer}>
+            <Text style={styles.additionalInfoTitle}>Additional Information:</Text>
+            <Text style={styles.additionalInfo}>Budget: ${movies.budget.toLocaleString()}</Text>
+            <Text style={styles.additionalInfo}>Release Date: {movies.release_date}</Text>
+            <Text style={styles.additionalInfo}>Runtime: {movies.runtime} minutes</Text>
+            <Text style={styles.additionalInfo}>Tagline: {movies.tagline}</Text>
+            <Text style={styles.additionalInfo}>Homepage: <Text style={styles.link} onPress={() => Linking.openURL(movies.homepage)}>{movies.homepage}</Text></Text>
+          </View>
+
+          {credits && (
+            <View style={styles.castContainer}>
+              <Text style={styles.castTitle}>Cast:</Text>
+              {credits.cast.slice(0, 10).map((actor) => (
+                <View key={actor.cast_id} style={styles.actorContainer}>
+                  <Image
+                    style={styles.actorImage}
+                    source={{ uri: `${IMAGE_PATH}${actor.profile_path}` }}
+                  />
+                  <Text style={styles.actorName}>{actor.name}</Text>
+                  <Text style={styles.actorCharacter}> as {actor.character}</Text>
+                </View>
+              ))}
+            </View>
+          )}
+          
           <MovieHorizontalList
             URL={RELATED_API_URL}
             isBigCard={true}
             title={"Related Movies:"}
           />
-          {/* <Text style={styles.platforms}>Available on:</Text>
-          {movies.production_companies.map((company) => (
-            <Text key={company.id} style={styles.company}>
-              {company.name}
-            </Text>
-          ))} */}
         </>
       )}
     </ScrollView>
@@ -110,7 +143,6 @@ const styles = StyleSheet.create({
     gap: 10,
     marginBottom: 20,
   },
-
   userRatingContainer: {
     flexDirection: "column",
     justifyContent: "center",
@@ -129,8 +161,7 @@ const styles = StyleSheet.create({
     color: "white",
     marginBottom: 10,
   },
-
-  descriptionCobtainer: {
+  descriptionContainer: {
     marginBottom: 20,
     paddingLeft: 25,
     paddingRight: 25,
@@ -141,7 +172,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 5,
   },
-
   overview: {
     color: "white",
     fontSize: 14,
@@ -149,14 +179,50 @@ const styles = StyleSheet.create({
     textAlign: "justify",
     marginBottom: 8,
   },
-
   showMore: {
     color: colors.mainColors.secondary,
     fontSize: 14,
     fontFamily: "Ubuntu-Regular",
     textAlign: "justify",
   },
-
+  collectionContainer: {
+    marginBottom: 20,
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
+  collectionTitle: {
+    color: colors.mainColors.secondary,
+    fontFamily: "Ubuntu-Bold",
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  collectionName: {
+    color: "white",
+    fontSize: 16,
+    fontFamily: "Ubuntu-Regular",
+    marginBottom: 5,
+  },
+  additionalInfoContainer: {
+    marginBottom: 20,
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
+  additionalInfoTitle: {
+    color: colors.mainColors.secondary,
+    fontFamily: "Ubuntu-Bold",
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  additionalInfo: {
+    color: "white",
+    fontSize: 14,
+    fontFamily: "Ubuntu-Regular",
+    marginBottom: 5,
+  },
+  link: {
+    color: colors.mainColors.secondary,
+    textDecorationLine: "underline",
+  },
   platforms: {
     fontSize: 18,
     textAlign: "center",
@@ -168,5 +234,37 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Ubuntu-Regular",
     marginBottom: 5,
+  },
+  castContainer: {
+    marginBottom: 20,
+    paddingLeft: 25,
+    paddingRight: 25,
+  },
+  castTitle: {
+    color: colors.mainColors.secondary,
+    fontFamily: "Ubuntu-Bold",
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  actorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  actorImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginRight: 10,
+  },
+  actorName: {
+    color: "white",
+    fontSize: 16,
+    fontFamily: "Ubuntu-Bold",
+  },
+  actorCharacter: {
+    color: colors.mainColors.secondary,
+    fontSize: 14,
+    fontFamily: "Ubuntu-Regular",
   },
 });
