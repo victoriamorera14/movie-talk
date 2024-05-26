@@ -5,14 +5,15 @@ import {
   StyleSheet,
   Pressable,
   ScrollView,
+  Linking,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import API_KEY from "../api/API_KEY";
 import useFetch from "../hooks/useFetch";
 import { colors } from "../utils/colors";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
-import { Fetch } from "../api/API";
 import MovieHorizontalList from "../components/MovieHorizontalList";
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Detail({ route }) {
   const { movieId } = route.params;
@@ -42,6 +43,10 @@ export default function Detail({ route }) {
             <Image
               style={styles.image}
               source={{ uri: `${IMAGE_PATH}${movies.backdrop_path}` }}
+            />
+            <LinearGradient
+              colors={['transparent', 'rgba(0,0,0,0.8)']}
+              style={styles.gradient}
             />
             <Text style={styles.title}>{movies.title}</Text>
           </View>
@@ -115,15 +120,25 @@ const styles = StyleSheet.create({
   container: { backgroundColor: colors.mainColors.primary },
   image: {
     height: 300,
-    width: "auto",
+    width: "100%",
+    position: 'absolute',
+  },
+  detailsHeader: {
+    height: 300,
+    width: "100%",
+    position: 'relative',
     marginBottom: 20,
+  },
+  gradient: {
+    height: 300,
+    width: "100%",
+    position: 'absolute',
   },
   title: {
     fontSize: 24,
     position: "absolute",
-    top: 250,
+    bottom: 20,
     left: 30,
-    textAlign: "center",
     fontFamily: "Ubuntu-Bold",
     color: "white",
     maxWidth: 400,
