@@ -14,7 +14,6 @@ import { colors } from "../utils/colors";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import { LinearGradient } from "expo-linear-gradient";
-import FavoriteMark from "../components/FavoriteMark";
 import FavouriteMarkDetails from "../components/FavouriteMarkDetails";
 
 export default function Detail({ route }) {
@@ -27,7 +26,7 @@ export default function Detail({ route }) {
   const { isLoading, error, movies, ApiCall } = useFetch();
   const [credits, setCredits] = useState(null);
 
-  const [showMore, setShowMore] = useState(false);
+  const [showMoreText, setShowMoreText] = useState(false);
 
   const [showMoreCast, setShowMoreCast] = useState(false);
 
@@ -37,7 +36,7 @@ export default function Detail({ route }) {
       .then((response) => response.json())
       .then((data) => setCredits(data))
       .catch((error) => console.error(error));
-  }, []);
+  }, [movieId]);
 
   return (
     <ScrollView style={styles.container}>
@@ -70,12 +69,12 @@ export default function Detail({ route }) {
           </View>
           <View style={styles.descriptionContainer}>
             <Text style={styles.descriptionTitle}>Description:</Text>
-            <Text style={styles.overview} numberOfLines={showMore ? 15 : 2}>
+            <Text style={styles.overview} numberOfLines={showMoreText ? 15 : 2}>
               {movies.overview}
             </Text>
-            <Pressable onPress={() => setShowMore(!showMore)}>
+            <Pressable onPress={() => setShowMoreText(!showMoreText)}>
               <Text style={styles.showMore}>
-                {showMore ? "Show less..." : "Show more..."}
+                {showMoreText ? "Show less..." : "Show more..."}
               </Text>
             </Pressable>
           </View>
@@ -137,7 +136,6 @@ export default function Detail({ route }) {
               </Pressable>
             </View>
           )}
-
           <MovieHorizontalList
             URL={RELATED_API_URL}
             isBigCard={true}

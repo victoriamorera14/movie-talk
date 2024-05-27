@@ -70,15 +70,51 @@ export default observer(function Home() {
         ) : (
           <Text style={styles.noFavsText}>No favorites Yet</Text>
         )}
-        <MovieHorizontalList URL={ACTION_API_URL} isBigCard={false} title={"Action"}/>
-        <MovieHorizontalList URL={ADVENTURE_API_URL} isBigCard={false} title={"Adventure"}/>
-        <MovieHorizontalList URL={COMEDY_API_URL} isBigCard={false} title={"Comedy"}/>
-        <MovieHorizontalList URL={DRAMA_API_URL} isBigCard={false} title={"Drama"}/>
-        <MovieHorizontalList URL={FAMILY_API_URL} isBigCard={false} title={"Family"}/>
-        <MovieHorizontalList URL={FANTASY_API_URL} isBigCard={false} title={"Fantasy"}/>
-        <MovieHorizontalList URL={SCIFI_API_URL} isBigCard={false} title={"Science Fiction"}/>
-        <MovieHorizontalList URL={TERROR_API_URL} isBigCard={false} title={"Terror"}/>
-        <MovieHorizontalList URL={WESTERN_API_URL} isBigCard={false} title={"Western"} />
+        <MovieHorizontalList
+          URL={ACTION_API_URL}
+          isBigCard={false}
+          title={"Action"}
+        />
+        <MovieHorizontalList
+          URL={ADVENTURE_API_URL}
+          isBigCard={false}
+          title={"Adventure"}
+        />
+        <MovieHorizontalList
+          URL={COMEDY_API_URL}
+          isBigCard={false}
+          title={"Comedy"}
+        />
+        <MovieHorizontalList
+          URL={DRAMA_API_URL}
+          isBigCard={false}
+          title={"Drama"}
+        />
+        <MovieHorizontalList
+          URL={FAMILY_API_URL}
+          isBigCard={false}
+          title={"Family"}
+        />
+        <MovieHorizontalList
+          URL={FANTASY_API_URL}
+          isBigCard={false}
+          title={"Fantasy"}
+        />
+        <MovieHorizontalList
+          URL={SCIFI_API_URL}
+          isBigCard={false}
+          title={"Science Fiction"}
+        />
+        <MovieHorizontalList
+          URL={TERROR_API_URL}
+          isBigCard={false}
+          title={"Terror"}
+        />
+        <MovieHorizontalList
+          URL={WESTERN_API_URL}
+          isBigCard={false}
+          title={"Western"}
+        />
       </View>
     </ScrollView>
   );
