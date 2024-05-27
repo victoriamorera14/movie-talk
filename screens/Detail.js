@@ -15,6 +15,7 @@ import IMAGE_PATH from "../utils/IMAGE_PATH";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import { LinearGradient } from "expo-linear-gradient";
 import FavoriteMark from "../components/FavoriteMark";
+import FavouriteMarkDetails from "../components/FavouriteMarkDetails";
 
 export default function Detail({ route }) {
   const { movieId } = route.params;
@@ -51,10 +52,10 @@ export default function Detail({ route }) {
               colors={["transparent", "rgba(0,0,0,0.8)"]}
               style={styles.gradient}
             />
-            <View style={styles.titleContainer}>
-              <Text style={styles.title}>{movies.title}</Text>
-              <FavoriteMark movieId={movies.id} />
-            </View>
+            {/* <View style={styles.titleContainer}> */}
+              <Text style={styles.title}>{movies.title}<FavouriteMarkDetails movieId={movies.id} /></Text>
+              {/* <FavoriteMark movieId={movies.id} /> */}
+            {/* </View> */}
           </View>
           <View style={styles.genresContainer}>
             {movies.genres.map((genre) => (
@@ -167,7 +168,10 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   title: {
+    display:"flex",
+    gap: 10,
     fontSize: 24,
+    alignItems:"center",
     position: "absolute",
     bottom: 20,
     left: 30,
