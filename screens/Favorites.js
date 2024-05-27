@@ -14,7 +14,6 @@ export default observer(function Favorites() {
         keyExtractor={(item) => item}
         numColumns={2}
       />
-      {console.log(favorites.favoriteList)}
     </View>
   );
   
