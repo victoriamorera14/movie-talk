@@ -10,6 +10,7 @@ import IMAGE_PATH from "../utils/IMAGE_PATH";
 import { favorites } from "../utils/favorites";
 import MovieFavorites from "../components/MovieFavorites";
 import { observer } from "mobx-react-lite";
+import SignForm from "../components/SignForm";
 
 export default observer(function Home() {
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
@@ -53,6 +54,7 @@ export default observer(function Home() {
             </View>
           </View>
         )}
+        <SignForm></SignForm>
         <MovieHorizontalList
           URL={TRENDING_API_URL}
           isBigCard={true}
