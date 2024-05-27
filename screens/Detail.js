@@ -27,6 +27,8 @@ export default function Detail({ route }) {
 
   const [showMore, setShowMore] = useState(false);
 
+  const[showMoreCast, setShowMoreCast] = useState(false);
+
   useEffect(() => {
     ApiCall(DETAILS_API_URL);
     fetch(CREDITS_API_URL)
@@ -92,7 +94,7 @@ export default function Detail({ route }) {
           {credits && (
             <View style={styles.castContainer}>
               <Text style={styles.castTitle}>Cast:</Text>
-              {credits.cast.slice(0, 10).map((actor) => (
+              {credits.cast.slice(0, showMoreCast ? 6 : 3).map((actor) => (
                 <View key={actor.cast_id} style={styles.actorContainer}>
                   <Image
                     style={styles.actorImage}
@@ -102,6 +104,11 @@ export default function Detail({ route }) {
                   <Text style={styles.actorCharacter}> as {actor.character}</Text>
                 </View>
               ))}
+              <Pressable onPress={() => setShowMoreCast(!showMoreCast)}>
+              <Text style={styles.showMore}>
+                {showMoreCast ? "Show less..." : "Show more..."}
+              </Text>
+            </Pressable>
             </View>
           )}
           
