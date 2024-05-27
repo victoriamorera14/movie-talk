@@ -5,12 +5,11 @@ import { colors } from "../utils/colors";
 import { favorites } from "../utils/favorites";
 import { observer } from "mobx-react-lite";
 
-export default observer (function FavoriteMark({ movieId }) {
+export default observer (function FavoriteMarkDetails({ movieId }) {
   const [favorite, setFavorite] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
-      <Ionicons name="bookmark" size={35} style={styles.markIcon}></Ionicons>
       <View style={styles.innerContainer}>
         <Pressable
           onPress={() => {
@@ -20,14 +19,13 @@ export default observer (function FavoriteMark({ movieId }) {
         >
           <Ionicons
             name="heart"
-            size={15}
+            size={25}
             style={
               (favorites.isFavorite(movieId) ? styles.activeHeartIcon : styles.notActiveHeartIcon)
             }
           />
         </Pressable>
       </View>
-      
     </View>
   );
 }
@@ -39,15 +37,16 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   innerContainer: {
-    position: "absolute",
-    left: 10,
-    top: 6.5,
+    backgroundColor:"black",
+    borderRadius: 10,
   },
   activeHeartIcon: {
+    margin: 3,
     zIndex: 99,
     color: colors.mainColors.secondary,
   },
   notActiveHeartIcon: {
+    margin: 3,
     zIndex: 99,
     color: colors.mainColors.gray1,
   },
