@@ -8,8 +8,6 @@ import { observer } from "mobx-react-lite";
 export default observer (function FavoriteMark({ movieId }) {
   const [favorite, setFavorite] = useState(false);
 
-  useEffect(() => {}, [favorite]);
-
   return (
     <View style={styles.mainContainer}>
       <Ionicons name="bookmark" size={35} style={styles.markIcon}></Ionicons>
@@ -24,7 +22,6 @@ export default observer (function FavoriteMark({ movieId }) {
             name="heart"
             size={15}
             style={
-              //favorite ? styles.activeHeartIcon : styles.notActiveHeartIcon
               (favorites.isFavorite(movieId) ? styles.activeHeartIcon : styles.notActiveHeartIcon)
             }
           />

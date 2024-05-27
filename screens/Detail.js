@@ -13,7 +13,8 @@ import useFetch from "../hooks/useFetch";
 import { colors } from "../utils/colors";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
 import MovieHorizontalList from "../components/MovieHorizontalList";
-import { LinearGradient } from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
+import FavoriteMark from "../components/FavoriteMark";
 
 export default function Detail({ route }) {
   const { movieId } = route.params;
@@ -27,7 +28,7 @@ export default function Detail({ route }) {
 
   const [showMore, setShowMore] = useState(false);
 
-  const[showMoreCast, setShowMoreCast] = useState(false);
+  const [showMoreCast, setShowMoreCast] = useState(false);
 
   useEffect(() => {
     ApiCall(DETAILS_API_URL);
@@ -47,10 +48,13 @@ export default function Detail({ route }) {
               source={{ uri: `${IMAGE_PATH}${movies.backdrop_path}` }}
             />
             <LinearGradient
-              colors={['transparent', 'rgba(0,0,0,0.8)']}
+              colors={["transparent", "rgba(0,0,0,0.8)"]}
               style={styles.gradient}
             />
-            <Text style={styles.title}>{movies.title}</Text>
+            <View style={styles.titleContainer}>
+              <Text style={styles.title}>{movies.title}</Text>
+              <FavoriteMark movieId={movies.id} />
+            </View>
           </View>
           <View style={styles.genresContainer}>
             {movies.genres.map((genre) => (
@@ -78,17 +82,35 @@ export default function Detail({ route }) {
           {movies.belongs_to_collection && (
             <View style={styles.collectionContainer}>
               <Text style={styles.collectionTitle}>Collection:</Text>
-              <Text style={styles.collectionName}>{movies.belongs_to_collection.name}</Text>
+              <Text style={styles.collectionName}>
+                {movies.belongs_to_collection.name}
+              </Text>
             </View>
           )}
 
           <View style={styles.additionalInfoContainer}>
-            <Text style={styles.additionalInfoTitle}>Additional Information:</Text>
-            <Text style={styles.additionalInfo}>Budget: ${movies.budget.toLocaleString()}</Text>
-            <Text style={styles.additionalInfo}>Release Date: {movies.release_date}</Text>
-            <Text style={styles.additionalInfo}>Runtime: {movies.runtime} minutes</Text>
+            <Text style={styles.additionalInfoTitle}>
+              Additional Information:
+            </Text>
+            <Text style={styles.additionalInfo}>
+              Budget: ${movies.budget.toLocaleString()}
+            </Text>
+            <Text style={styles.additionalInfo}>
+              Release Date: {movies.release_date}
+            </Text>
+            <Text style={styles.additionalInfo}>
+              Runtime: {movies.runtime} minutes
+            </Text>
             <Text style={styles.additionalInfo}>Tagline: {movies.tagline}</Text>
-            <Text style={styles.additionalInfo}>Homepage: <Text style={styles.link} onPress={() => Linking.openURL(movies.homepage)}>{movies.homepage}</Text></Text>
+            <Text style={styles.additionalInfo}>
+              Homepage:{" "}
+              <Text
+                style={styles.link}
+                onPress={() => Linking.openURL(movies.homepage)}
+              >
+                {movies.homepage}
+              </Text>
+            </Text>
           </View>
 
           {credits && (
@@ -101,17 +123,20 @@ export default function Detail({ route }) {
                     source={{ uri: `${IMAGE_PATH}${actor.profile_path}` }}
                   />
                   <Text style={styles.actorName}>{actor.name}</Text>
-                  <Text style={styles.actorCharacter}> as {actor.character}</Text>
+                  <Text style={styles.actorCharacter}>
+                    {" "}
+                    as {actor.character}
+                  </Text>
                 </View>
               ))}
               <Pressable onPress={() => setShowMoreCast(!showMoreCast)}>
-              <Text style={styles.showMore}>
-                {showMoreCast ? "Show less..." : "Show more..."}
-              </Text>
-            </Pressable>
+                <Text style={styles.showMore}>
+                  {showMoreCast ? "Show less..." : "Show more..."}
+                </Text>
+              </Pressable>
             </View>
           )}
-          
+
           <MovieHorizontalList
             URL={RELATED_API_URL}
             isBigCard={true}
@@ -128,18 +153,18 @@ const styles = StyleSheet.create({
   image: {
     height: 300,
     width: "100%",
-    position: 'absolute',
+    position: "absolute",
   },
   detailsHeader: {
     height: 300,
     width: "100%",
-    position: 'relative',
+    position: "relative",
     marginBottom: 20,
   },
   gradient: {
     height: 300,
     width: "100%",
-    position: 'absolute',
+    position: "absolute",
   },
   title: {
     fontSize: 24,

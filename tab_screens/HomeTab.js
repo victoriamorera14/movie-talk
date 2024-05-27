@@ -3,7 +3,6 @@ import Detail from "../screens/Detail";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
-import FavoriteMark from "../components/FavoriteMark";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,18 +28,16 @@ export default function HomeTab() {
         component={Home}
         options={
           { 
-            headerTitle: "Home",
-            
+            headerTitle: "Home",            
           }
         }
       />
       <Stack.Screen
         name="Detail"
         component={Detail}
-        options={(route) => ({
+        options={() => ({
           title: "Detall de Gif",
           headerLeft: () => <BackButton />,
-          headerRight: () => <FavoriteMark route={route} />
         })}
       />
     </Stack.Navigator>
