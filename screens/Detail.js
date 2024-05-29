@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   genresContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    gap: 10,
+    gap: "10%",
     marginBottom: 20,
   },
   userRatingContainer: {

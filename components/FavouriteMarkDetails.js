@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     alignContent: "center",
     justifyContent: "center",
+    marginRight: 10,
   },
   innerContainer: {
     backgroundColor:"black",
