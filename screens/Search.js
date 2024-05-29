@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Pressable, ScrollView, Dimensions} from "react-native";
 import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import SearchFilter from "../components/SearchFilter";
@@ -13,6 +13,8 @@ import Loader from "../components/Loader";
 export default function Search({ route }) {
   const { URL } = route.params != null && route.params;
   console.log(URL);
+
+  const windowDimensions = Dimensions.get('window');
 
   const [selectedFilterText, setSelectedFilterText] = useState(0);
   const [searchString, setSearchString] = useState("");
@@ -122,7 +124,7 @@ export default function Search({ route }) {
           {movies && (
             <View>
               <FlatList
-                numColumns={2}
+                numColumns={windowDimensions.width<768 ? 2 : 3}
                 columnWrapperStyle={styles.movieList}
                 data={movies.results}
                 renderItem={({ item }) => (
@@ -160,23 +162,24 @@ const styles = StyleSheet.create({
   filterTextContainer: {
     flexDirection: "row",
     justifyContent: "center",
+    gap:"10%",
   },
   highlightedFilterText: {
     fontSize: 18,
     fontFamily: "Ubuntu-Medium",
     color: "white",
-    paddingHorizontal: 30,
+
   },
   notHighlightedFilterText: {
     fontSize: 18,
     fontFamily: "Ubuntu-Medium",
     color: colors.mainColors.gray1,
-    paddingHorizontal: 30,
+
     opacity: 0.4,
   },
   movieList: {
     flex: 1,
-    justifyContent: "space-between",
+    justifyContent: "center",
     padding: 25,
   },
 });

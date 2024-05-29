@@ -31,13 +31,13 @@ export default function Profile() {
       />
       <Text style={styles.usernameStyle}>Nombre Usuario</Text>
       <View style={styles.usernameLine}></View>
-      <Pressable onPress={handleFavoritePress}>
+      <Pressable onPress={handleFavoritePress} style={styles.profileOptions}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
-      <Pressable onPress={handleSocialPress}>
+      <Pressable onPress={handleSocialPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="people" texto="Social" />
       </Pressable>
-      <Pressable onPress={handleChatPress}>
+      <Pressable onPress={handleChatPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
     </View>
@@ -55,6 +55,10 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
   },
+
+  profileOptions:{
+    width: "100%"
+  },  
   usernameStyle: {
     margin: 25,
     marginTop: 33,

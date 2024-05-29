@@ -16,9 +16,10 @@ export default function SeccionUser({ iconLeft, texto}) {
 
 const styles = StyleSheet.create({
   container: {
-    width:260,
+    width: "100%",
     flexDirection: "row",
     alignItems: "center",
+    justifyContent:"space-around",
     padding: 10,
     borderRadius: 10,
     margin: 10,
@@ -34,6 +35,7 @@ const styles = StyleSheet.create({
     paddingRight:20,
   },
   icons: {
-    paddingLeft: 10
+    marginLeft: 50,
+    marginRight: 50,
   }
 });
