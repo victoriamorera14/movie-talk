@@ -21,6 +21,10 @@ export default function Profile() {
     navigation.navigate("ChatTab");
   };
 
+  const handleLogIn = () => {
+    navigation.navigate("LogIn");
+  };
+
   return (
     <View style={styles.container}>
     <View style={styles.profileContainer}>
@@ -30,7 +34,6 @@ export default function Profile() {
         userWidth={280}
       />
       <Text style={styles.usernameStyle}>Nombre Usuario</Text>
-      <View style={styles.usernameLine}></View>
       <Pressable onPress={handleFavoritePress} style={styles.profileOptions}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
@@ -38,6 +41,9 @@ export default function Profile() {
         <SeccionUser iconLeft="people" texto="Social" />
       </Pressable>
       <Pressable onPress={handleChatPress} style={styles.profileOptions}>
+        <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
+      </Pressable>
+      <Pressable onPress={handleLogIn} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
     </View>
@@ -60,16 +66,14 @@ const styles = StyleSheet.create({
     width: "100%"
   },  
   usernameStyle: {
-    margin: 25,
-    marginTop: 33,
+    padding: 15,
+    margin: 10,
+    width: "75%",
+    textAlign:"center",
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
     fontFamily: "Ubuntu-Bold",
     color: "white",
     fontSize: 20,
-  },
-  usernameLine: {
-    borderBottomWidth: 2,
-    borderBottomColor: "white",
-    width: 400,
-    marginBottom: 8,
   },
 });
