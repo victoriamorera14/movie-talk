@@ -12,7 +12,6 @@ export default function SignForm() {
   const [errorMsg, setErrorMsg] = useState(null);
 
   const handleSignUp = async () => {
-    //this.preventDefault();
     const { name, email, password } = userCredentials;
     const { data, error } = await supabase.auth.signUp({
       email: email,
@@ -34,6 +33,8 @@ export default function SignForm() {
     });
     if (error) {
       setErrorMsg(error.message);
+    } else {
+      console.log(data);
     }
   };
 
@@ -48,26 +49,6 @@ export default function SignForm() {
   return (
     <View style={styles.container}>
       {errorMsg && <View style={styles.error}>{errorMsg}</View>}
-      {/* <form>
-        <label>
-          Nom:
-          <input type="text" name="name" onChange={handleChange} />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" onChange={handleChange} />
-        </label>
-        <label>
-          Contrasenya:
-          <input type="password" name="password" onChange={handleChange} />
-        </label>
-        <button type="button" onClick={handleSignUp}>
-          Registra't
-        </button>
-        <button type="button" onClick={handleSignIn}>
-          Entra
-        </button>
-      </form> */}
       <TextInput
         style={styles.userInput}
         placeholder="Username"
