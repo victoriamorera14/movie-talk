@@ -86,10 +86,10 @@ export default function Filters() {
         />
         <View style={styles.button}>
           <CustomButton
-            borderRadius={20}
+            borderRadius={50}
             defaultColor={colors.mainColors.secondary}
-            height={40}
-            width={100}
+            height={50}
+            width={150}
             pressedColor={"green"}
             text={"Submit"}
             onPress={() => {

@@ -67,10 +67,10 @@ export default function LogIn() {
         </View>
         <CustomButton
           text={"Enter"}
-          width={"150"}
-          height={"75"}
+          width={160}
+          height={50}
           defaultColor={colors.mainColors.secondary}
-          borderRadius={15}
+          borderRadius={50}
           onPress={handleSignIn}
         />
         <Text style={styles.registerText}>
