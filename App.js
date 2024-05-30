@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "./utils/supabaseClient.js";
 import LogIn from "./screens/LogIn.js";
 import Register from "./screens/Register.js";
-import SignForm from "./components/SignForm.js";
+import BackButton from "./components/BackButton.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -60,10 +60,8 @@ export default function App() {
                   tabBarIcon: ({ focused }) => (
                     <TabIcon name="home" focused={focused} />
                   ),
-                  //tabBarIcon: () => <Ionicons name="home" size={35} margin={5} color={colors.mainColors.gray2}/>,
-                  //title: "Home",
                 }}
-              ></Tab.Screen>
+              />
               <Tab.Screen
                 name="ChatsTab"
                 component={ChatTab}
@@ -75,12 +73,8 @@ export default function App() {
                       focused={focused}
                     />
                   ),
-                  /* tabBarIcon: ({ focused }) => (
-                <TabIcon name="home" focused={focused} />
-              ),
-              title: "Home",*/
                 }}
-              ></Tab.Screen>
+              />
               <Tab.Screen
                 name="SearchTab"
                 component={SearchTab}
@@ -89,12 +83,8 @@ export default function App() {
                   tabBarIcon: ({ focused }) => (
                     <TabIcon name="search" focused={focused} />
                   ),
-                  /* tabBarIcon: ({ focused }) => (
-                <TabIcon name="home" focused={focused} />
-              ),
-              title: "Home",*/
                 }}
-              ></Tab.Screen>
+              />
               <Tab.Screen
                 name="ProfileTab"
                 component={ProfileTab}
@@ -103,12 +93,8 @@ export default function App() {
                   tabBarIcon: ({ focused }) => (
                     <TabIcon name="person" focused={focused} />
                   ),
-                  /* tabBarIcon: ({ focused }) => (
-                <TabIcon name="home" focused={focused} />
-              ),
-              title: "Home",*/
                 }}
-              ></Tab.Screen>
+              />
             </Tab.Navigator>
           ) : (
             <Stack.Navigator

@@ -1,5 +1,5 @@
 import { View, ScrollView, StyleSheet, FlatList, Text } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import API_KEY from "../api/API_KEY";
@@ -10,9 +10,6 @@ import IMAGE_PATH from "../utils/IMAGE_PATH";
 import { favorites } from "../utils/favorites";
 import MovieFavorites from "../components/MovieFavorites";
 import { observer } from "mobx-react-lite";
-import SignForm from "../components/SignForm";
-import { supabase } from "../utils/supabaseClient";
-import ChatProvisional from "../components/ChatDeMentira";
 
 export default observer(function Home() {
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
@@ -28,23 +25,6 @@ export default observer(function Home() {
   const FAMILY_API_URL = `https://api.themoviedb.org/3/discover/movie?&with_genres=10751&api_key=${API_KEY}`;
 
   const { isLoading, error, movies, ApiCall } = useFetch();
-
-  // const [session, setSession] = useState(null);
-
-  // useEffect(() => {
-  //   const { data } = supabase.auth.onAuthStateChange((event, session) => {
-  //     console.log(event, session);
-  //     if (event === "SIGNED_IN") {
-  //       setSession(session);
-  //     } else if (event === "SIGNED_OUT") {
-  //       setSession(null);
-  //     }
-  //   });
-
-  //   return () => {
-  //     data.subscription.unsubscribe();
-  //   };
-  // }, []);
 
   useEffect(() => {
     ApiCall(DEMO_CAROUSEL_API_URL);
@@ -73,8 +53,6 @@ export default observer(function Home() {
             </View>
           </View>
         )}
-        {/* {session ? <ChatProvisional session={session}/> : <SignForm />} */}
-
         <MovieHorizontalList
           URL={TRENDING_API_URL}
           isBigCard={true}

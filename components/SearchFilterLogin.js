@@ -8,8 +8,9 @@ export default function SearchFilterLogin({
   fieldName,
   showIconRight,
 }) {
-    
-  const [changeVisibility, setchangeVisibility] = useState(false);
+  const [changeVisibility, setchangeVisibility] = useState(
+    fieldName === "password" ? true : false
+  );
 
   const handlePress = () => {
     setchangeVisibility(!changeVisibility);
