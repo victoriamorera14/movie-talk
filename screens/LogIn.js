@@ -1,12 +1,43 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
-import React from 'react'
+import React, { useState } from 'react'
 import UserCard from "../components/UserCard";
 import { colors } from "../utils/colors";
 import Loader from "../components/Loader";
 import SearchFilter from "../components/SearchFilter";
 import CustomButton from "../components/CustomButton";
+import SearchFilterLogin from "../components/SearchFilterLogin";
+import { supabase } from "../utils/supabaseClient";
 
 export default function LogIn() {
+
+  const [userCredentials, setUserCredentials] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  const handleSignIn = async () => {
+    const { email, password } = userCredentials;
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      console.log(data);
+    }
+  };
+
+  const handleInputChange = (text, name) => {
+    setUserCredentials((prev) => {
+      const newCred = { ...prev, [name]: text };
+      console.log(newCred);
+      return newCred;
+    });
+  };
+
   return (
     <View style={styles.container}>
         <Text style={styles.appTitle}>Movie Talk</Text>
@@ -18,14 +49,16 @@ export default function LogIn() {
           userWidth={150}
           ></UserCard>
           <View style={styles.loginContainer}>
-            <SearchFilter
-            showIconLeft={false}
+            <SearchFilterLogin
             showIconRight={false}
-            ></SearchFilter>
-            <SearchFilter
-            showIconLeft={false}
+            fieldName={"email"}
+            setLoginText={handleInputChange}
+            />
+            <SearchFilterLogin
             showIconRight={true}
-            ></SearchFilter>
+            fieldName={"password"}
+            setLoginText={handleInputChange}
+            />
           </View>
           <CustomButton
           text={"Enter"}
@@ -33,6 +66,7 @@ export default function LogIn() {
           height={"75"}
           defaultColor={colors.mainColors.secondary}
           borderRadius={15}
+          onPress={handleSignIn}
           ></CustomButton>
         </View>
     </View>

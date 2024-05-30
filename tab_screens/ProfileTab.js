@@ -1,5 +1,4 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Text } from "react-native";
 import Profile from "../screens/Profile";
 import Favorites from "../screens/Favorites";
 import BackButton from "../components/BackButton";
@@ -7,7 +6,6 @@ import { colors } from "../utils/colors";
 import { observer } from "mobx-react-lite";
 import Social from "../screens/Social";
 import ChatTab from "./ChatTab";
-import LogIn from "../screens/LogIn";
 
 const Stack = createNativeStackNavigator();
 
@@ -55,15 +53,6 @@ export default observer(function ProfileTab() {
         component={ChatTab}
         options={() => ({
           title: "Lista de chats",
-          headerLeft: () => <BackButton />,
-          headerShown: false,
-        })}
-      />
-      <Stack.Screen
-        name="LogIn"
-        component={LogIn}
-        options={() => ({
-          title: "LogIn",
           headerLeft: () => <BackButton />,
           headerShown: false,
         })}

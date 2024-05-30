@@ -29,22 +29,22 @@ export default observer(function Home() {
 
   const { isLoading, error, movies, ApiCall } = useFetch();
 
-  const [session, setSession] = useState(null);
+  // const [session, setSession] = useState(null);
 
-  useEffect(() => {
-    const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session);
-      if (event === "SIGNED_IN") {
-        setSession(session);
-      } else if (event === "SIGNED_OUT") {
-        setSession(null);
-      }
-    });
+  // useEffect(() => {
+  //   const { data } = supabase.auth.onAuthStateChange((event, session) => {
+  //     console.log(event, session);
+  //     if (event === "SIGNED_IN") {
+  //       setSession(session);
+  //     } else if (event === "SIGNED_OUT") {
+  //       setSession(null);
+  //     }
+  //   });
 
-    return () => {
-      data.subscription.unsubscribe();
-    };
-  }, []);
+  //   return () => {
+  //     data.subscription.unsubscribe();
+  //   };
+  // }, []);
 
   useEffect(() => {
     ApiCall(DEMO_CAROUSEL_API_URL);
@@ -73,7 +73,7 @@ export default observer(function Home() {
             </View>
           </View>
         )}
-        {session ? <ChatProvisional session={session}/> : <SignForm />}
+        {/* {session ? <ChatProvisional session={session}/> : <SignForm />} */}
 
         <MovieHorizontalList
           URL={TRENDING_API_URL}

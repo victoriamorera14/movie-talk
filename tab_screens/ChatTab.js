@@ -37,7 +37,7 @@ export default function ChatTab() {
         name="Chat"
         component={Chat}
         options={() => ({
-            title: "Detall de Gif",
+            title: "Chat",
             headerLeft: () => <BackButton />,
           })}
       />

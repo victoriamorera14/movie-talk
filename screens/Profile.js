@@ -2,9 +2,9 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import UserCard from "../components/UserCard";
 import SeccionUser from "../components/SeccionUser";
-
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../utils/colors";
+import { supabase } from "../utils/supabaseClient";
 
 export default function Profile() {
   const navigation = useNavigation();
@@ -19,10 +19,6 @@ export default function Profile() {
 
   const handleChatPress = () => {
     navigation.navigate("ChatTab");
-  };
-
-  const handleLogIn = () => {
-    navigation.navigate("LogIn");
   };
 
   return (
@@ -43,9 +39,7 @@ export default function Profile() {
       <Pressable onPress={handleChatPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
-      <Pressable onPress={handleLogIn} style={styles.profileOptions}>
-        <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
-      </Pressable>
+      <Pressable onPress={() => supabase.auth.signOut()}><Text>SignOut</Text></Pressable>
     </View>
     </View>
   );
