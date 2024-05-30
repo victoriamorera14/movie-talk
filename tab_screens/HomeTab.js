@@ -36,7 +36,7 @@ export default function HomeTab() {
         name="Detail"
         component={Detail}
         options={() => ({
-          title: "Detall de Gif",
+          title: "Movie details",
           headerLeft: () => <BackButton />,
         })}
       />

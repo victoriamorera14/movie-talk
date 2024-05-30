@@ -1,6 +1,5 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import React, { useState } from "react";
-import UserCard from "../components/UserCard";
 import { colors } from "../utils/colors";
 import Loader from "../components/Loader";
 import CustomButton from "../components/CustomButton";

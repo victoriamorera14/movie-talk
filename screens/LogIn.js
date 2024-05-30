@@ -73,9 +73,11 @@ export default function LogIn() {
           borderRadius={15}
           onPress={handleSignIn}
         />
-        <Text>If you havn't registered yet, you can click</Text>
+        <Text style={styles.registerText}>
+          If you havn't registered yet, you can click
+        </Text>
         <Pressable onPress={handleNavigation}>
-          <Text>Here</Text>
+          <Text style={styles.registerPressableText}>Here</Text>
         </Pressable>
       </View>
     </View>
@@ -111,4 +113,6 @@ const styles = StyleSheet.create({
     color: colors.mainColors.secondary,
     fontSize: 30,
   },
+  registerText: { color: "white" },
+  registerPressableText: { color: "red" },
 });

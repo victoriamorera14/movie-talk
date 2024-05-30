@@ -34,7 +34,7 @@ export default function SearchTab() {
         name="Detail"
         component={Detail}
         options={() => ({
-          title: "Detall de Gif",
+          title: "Movie details",
           headerLeft: () => <BackButton />,
         })}
       />
