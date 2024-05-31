@@ -10,6 +10,8 @@ import IMAGE_PATH from "../utils/IMAGE_PATH";
 import { favorites } from "../utils/favorites";
 import MovieFavorites from "../components/MovieFavorites";
 import { observer } from "mobx-react-lite";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 export default observer(function Home() {
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
@@ -33,6 +35,8 @@ export default observer(function Home() {
   return (
     <ScrollView>
       <View style={styles.container}>
+        {isLoading && <Loader />}
+        {error && <Error message={error} />}
         {movies && (
           <View style={styles.homeCarousel}>
             <CarouselComponent

@@ -15,6 +15,8 @@ import IMAGE_PATH from "../utils/IMAGE_PATH";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import { LinearGradient } from "expo-linear-gradient";
 import FavouriteMarkDetails from "../components/FavouriteMarkDetails";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 
 export default function Detail({ route }) {
   const { movieId } = route.params;
@@ -40,6 +42,8 @@ export default function Detail({ route }) {
 
   return (
     <ScrollView style={styles.container}>
+      {isLoading && <Loader />}
+      {error && <Error message={error} />}
       {movies && (
         <>
           <View style={styles.detailsHeader}>

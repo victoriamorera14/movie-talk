@@ -54,10 +54,10 @@ export default function LogIn() {
         </View>
         <CustomButton
           text={"Sign Up"}
-          width={"185"}
-          height={"75"}
+          width={170}
+          height={50}
           defaultColor={colors.mainColors.secondary}
-          borderRadius={15}
+          borderRadius={40}
           onPress={handleSignUp}
         />        
       </View>

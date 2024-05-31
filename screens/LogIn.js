@@ -2,11 +2,11 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import UserCard from "../components/UserCard";
 import { colors } from "../utils/colors";
-import Loader from "../components/Loader";
 import { useNavigation } from "@react-navigation/native";
 import CustomButton from "../components/CustomButton";
 import SearchFilterLogin from "../components/SearchFilterLogin";
 import { supabase } from "../utils/supabaseClient";
+import Loader from "../components/Loader";
 
 export default function LogIn() {
   const [userCredentials, setUserCredentials] = useState({
@@ -15,15 +15,18 @@ export default function LogIn() {
     password: "",
   });
   const [errorMsg, setErrorMsg] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigation = useNavigation();
 
   const handleSignIn = async () => {
+    setIsLoading(true);
     const { email, password } = userCredentials;
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
+    setIsLoading(false);
     if (error) {
       setErrorMsg(error.message);
     } else {
@@ -73,12 +76,13 @@ export default function LogIn() {
           borderRadius={50}
           onPress={handleSignIn}
         />
-        <Text style={styles.registerText}>
-          If you havn't registered yet, you can click
-        </Text>
-        <Pressable onPress={handleNavigation}>
-          <Text style={styles.registerPressableText}>Here</Text>
-        </Pressable>
+        {isLoading && <Loader />}
+        <View style={styles.registerContainer}>
+          <Text style={styles.registerText}>If you don't have an account</Text>
+          <Pressable onPress={handleNavigation}>
+            <Text style={styles.registerPressableText}> Register here</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -113,6 +117,14 @@ const styles = StyleSheet.create({
     color: colors.mainColors.secondary,
     fontSize: 30,
   },
-  registerText: { color: "white" },
-  registerPressableText: { color: "red" },
+  registerContainer: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  registerText: {
+    color: "white",
+  },
+  registerPressableText: {
+    color: colors.mainColors.secondary,
+  },
 });
