@@ -1,9 +1,11 @@
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, Dimensions } from "react-native";
 import React from "react";
+
+const { width: screenWidth } = Dimensions.get("window");
 
 export default function UserCard({ title, image, userHeight, userWidth }) {
   return (
-    <View style={{ height: userHeight, width: userWidth }}>
+    <View style={{ height: userHeight || screenWidth * 0.5, width: userWidth || screenWidth * 0.9 }}>
       <ImageBackground source={image} style={styles.smallImage}>
         {title && (
           <View style={styles.smallTitleContainer}>
@@ -27,7 +29,7 @@ const styles = StyleSheet.create({
   },
   smallTitleContainer: {
     backgroundColor: "black",
-    height: "40px",
+    height: 40,
     opacity: 0.8,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
