@@ -33,15 +33,14 @@ class Favorites {
         } else {
             this._favorites.add(id);
         }
+        this.saveFavoritesToStorage();
     }
 
     isFavorite(id) {
-        //console.log('is favorite: ', this._favorites.has(id))
         return this._favorites.has(id);
     }
 
     get favoriteList() {
-        //console.log('favoriteList: ', [...this._favorites])
         return [...this._favorites];
     }
 }

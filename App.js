@@ -15,12 +15,17 @@ import { supabase } from "./utils/supabaseClient.js";
 import LogIn from "./screens/LogIn.js";
 import Register from "./screens/Register.js";
 import BackButton from "./components/BackButton.js";
+import { favorites } from "./utils/favorites.js";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [session, setSession] = useState(null);
+
+  useEffect(() => {
+    favorites.loadFavoritesFromStorage();
+  }, [])
 
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
