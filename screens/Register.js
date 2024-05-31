@@ -12,9 +12,11 @@ export default function LogIn() {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
 
   const handleSignUp = async () => {
+    setIsLoading(true);
     const { name, email, password } = userCredentials;
     const { data, error } = await supabase.auth.signUp({
       email: email,
@@ -25,13 +27,17 @@ export default function LogIn() {
         },
       },
     });
-    !error ? console.log(data) : setErrorMsg(error.message);
+    setIsLoading(false);
+    if (error) {
+      setErrorMsg(error.message);
+    } else {
+      console.log(data);
+    }
   };
 
   const handleInputChange = (text, name) => {
     setUserCredentials((prev) => {
       const newCred = { ...prev, [name]: text };
-      console.log(newCred);
       return newCred;
     });
   };
@@ -52,6 +58,7 @@ export default function LogIn() {
             setLoginText={handleInputChange}
           />
         </View>
+        {isLoading && <Loader />}
         <CustomButton
           text={"Sign Up"}
           width={170}
@@ -60,6 +67,7 @@ export default function LogIn() {
           borderRadius={40}
           onPress={handleSignUp}
         />        
+        {errorMsg && <Text style={styles.errorText}>{errorMsg}</Text>}
       </View>
     </View>
   );
@@ -89,5 +97,9 @@ const styles = StyleSheet.create({
     marginTop: 100,
     color: "white",
     fontSize: 30,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });
