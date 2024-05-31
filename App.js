@@ -36,7 +36,6 @@ export default function App() {
         setSession(null);
       }
     });
-    console.log(supabase.auth.getSession());
 
     return () => {
       data.subscription.unsubscribe();
