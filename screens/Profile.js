@@ -5,6 +5,7 @@ import SeccionUser from "../components/SeccionUser";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../utils/colors";
 import { supabase } from "../utils/supabaseClient";
+import CustomButton from "../components/CustomButton";
 
 export default function Profile() {
   const navigation = useNavigation();
@@ -39,7 +40,15 @@ export default function Profile() {
       <Pressable onPress={handleChatPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
-      <Pressable onPress={() => supabase.auth.signOut()}><Text>SignOut</Text></Pressable>
+      <CustomButton
+            borderRadius={50}
+            defaultColor={colors.mainColors.secondary}
+            height={50}
+            width={150}
+            pressedColor={"green"}
+            text={"Sign out"}
+            onPress={() => supabase.auth.signOut()}
+          />
     </View>
     </View>
   );
