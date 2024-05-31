@@ -3,6 +3,7 @@ import Detail from "../screens/Detail";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
+import Chat from "../screens/Chat";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,14 @@ export default function HomeTab() {
           title: "Movie details",
           headerLeft: () => <BackButton />,
         })}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={() => ({
+            title: "Movie chat",
+            headerLeft: () => <BackButton />,
+          })}
       />
     </Stack.Navigator>
   );

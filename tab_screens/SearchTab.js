@@ -4,6 +4,7 @@ import Filters from "../screens/Filters";
 import Detail from "../screens/Detail";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
+import Chat from "../screens/Chat";
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,14 @@ export default function SearchTab() {
           title: "Filter",
           headerLeft: () => <BackButton />,
         })}
+      />
+      <Stack.Screen
+        name="Chat"
+        component={Chat}
+        options={() => ({
+            title: "Movie chat",
+            headerLeft: () => <BackButton />,
+          })}
       />
     </Stack.Navigator>
   );

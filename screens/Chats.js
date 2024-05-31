@@ -1,14 +1,20 @@
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import React from "react";
 import AccesoChat from "../components/AccesoChat";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Chats() {
+  
+  const navigation = useNavigation();
+
   return (
     <View>
-      <AccesoChat
-        firstLineText="Título del chat"
-        secondLineText="Último mensaje enviado"
-      />
+      <Pressable onPress={() => navigation.navigate("Chat")}>
+        <AccesoChat
+          firstLineText="Título del chat"
+          secondLineText="Último mensaje enviado"
+        />
+      </Pressable>
     </View>
   );
 }

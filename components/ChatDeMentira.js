@@ -4,6 +4,7 @@ import { supabase } from "../utils/supabaseClient";
 import { colors } from "../utils/colors";
 
 export default function ChatProvisional({ session }) {
+  console.log(session);
   const [messages, setMessages] = useState(null);
   const [messageValue, setMessageValue] = useState("");
 
@@ -64,7 +65,6 @@ export default function ChatProvisional({ session }) {
           ))}
       </View>
       <TextInput
-        //style={styles.userInput}
         placeholder="message"
         placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setMessageValue(text)}

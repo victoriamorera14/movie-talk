@@ -28,7 +28,7 @@ export default function ChatTab() {
         component={Chats}
         options={
           { 
-            title: "Lista de chats" 
+            title: "Chat list" 
           }
         }
       />
@@ -36,7 +36,7 @@ export default function ChatTab() {
         name="Chat"
         component={Chat}
         options={() => ({
-            title: "Chat",
+            title: "Movie chat",
             headerLeft: () => <BackButton />,
           })}
       />

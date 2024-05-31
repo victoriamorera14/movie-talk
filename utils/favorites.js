@@ -8,7 +8,6 @@ class Favorites {
     }
 
     async saveFavoritesToStorage() {
-        console.log('guardant favorits a Storage');
         try {
             await AsyncStorage.setItem("favorites", JSON.stringify(this._favorites));
         } catch (e) {
@@ -17,7 +16,6 @@ class Favorites {
     }
 
     async loadFavoritesFromStorage() {
-        console.log('carregant favorits de Storage');
         const favoritesData = await AsyncStorage.getItem("favorites");
         if (favoritesData) {
             const favorites = JSON.parse(favoritesData);
