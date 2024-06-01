@@ -49,7 +49,7 @@ export default function ChatProvisional({ session }) {
 
   return (
     <>
-      <View>
+      <View style={styles.containerChat}>
         {messages &&
           messages.map((message) => (
             <View
@@ -64,27 +64,63 @@ export default function ChatProvisional({ session }) {
             </View>
           ))}
       </View>
-      <TextInput
+      <View style={styles.containerInput}>
+      <TextInput style={styles.InputUsuario}
         placeholder="message"
         placeholderTextColor={"#FFFFFFC2"}
         onChangeText={(text) => setMessageValue(text)}
       />
-      <Pressable onPress={handleSubmit}>
+      <Pressable style={styles.botonEnviar} onPress={handleSubmit}>
         <Text>Enviar</Text>
       </Pressable>
+      </View>
     </>
   );
 }
 
 const styles = StyleSheet.create({
   container: { backgroundColor: colors.mainColors.primary },
+  containerChat: {
+    height: "92%",
+    width: "100%",
+    backgroundColor:colors.mainColors.gray3,
+    borderRadius: 20,
+    alignItems: "center",
+    padding:10,
+  },
+  containerInput: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.mainColors.gray2,
+    borderRadius: 20,
+    margin:10,
+    width: "100%",
+    height: "7%",
+  },
   myMessage: {
-    backgroundColor: "blue",
-    height: 300,
+    backgroundColor: colors.mainColors.secondary,
+    width: "90%",
+    height: 20,
+    margin: 5,
+    borderRadius: 10,
+    fontFamily: "Ubuntu-Regular",
   },
   notMyMessage: {
-    backgroundColor: "red",
-    height: 300,
+    backgroundColor: colors.mainColors.gray1,
+    width: "90%",
+    height: 20,
+    margin: 5,
+    borderRadius: 10,
+    fontFamily: "Ubuntu-Regular",
+  },
+  InputUsuario: {
+    width: "80%",
+    padding: 10,
+  },
+  botonEnviar: {
+    backgroundColor: colors.mainColors.gray3,
+    width: "10%",
+    borderRadius: 15,
   },
   userInput: {},
 });

@@ -27,8 +27,8 @@ export default function Profile() {
     <View style={styles.profileContainer}>
       <UserCard
         image={require("../assets/user_image.jpg")}
-        userHeight={230}
-        userWidth={280}
+        userHeight={"100%"}
+        userWidth={"80%"}
       />
       <Text style={styles.usernameStyle}>Nombre Usuario</Text>
       <Pressable onPress={handleFavoritePress} style={styles.profileOptions}>
@@ -44,7 +44,7 @@ export default function Profile() {
             borderRadius={50}
             defaultColor={colors.mainColors.secondary}
             height={50}
-            width={150}
+            width={"40%"}
             pressedColor={"green"}
             text={"Sign out"}
             onPress={() => supabase.auth.signOut()}
@@ -58,15 +58,20 @@ const styles = StyleSheet.create({
   container:{
     height: "100%",
     backgroundColor: colors.mainColors.primary,
+    alignItems: "center",
   },
   profileContainer: {
     backgroundColor: colors.mainColors.primary,
     flexDirection: "column",
     alignItems: "center",
+    width: "100%",
   },
 
   profileOptions:{
-    width: "100%"
+    alignItems: "center",
+    width: "100%",
+    height: "35%",
+    display: "flex",
   },  
   usernameStyle: {
     padding: 15,
