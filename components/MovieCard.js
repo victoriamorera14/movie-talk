@@ -1,12 +1,11 @@
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import { View, Text, ImageBackground, StyleSheet, Pressable } from "react-native";
 import React, { useState } from "react";
-import { ImageBackground } from "react-native";
 import FavoriteMark from "./FavoriteMark";
 import { useNavigation } from "@react-navigation/native";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function MovieCard({ isBigCard, title, image, movieId }) {
-  const imageSource = `${IMAGE_PATH}${image}`;
+  const imageSource = { uri: `${IMAGE_PATH}${image}` };
   const [pressed, setPressed] = useState(false);
 
   const navigation = useNavigation();
@@ -51,8 +50,8 @@ export default function MovieCard({ isBigCard, title, image, movieId }) {
 
 const styles = StyleSheet.create({
   smallImage: {
-    height: "140px",
-    width: "110px",
+    height: 140, 
+    width: 110, 
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 15,
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
   },
   smallTitleContainer: {
     backgroundColor: "black",
-    height: "40px",
+    height: 40, 
     opacity: 0.8,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
@@ -73,8 +72,8 @@ const styles = StyleSheet.create({
     top: -4,
   },
   bigImage: {
-    height: "186px",
-    width: "166px",
+    height: 186, 
+    width: 166, 
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 20,
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
   },
   bigTitleContainer: {
     backgroundColor: "black",
-    height: "40px",
+    height: 40, 
     opacity: 0.8,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,

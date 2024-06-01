@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     borderColor: "grey",
-    borderRadius: "15px",
+    borderRadius: 15,
     padding: 5,
     flex: 1,
   },
