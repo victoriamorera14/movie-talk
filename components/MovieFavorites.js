@@ -51,8 +51,8 @@ export default function MovieFavorites({ movieId }) {
 
 const styles = StyleSheet.create({
   smallImage: {
-    height: "140px",
-    width: "110px",
+    height: 140,
+    width: 110,
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 15,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   },
   smallTitleContainer: {
     backgroundColor: "black",
-    height: "40px",
+    height: 40,
     opacity: 0.8,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
@@ -73,17 +73,18 @@ const styles = StyleSheet.create({
     top: -4,
   },
   bigImage: {
-    height: "186px",
-    width: "166px",
+    height: 186, 
+    width: 166, 
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 20,
     overflow: "hidden",
-    margin: 10,
+    marginTop:10,
+    marginLeft: 5,
   },
   bigTitleContainer: {
     backgroundColor: "black",
-    height: "40px",
+    height: 40,
     opacity: 0.8,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
