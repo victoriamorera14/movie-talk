@@ -55,7 +55,6 @@ export default function ChatProvisional({ session }) {
 
   return (
     <>
-      {console.log(messages)}
       <View style={styles.containerChat}>
         {messages && (
           // messages.map((message) => (
@@ -67,22 +66,21 @@ export default function ChatProvisional({ session }) {
           //         : styles.notMyMessage
           //     }
           //   >
-          //     {message.content}
+          //     <Text>{message.content}</Text>
           //   </View>
           // ))
           <FlatList
-            vertical
             data={messages}
             renderItem={(message) => {
+              console.log(message.item);
               <View
-                key={message.id}
                 style={
-                  session.user.id === message.user_id
+                  session.user.id === message.item.user_id
                     ? styles.myMessage
                     : styles.notMyMessage
                 }
               >
-                {message.content}
+                <Text>{message.item.content}</Text>
               </View>;
             }}
           />
@@ -94,6 +92,7 @@ export default function ChatProvisional({ session }) {
           placeholder="message"
           placeholderTextColor={"#FFFFFFC2"}
           onChangeText={(text) => setMessageValue(text)}
+          onSubmitEditing={handleSubmit}
         />
         <Pressable style={styles.botonEnviar} onPress={handleSubmit}>
           <Text>Enviar</Text>

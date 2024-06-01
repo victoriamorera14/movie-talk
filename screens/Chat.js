@@ -9,7 +9,6 @@ export default function Chat() {
 
   useEffect(() => {
     const { data } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log(event, session);
       if (event === "SIGNED_IN") {
         setSession(session);
       } else if (event === "SIGNED_OUT") {
