@@ -73,6 +73,7 @@ export default function LogIn() {
           width={160}
           height={50}
           defaultColor={colors.mainColors.secondary}
+          pressedColor={colors.mainColors.gray3}
           borderRadius={50}
           onPress={handleSignIn}
         />

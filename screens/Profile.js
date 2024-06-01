@@ -40,12 +40,12 @@ export default function Profile() {
       <Pressable onPress={handleChatPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>
-      <CustomButton
+      <CustomButton style={styles.signOutbutton}
             borderRadius={50}
             defaultColor={colors.mainColors.secondary}
             height={50}
             width={150}
-            pressedColor={"green"}
+            pressedColor={colors.mainColors.gray3}
             text={"Sign out"}
             onPress={() => supabase.auth.signOut()}
           />
@@ -68,7 +68,9 @@ const styles = StyleSheet.create({
   },
 
   profileOptions:{
-    width: "100%"
+    width: "100%",
+    height: "10%",
+    marginBottom:20,
     // alignItems: "center",
     // width: "100%",
     // height: "35%",

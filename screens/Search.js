@@ -59,8 +59,8 @@ export default function Search({ route }) {
           />
           <CustomButton
             borderRadius={90}
-            defaultColor={"#E92348"}
-            pressedColor={"#373246"}
+            defaultColor={colors.mainColors.secondary}
+            pressedColor={colors.mainColors.gray2}
             height={38}
             width={38}
             iconSource={"options-outline"}

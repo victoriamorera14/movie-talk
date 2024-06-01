@@ -90,7 +90,7 @@ export default function Filters() {
             defaultColor={colors.mainColors.secondary}
             height={50}
             width={150}
-            pressedColor={"green"}
+            pressedColor={colors.mainColors.gray2}
             text={"Submit"}
             onPress={() => {
               navigation.navigate("Search", { URL: FILTER_API_URL });
