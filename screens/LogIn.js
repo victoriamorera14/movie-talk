@@ -78,6 +78,7 @@ export default function LogIn() {
           onPress={handleSignIn}
         />
         {isLoading && <Loader />}
+        {errorMsg && <Error message={errorMsg} />}
         <View style={styles.registerContainer}>
           <Text style={styles.registerText}>If you don't have an account</Text>
           <Pressable onPress={handleNavigation}>
