@@ -113,10 +113,12 @@ const styles = StyleSheet.create({
     marginTop: 100,
     color: "white",
     fontSize: 18,
+    fontFamily: "Ubuntu-Regular",
   },
   loginTitle: {
     color: colors.mainColors.secondary,
     fontSize: 30,
+    fontFamily: "Ubuntu-Regular",
   },
   registerContainer: {
     flexDirection: "column",
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
   },
   registerText: {
     color: "white",
+    fontFamily: "Ubuntu-Bold",
   },
   registerPressableText: {
     color: colors.mainColors.secondary,

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     backgroundColor:colors.mainColors.primary,
-    padding: 10
+    padding: 10,
   },
   columnWrapper: {
     gap: 25,

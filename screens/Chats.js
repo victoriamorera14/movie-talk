@@ -1,14 +1,15 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import AccesoChat from "../components/AccesoChat";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "../utils/colors";
 
 export default function Chats() {
   
   const navigation = useNavigation();
 
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable onPress={() => navigation.navigate("Chat")}>
         <AccesoChat
           firstLineText="Título del chat"
@@ -18,3 +19,13 @@ export default function Chats() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: "100%",
+    width: "100%",
+    backgroundColor:colors.mainColors.primary,
+    alignItems: "center",
+    padding: 5,
+  },
+});
