@@ -4,7 +4,6 @@ import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
 import API_KEY from "../api/API_KEY";
 import useFetch from "../hooks/useFetch";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors } from "../utils/colors";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
 import { favorites } from "../utils/favorites";

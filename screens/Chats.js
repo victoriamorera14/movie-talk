@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Pressable, StyleSheet } from "react-native";
 import React from "react";
 import AccesoChat from "../components/AccesoChat";
 import { useNavigation } from "@react-navigation/native";

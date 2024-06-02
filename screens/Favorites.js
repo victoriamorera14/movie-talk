@@ -1,4 +1,4 @@
-import { View, Text, FlatList, StyleSheet } from "react-native";
+import { View, FlatList, StyleSheet } from "react-native";
 import { favorites } from "../utils/favorites";
 import { observer } from "mobx-react-lite";
 import MovieFavorites from "../components/MovieFavorites";

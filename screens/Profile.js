@@ -14,9 +14,9 @@ export default function Profile() {
     navigation.navigate("Favorites");
   };
 
-  const handleSocialPress = () => {
-    navigation.navigate("Social");
-  };
+  // const handleSocialPress = () => {
+  //   navigation.navigate("Social");
+  // };
 
   const handleChatPress = () => {
     navigation.navigate("ChatTab");

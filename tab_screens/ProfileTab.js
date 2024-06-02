@@ -4,12 +4,11 @@ import Favorites from "../screens/Favorites";
 import BackButton from "../components/BackButton";
 import { colors } from "../utils/colors";
 import { observer } from "mobx-react-lite";
-import Social from "../screens/Social";
+//import Social from "../screens/Social";
 import ChatTab from "./ChatTab";
 
 const Stack = createNativeStackNavigator();
 
-//export default function ProfileTab() {
 export default observer(function ProfileTab() {
   return (
     <Stack.Navigator
