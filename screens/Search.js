@@ -119,6 +119,7 @@ export default function Search({ route }) {
             </Text>
           </Pressable>
         </View>
+        {isLoading && <Loader />}
         {movies && (
           <FlatList
             numColumns={windowDimensions.width < 768 ? 2 : 3}
@@ -135,8 +136,9 @@ export default function Search({ route }) {
             )}
           />
         )}
+
       </View>
-      {isLoading && <Loader />}
+      
     </>
   );
 }
