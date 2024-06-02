@@ -7,6 +7,7 @@ import CustomButton from "../components/CustomButton";
 import SearchFilterLogin from "../components/SearchFilterLogin";
 import { supabase } from "../utils/supabaseClient";
 import Loader from "../components/Loader";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function LogIn() {
   const [userCredentials, setUserCredentials] = useState({
@@ -51,11 +52,11 @@ export default function LogIn() {
       <Text style={styles.appTitle}>Movie Talk</Text>
       <Text style={styles.loginTitle}>LOG IN</Text>
       <View style={styles.mainContainer}>
-        <UserCard
-          image={require("../assets/user_image.jpg")}
-          userHeight={150}
-          userWidth={150}
-        />
+      <Ionicons
+      name={"person"}
+      size={100}
+      style={styles.icono}
+    />
         <View style={styles.loginContainer}>
           <SearchFilterLogin
             showIconRight={false}
@@ -135,5 +136,8 @@ const styles = StyleSheet.create({
   errorText: {
     color: "red",
     fontSize: 14,
+  },
+  icono: {
+    color: colors.mainColors.gray2,
   },
 });
