@@ -78,7 +78,7 @@ export default function LogIn() {
           onPress={handleSignIn}
         />
         {isLoading && <Loader />}
-        {errorMsg && <Error message={errorMsg} />}
+        {errorMsg && <Text style={styles.errorText}>{errorMsg}</Text>}
         <View style={styles.registerContainer}>
           <Text style={styles.registerText}>If you don't have an account</Text>
           <Pressable onPress={handleNavigation}>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     width: "100%",
-    gap: 50,
+    gap: 30,
     flexDirection: "column",
     alignItems: "center",
   },
@@ -131,5 +131,9 @@ const styles = StyleSheet.create({
   },
   registerPressableText: {
     color: colors.mainColors.secondary,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });
