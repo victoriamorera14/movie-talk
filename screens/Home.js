@@ -1,4 +1,11 @@
-import { View, ScrollView, StyleSheet, FlatList, Text } from "react-native";
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  FlatList,
+  Text,
+  Pressable,
+} from "react-native";
 import React, { useEffect } from "react";
 import MovieHorizontalList from "../components/MovieHorizontalList";
 import CarouselComponent from "../components/CarouselComponent";
@@ -10,6 +17,7 @@ import { favorites } from "../utils/favorites";
 import MovieFavorites from "../components/MovieFavorites";
 import { observer } from "mobx-react-lite";
 import Loader from "../components/Loader";
+import { useNavigation } from "@react-navigation/native";
 
 export default observer(function Home() {
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
@@ -24,11 +32,17 @@ export default observer(function Home() {
   const SCIFI_API_URL = `https://api.themoviedb.org/3/discover/movie?&with_genres=878&api_key=${API_KEY}`;
   const FAMILY_API_URL = `https://api.themoviedb.org/3/discover/movie?&with_genres=10751&api_key=${API_KEY}`;
 
+  const navigation = useNavigation();
+
   const { isLoading, error, movies, ApiCall } = useFetch();
 
   useEffect(() => {
     ApiCall(DEMO_CAROUSEL_API_URL);
   }, []);
+
+  const handlePress = (movieId) => {
+    navigation.navigate("Detail", { movieId: movieId });
+  };
 
   return (
     <ScrollView>
@@ -36,12 +50,14 @@ export default observer(function Home() {
         {isLoading && <Loader />}
         {error && <Text style={styles.errorText}>{error}</Text>}
         {movies && (
-          <View style={styles.homeCarousel}>
-            <CarouselComponent
-              description={movies.overview}
-              image={`${IMAGE_PATH}${movies.poster_path}`}
-            />
-          </View>
+          <Pressable onPress={() => handlePress(movies.id)}>
+            <View style={styles.homeCarousel}>
+              <CarouselComponent
+                description={movies.overview}
+                image={`${IMAGE_PATH}${movies.poster_path}`}
+              />
+            </View>
+          </Pressable>
         )}
         <MovieHorizontalList
           URL={TRENDING_API_URL}
