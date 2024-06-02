@@ -16,7 +16,6 @@ import MovieHorizontalList from "../components/MovieHorizontalList";
 import { LinearGradient } from "expo-linear-gradient";
 import FavouriteMarkDetails from "../components/FavouriteMarkDetails";
 import Loader from "../components/Loader";
-import Error from "../components/Error";
 
 export default function Detail({ route }) {
   const { movieId } = route.params;

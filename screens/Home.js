@@ -10,7 +10,6 @@ import { favorites } from "../utils/favorites";
 import MovieFavorites from "../components/MovieFavorites";
 import { observer } from "mobx-react-lite";
 import Loader from "../components/Loader";
-import Error from "../components/Error";
 
 export default observer(function Home() {
   const TRENDING_API_URL = `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`;
@@ -35,14 +34,13 @@ export default observer(function Home() {
     <ScrollView>
       <View style={styles.container}>
         {isLoading && <Loader />}
-        {error && <Error message={error} />}
+        {error && <Text style={styles.errorText}>{error}</Text>}
         {movies && (
           <View style={styles.homeCarousel}>
             <CarouselComponent
               description={movies.overview}
               image={`${IMAGE_PATH}${movies.poster_path}`}
             />
-
           </View>
         )}
         <MovieHorizontalList
@@ -145,5 +143,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     alignSelf: "center",
     margin: 25,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });

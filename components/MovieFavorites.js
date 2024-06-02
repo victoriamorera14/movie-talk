@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import useFetch from "../hooks/useFetch";
 import API_KEY from "../api/API_KEY";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
+import Loader from "./Loader";
 
 export default function MovieFavorites({ movieId }) {
   const DETAILS_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
@@ -26,6 +27,8 @@ export default function MovieFavorites({ movieId }) {
 
   return (
     <>
+      {isLoading && <Loader />}
+      {error && <Text style={styles.errorText}>{error}</Text>}
       {movies && (
         <Pressable
           onPress={handlePress}
@@ -73,13 +76,13 @@ const styles = StyleSheet.create({
     top: -4,
   },
   bigImage: {
-    height: 186, 
-    width: 166, 
+    height: 186,
+    width: 166,
     flexDirection: "column",
     justifyContent: "flex-end",
     borderRadius: 20,
     overflow: "hidden",
-    marginTop:10,
+    marginTop: 10,
     margin: 10,
   },
   bigTitleContainer: {
@@ -105,5 +108,9 @@ const styles = StyleSheet.create({
   },
   pressed: {
     transform: [{ scale: 0.9 }],
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });

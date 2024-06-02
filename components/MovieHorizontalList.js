@@ -18,6 +18,7 @@ export default function MovieHorizontalList({ URL, isBigCard, title }) {
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{title}</Text>
       {isLoading && <Loader />}
+      {error && <Text style={styles.errorText}>{error}</Text>}
       {movies && (<FlatList horizontal
         contentContainerStyle={styles.listContainer}
         data={movies.results}
@@ -51,5 +52,9 @@ const styles = StyleSheet.create({
   listContainer: {
     flexDirection: "row",
     paddingLeft: 12,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });
