@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: "column",
     backgroundColor: colors.mainColors.primary,
+    marginBottom: 10,
   },
   title: {
     marginLeft: 10,

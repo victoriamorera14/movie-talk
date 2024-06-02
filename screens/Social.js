@@ -87,14 +87,17 @@ export default function Social() {
 const styles = StyleSheet.create({
   container:{
     height: "100%",
+    width: "100%",
     backgroundColor: colors.mainColors.primary,
+    alignItems: "center",
+    padding: 20,
   },
   socialContainer: {
-    padding: 15,
+    width: "100%",
     backgroundColor: colors.mainColors.primary,
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
   cardWrapper: {
     margin: 10,

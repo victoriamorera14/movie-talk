@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     overflow: "hidden",
     marginTop:10,
-    marginLeft: 5,
+    margin: 10,
   },
   bigTitleContainer: {
     backgroundColor: "black",

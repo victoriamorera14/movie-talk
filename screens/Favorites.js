@@ -21,12 +21,14 @@ export default observer(function Favorites() {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     height: "100%",
     backgroundColor:colors.mainColors.primary,
-    padding: 10,
+    padding: 5,
   },
   columnWrapper: {
-    gap: 25,
+    display: "flex",
+    gap: 20,
     alignItems: "center",
     justifyContent: "center",
   },
