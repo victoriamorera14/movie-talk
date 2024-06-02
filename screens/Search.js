@@ -11,7 +11,6 @@ import Loader from "../components/Loader";
 
 export default function Search({ route }) {
   const { URL } = route.params != null && route.params;
-  console.log(URL);
 
   const windowDimensions = Dimensions.get('window');
 
@@ -120,6 +119,7 @@ export default function Search({ route }) {
           </Pressable>
         </View>
         {isLoading && <Loader />}
+        {error && <Text style={styles.errorText}>{error}</Text>}
         {movies && (
           <FlatList
             numColumns={windowDimensions.width < 768 ? 2 : 3}
@@ -177,5 +177,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 5,
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });

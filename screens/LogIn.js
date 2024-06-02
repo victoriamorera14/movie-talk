@@ -38,7 +38,6 @@ export default function LogIn() {
   const handleInputChange = (text, name) => {
     setUserCredentials((prev) => {
       const newCred = { ...prev, [name]: text };
-      console.log(newCred);
       return newCred;
     });
   };
