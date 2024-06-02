@@ -43,7 +43,7 @@ export default function Detail({ route }) {
   return (
     <ScrollView style={styles.container}>
       {isLoading && <Loader />}
-      {error && <Error message={error} />}
+      {error && <Text style={styles.errorText}>{error}</Text>}
       {movies && (
         <>
           <View style={styles.detailsHeader}>
@@ -322,5 +322,9 @@ const styles = StyleSheet.create({
     color: colors.mainColors.secondary,
     fontSize: 14,
     fontFamily: "Ubuntu-Regular",
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
   },
 });
