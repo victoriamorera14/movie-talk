@@ -171,6 +171,8 @@ const styles = StyleSheet.create({
   },
   title: {
     display: "flex",
+    width: "100%",
+    justifyContent: "space-between",
     gap: 10,
     fontSize: 24,
     alignItems: "center",
@@ -181,6 +183,7 @@ const styles = StyleSheet.create({
     color: "white",
     maxWidth: 400,
     marginBottom: 10,
+    paddingRight: 20,
   },
   genre: {
     color: "white",

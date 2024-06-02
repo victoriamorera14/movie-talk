@@ -39,14 +39,11 @@ export default DropdownComponent;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.mainColors.primary,
-    padding: 10,
+    padding: 20,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderBottomWidth: 2,
-    borderBottomColor: colors.mainColors.gray1,
-    paddingBottom:15,
   },
   dropdown: {
     flex: 1,

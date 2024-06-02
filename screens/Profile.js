@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.mainColors.primary,
     flexDirection: "column",
     alignItems: "center",
+    margin: 10,
     //width: "100%",
   },
 
@@ -75,8 +76,8 @@ const styles = StyleSheet.create({
     // display: "flex",
   },  
   usernameStyle: {
-    padding: 15,
-    margin: 10,
+    padding: 25,
+    marginVertical: 20,
     width: "75%",
     textAlign:"center",
     borderBottomWidth: 2,
