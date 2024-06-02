@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   registerText: {
     color: "white",
-    fontFamily: "Ubuntu-Bold",
+    fontFamily: "Ubuntu-Regular",
   },
   registerPressableText: {
     color: colors.mainColors.secondary,

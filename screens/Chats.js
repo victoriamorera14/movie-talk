@@ -10,7 +10,19 @@ export default function Chats() {
 
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => navigation.navigate("Chat")}>
+      <Pressable style={styles.containerPressable} onPress={() => navigation.navigate("Chat")}>
+        <AccesoChat
+          firstLineText="Título del chat"
+          secondLineText="Último mensaje enviado"
+        />
+      </Pressable>
+      <Pressable style={styles.containerPressable} onPress={() => navigation.navigate("Chat")}>
+        <AccesoChat
+          firstLineText="Título del chat"
+          secondLineText="Último mensaje enviado"
+        />
+      </Pressable>
+      <Pressable style={styles.containerPressable} onPress={() => navigation.navigate("Chat")}>
         <AccesoChat
           firstLineText="Título del chat"
           secondLineText="Último mensaje enviado"
@@ -28,4 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 5,
   },
+  containerPressable:{
+    width: "90%",
+  },  
 });

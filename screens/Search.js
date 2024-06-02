@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
   filterTextContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    gap: 10,
+    gap: 20,
   },
   highlightedFilterText: {
     fontSize: 18,
@@ -176,6 +176,6 @@ const styles = StyleSheet.create({
   movieList: {
     flex: 1,
     justifyContent: "center",
-    padding: 25,
+    padding: 5,
   },
 });

@@ -19,9 +19,10 @@ export default function AccesoChat({ firstLineText, secondLineText}) {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     padding: 10,
     borderRadius: 10,
-    margin:10,
+    marginTop: 10,
     backgroundColor: colors.mainColors.gray2
   },
   input: {

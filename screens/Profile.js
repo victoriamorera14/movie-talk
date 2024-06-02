@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
     height: "10%",
     marginBottom:20,
     // alignItems: "center",
-    // width: "100%",
-    // height: "35%",
     // display: "flex",
   },  
   usernameStyle: {
