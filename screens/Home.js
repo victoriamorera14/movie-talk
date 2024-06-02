@@ -43,18 +43,7 @@ export default observer(function Home() {
               description={movies.overview}
               image={`${IMAGE_PATH}${movies.poster_path}`}
             />
-            <View style={styles.homeCarouselButtons}>
-              <Ionicons
-                name="ellipse"
-                size={15}
-                color={colors.mainColors.secondary}
-              />
-              <Ionicons
-                name="ellipse"
-                size={15}
-                color={colors.mainColors.gray3}
-              />
-            </View>
+
           </View>
         )}
         <MovieHorizontalList

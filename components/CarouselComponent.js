@@ -4,7 +4,7 @@ import { colors } from "../utils/colors";
 import IMAGE_PATH from "../utils/IMAGE_PATH";
 
 export default function CarouselComponent({ image, description }) {
-  const imageSource = `${IMAGE_PATH}${image}`;
+  const imageSource = { uri: `${IMAGE_PATH}${image}` };
 
   return (
     <View style={styles.mainContainer}>
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.mainColors.primary,
   },
   image: {
-    height: "450px",
+    height: 450,
     width: "100%",
     marginBottom: 15,
   },
