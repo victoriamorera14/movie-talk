@@ -34,9 +34,9 @@ export default function Profile() {
       <Pressable onPress={handleFavoritePress} style={styles.profileOptions}>
         <SeccionUser iconLeft="heart" texto="Favoritos" />
       </Pressable>
-      <Pressable onPress={handleSocialPress} style={styles.profileOptions}>
+      {/* <Pressable onPress={handleSocialPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="people" texto="Social" />
-      </Pressable>
+      </Pressable> */}
       <Pressable onPress={handleChatPress} style={styles.profileOptions}>
         <SeccionUser iconLeft="chatbox-ellipses-outline" texto="Chats" />
       </Pressable>

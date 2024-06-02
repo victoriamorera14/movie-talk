@@ -40,14 +40,13 @@ export default observer(function ProfileTab() {
           headerLeft: () => <BackButton />,
         })}
       />
-      <Stack.Screen
-        name="Social"
+       {/* <Stack.Screen
         component={Social}
         options={() => ({
           title: "Lista de amigos",
           headerLeft: () => <BackButton />,
         })}
-      />
+      /> */}
       <Stack.Screen
         name="ChatTab"
         component={ChatTab}

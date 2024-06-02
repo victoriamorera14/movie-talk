@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
     marginTop: 100,
     color: "white",
     fontSize: 18,
-    fontFamily: "Ubuntu-Regular",
+    fontFamily: "Ubuntu-Bold",
   },
   loginTitle: {
     color: colors.mainColors.secondary,
     fontSize: 30,
-    fontFamily: "Ubuntu-Regular",
+    fontFamily: "Ubuntu-Bold",
   },
   registerContainer: {
     flexDirection: "column",

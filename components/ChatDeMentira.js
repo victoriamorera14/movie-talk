@@ -95,7 +95,7 @@ export default function ChatProvisional({ session }) {
           onSubmitEditing={handleSubmit}
         />
         <Pressable style={styles.botonEnviar} onPress={handleSubmit}>
-          <Text>Enviar</Text>
+          <Text style={styles.textoBoton}>Enviar</Text>
         </Pressable>
       </View>
     </>
@@ -140,6 +140,10 @@ const styles = StyleSheet.create({
   InputUsuario: {
     width: "80%",
     padding: 10,
+    fontFamily: "Ubuntu-Regular",
+  },
+  textoBoton: {
+    fontFamily: "Ubuntu-Regular",
   },
   botonEnviar: {
     backgroundColor: colors.mainColors.gray3,
