@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.mainColors.primary,
     flexDirection: "column",
     alignItems: "center",
-    margin: 10,
+    margin: 5,
     //width: "100%",
   },
 
   profileOptions:{
     width: "100%",
     height: "10%",
-    marginBottom:20,
+    marginBottom:10,
     // alignItems: "center",
     // display: "flex",
   },  
